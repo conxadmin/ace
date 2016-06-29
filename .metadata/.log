@@ -1,0 +1,317 @@
+!SESSION 2016-06-29 15:55:57.395 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.ui 2 0 2016-06-29 15:56:12.888
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2016-06-29 15:56:12.888
+!MESSAGE Cannot bind to an undefined command: plug-in='com.liferay.ide.project.ui', id='com.liferay.ide.project.ui.upgrade.openLiferay7UpgradeAssistant'
+
+!ENTRY org.eclipse.jface 2 0 2016-06-29 15:56:14.726
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-29 15:56:14.726
+!MESSAGE A conflict occurred for ALT+COMMAND+W:
+Binding(ALT+COMMAND+W,
+	ParameterizedCommand(Command(com.liferay.ide.service.ui.buildWSDD,Build WSDD,
+		Run the build-wsdd command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@42db3ff,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+W,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.showInQuickMenu,Show In...,
+		Open the Show In menu,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5a95aaae,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-29 15:56:14.726
+!MESSAGE A conflict occurred for ALT+COMMAND+N:
+Binding(ALT+COMMAND+N,
+	ParameterizedCommand(Command(com.liferay.ide.portlet.ui.buildLang,Build Languages,
+		Run the build-lang command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@519e67e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+N,
+	ParameterizedCommand(Command(org.eclipse.ui.file.newQuickMenu,New menu,
+		Open the New menu,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7402bfe7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-29 15:56:14.726
+!MESSAGE A conflict occurred for ALT+COMMAND+V:
+Binding(ALT+COMMAND+V,
+	ParameterizedCommand(Command(com.liferay.ide.service.ui.buildService,Build Service,
+		Run the build-service command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1d5958d3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+V,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.move.element,Move - Refactoring ,
+		Move the selected element to a new location,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6a6e410c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY org.eclipse.core.net 1 0 2016-06-29 15:56:15.178
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-06-29 15:58:55.254
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-06-29 15:58:55.283
+!MESSAGE IvyDE plugin started
+
+!ENTRY org.eclipse.core.resources 4 2 2016-06-29 16:06:19.946
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Build Error!
+	at org.bndtools.builder.BndtoolsBuilder.build(BndtoolsBuilder.java:301)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.NullPointerException
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateRemovedMethodMarker(BaselineErrorHandler.java:182)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateStructuralChangeMarkers(BaselineErrorHandler.java:133)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateMarkerData(BaselineErrorHandler.java:65)
+	at org.bndtools.build.api.AbstractBuildErrorDetailsHandler.generateMarkerData(AbstractBuildErrorDetailsHandler.java:365)
+	at org.bndtools.builder.MarkerSupport.createMarker(MarkerSupport.java:83)
+	at org.bndtools.builder.MarkerSupport.createMarkers(MarkerSupport.java:73)
+	at org.bndtools.builder.MarkerSupport.setMarkers(MarkerSupport.java:58)
+	at org.bndtools.builder.BndtoolsBuilder.report(BndtoolsBuilder.java:314)
+	at org.bndtools.builder.BndtoolsBuilder.build(BndtoolsBuilder.java:284)
+	... 12 more
+!SUBENTRY 1 bndtools.builder 4 0 2016-06-29 16:06:19.947
+!MESSAGE Build Error!
+!STACK 0
+java.lang.NullPointerException
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateRemovedMethodMarker(BaselineErrorHandler.java:182)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateStructuralChangeMarkers(BaselineErrorHandler.java:133)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateMarkerData(BaselineErrorHandler.java:65)
+	at org.bndtools.build.api.AbstractBuildErrorDetailsHandler.generateMarkerData(AbstractBuildErrorDetailsHandler.java:365)
+	at org.bndtools.builder.MarkerSupport.createMarker(MarkerSupport.java:83)
+	at org.bndtools.builder.MarkerSupport.createMarkers(MarkerSupport.java:73)
+	at org.bndtools.builder.MarkerSupport.setMarkers(MarkerSupport.java:58)
+	at org.bndtools.builder.BndtoolsBuilder.report(BndtoolsBuilder.java:314)
+	at org.bndtools.builder.BndtoolsBuilder.build(BndtoolsBuilder.java:284)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 bndtools.builder 4 0 2016-06-29 16:06:19.948
+!MESSAGE Build Error!
+!STACK 0
+java.lang.NullPointerException
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateRemovedMethodMarker(BaselineErrorHandler.java:182)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateStructuralChangeMarkers(BaselineErrorHandler.java:133)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateMarkerData(BaselineErrorHandler.java:65)
+	at org.bndtools.build.api.AbstractBuildErrorDetailsHandler.generateMarkerData(AbstractBuildErrorDetailsHandler.java:365)
+	at org.bndtools.builder.MarkerSupport.createMarker(MarkerSupport.java:83)
+	at org.bndtools.builder.MarkerSupport.createMarkers(MarkerSupport.java:73)
+	at org.bndtools.builder.MarkerSupport.setMarkers(MarkerSupport.java:58)
+	at org.bndtools.builder.BndtoolsBuilder.report(BndtoolsBuilder.java:314)
+	at org.bndtools.builder.BndtoolsBuilder.build(BndtoolsBuilder.java:284)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-06-29 16:06:25.071
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Build Error!
+	at org.bndtools.builder.BndtoolsBuilder.build(BndtoolsBuilder.java:301)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.NullPointerException
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateRemovedMethodMarker(BaselineErrorHandler.java:182)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateStructuralChangeMarkers(BaselineErrorHandler.java:133)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateMarkerData(BaselineErrorHandler.java:65)
+	at org.bndtools.build.api.AbstractBuildErrorDetailsHandler.generateMarkerData(AbstractBuildErrorDetailsHandler.java:365)
+	at org.bndtools.builder.MarkerSupport.createMarker(MarkerSupport.java:83)
+	at org.bndtools.builder.MarkerSupport.createMarkers(MarkerSupport.java:73)
+	at org.bndtools.builder.MarkerSupport.setMarkers(MarkerSupport.java:58)
+	at org.bndtools.builder.BndtoolsBuilder.report(BndtoolsBuilder.java:314)
+	at org.bndtools.builder.BndtoolsBuilder.build(BndtoolsBuilder.java:284)
+	... 12 more
+!SUBENTRY 1 bndtools.builder 4 0 2016-06-29 16:06:25.071
+!MESSAGE Build Error!
+!STACK 0
+java.lang.NullPointerException
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateRemovedMethodMarker(BaselineErrorHandler.java:182)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateStructuralChangeMarkers(BaselineErrorHandler.java:133)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateMarkerData(BaselineErrorHandler.java:65)
+	at org.bndtools.build.api.AbstractBuildErrorDetailsHandler.generateMarkerData(AbstractBuildErrorDetailsHandler.java:365)
+	at org.bndtools.builder.MarkerSupport.createMarker(MarkerSupport.java:83)
+	at org.bndtools.builder.MarkerSupport.createMarkers(MarkerSupport.java:73)
+	at org.bndtools.builder.MarkerSupport.setMarkers(MarkerSupport.java:58)
+	at org.bndtools.builder.BndtoolsBuilder.report(BndtoolsBuilder.java:314)
+	at org.bndtools.builder.BndtoolsBuilder.build(BndtoolsBuilder.java:284)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 bndtools.builder 4 0 2016-06-29 16:06:25.071
+!MESSAGE Build Error!
+!STACK 0
+java.lang.NullPointerException
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateRemovedMethodMarker(BaselineErrorHandler.java:182)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateStructuralChangeMarkers(BaselineErrorHandler.java:133)
+	at org.bndtools.builder.handlers.baseline.BaselineErrorHandler.generateMarkerData(BaselineErrorHandler.java:65)
+	at org.bndtools.build.api.AbstractBuildErrorDetailsHandler.generateMarkerData(AbstractBuildErrorDetailsHandler.java:365)
+	at org.bndtools.builder.MarkerSupport.createMarker(MarkerSupport.java:83)
+	at org.bndtools.builder.MarkerSupport.createMarkers(MarkerSupport.java:73)
+	at org.bndtools.builder.MarkerSupport.setMarkers(MarkerSupport.java:58)
+	at org.bndtools.builder.BndtoolsBuilder.report(BndtoolsBuilder.java:314)
+	at org.bndtools.builder.BndtoolsBuilder.build(BndtoolsBuilder.java:284)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2016-06-29 16:08:48.791 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.ui 2 0 2016-06-29 16:08:54.053
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2016-06-29 16:08:54.053
+!MESSAGE Cannot bind to an undefined command: plug-in='com.liferay.ide.project.ui', id='com.liferay.ide.project.ui.upgrade.openLiferay7UpgradeAssistant'
+
+!ENTRY org.eclipse.jface 2 0 2016-06-29 16:08:56.067
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-29 16:08:56.067
+!MESSAGE A conflict occurred for ALT+COMMAND+W:
+Binding(ALT+COMMAND+W,
+	ParameterizedCommand(Command(com.liferay.ide.service.ui.buildWSDD,Build WSDD,
+		Run the build-wsdd command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6a906078,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+W,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.showInQuickMenu,Show In...,
+		Open the Show In menu,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@fd5c7f6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-29 16:08:56.067
+!MESSAGE A conflict occurred for ALT+COMMAND+N:
+Binding(ALT+COMMAND+N,
+	ParameterizedCommand(Command(com.liferay.ide.portlet.ui.buildLang,Build Languages,
+		Run the build-lang command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3724ab90,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+N,
+	ParameterizedCommand(Command(org.eclipse.ui.file.newQuickMenu,New menu,
+		Open the New menu,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@40ef1934,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-29 16:08:56.067
+!MESSAGE A conflict occurred for ALT+COMMAND+V:
+Binding(ALT+COMMAND+V,
+	ParameterizedCommand(Command(com.liferay.ide.service.ui.buildService,Build Service,
+		Run the build-service command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@291522f1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+V,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.move.element,Move - Refactoring ,
+		Move the selected element to a new location,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@85eba52,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY org.eclipse.core.net 1 0 2016-06-29 16:08:56.602
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-06-29 16:09:01.332
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-06-29 16:09:01.344
+!MESSAGE IvyDE plugin started
+
+!ENTRY org.eclipse.ui.navigator.resources 4 0 2016-06-29 16:39:14.430
+!MESSAGE Could not acquire INavigatorContentService: Project Explorer not found.

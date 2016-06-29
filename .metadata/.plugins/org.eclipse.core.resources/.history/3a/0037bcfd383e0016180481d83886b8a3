@@ -1,0 +1,21 @@
+# Licensed to the Apache Software Foundation (ASF) under the terms of ASLv2 (http://www.apache.org/licenses/LICENSE-2.0).
+
+# The Jar Main-Class header
+Main-Class: org.apache.ace.agent.launcher.Launcher
+Bundle-Version: 1.0.2
+Bundle-Name: Apache ACE Agent Felix launcher
+Bundle-Description: Standalone launcher that start a Felix framework with an embedded ACE Agent
+
+# Include the felix defaults
+felix.version=5.2.0
+
+-includeresource: \
+	@${repo;org.apache.felix.framework;${felix.version}}!/default.properties,\
+    @${repo;org.apache.felix.framework;${felix.version}}!/META-INF/services/*,\
+    @${repo;org.apache.felix.framework;${felix.version}}!/org/*,\
+	${repo;org.apache.ace.agent;latest},\
+	@${repo;org.apache.ace.agent;latest}!/OSGI-OPT/*,\
+	META-INF/services/org.apache.ace.agent.launcher.BundleProvider=resources/org.apache.ace.agent.launcher.BundleProvider
+  
+Private-Package: org.apache.ace.agent.launcher,\
+	org.apache.commons.cli

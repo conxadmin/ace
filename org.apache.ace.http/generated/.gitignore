@@ -1,0 +1,5 @@
+/.index
+/buildfiles
+/org.apache.ace.http.api.jar
+/org.apache.ace.http.context.jar
+/org.apache.ace.http.redirector.jar
