@@ -1,5 +1,7 @@
 PROBLEMS_FILTERS_MIGRATE=true
+SHOW_LOCATION=true
+WORKSPACE_NAME=ConXACE
 eclipse.preferences.version=1
-platformState=1462294483568
+platformState=1462294483569
 quickStart=false
 tipsAndTricks=true
