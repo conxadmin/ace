@@ -2,9 +2,11 @@
 <section name="Workbench">
 	<item value="true" key="CommitDialog.showUntracked"/>
 	<list key="CommitDialog.authorValues">
+		<item value="conxadmin &lt;mduduzi.keswa@conxsoft.com&gt;"/>
 		<item value="mdu &lt;mduduzikeswa@gmail.com&gt;"/>
 	</list>
 	<list key="CommitDialog.committerValues">
+		<item value="conxadmin &lt;mduduzi.keswa@conxsoft.com&gt;"/>
 		<item value="mdu &lt;mduduzikeswa@gmail.com&gt;"/>
 	</list>
 	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">

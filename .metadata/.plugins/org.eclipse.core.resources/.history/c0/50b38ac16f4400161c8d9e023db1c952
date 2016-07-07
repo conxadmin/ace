@@ -1,0 +1,28 @@
+# Licensed to the Apache Software Foundation (ASF) under the terms of ASLv2 (http://www.apache.org/licenses/LICENSE-2.0).
+
+-buildpath: \
+	${^-buildpath},\
+	${testng},\
+	osgi.core;version=6.0.0,\
+	osgi.cmpn,\
+	org.apache.felix.http.api,\
+	org.apache.felix.http.servlet-api,\
+	org.apache.felix.dependencymanager,\
+	org.apache.ace.client.repository.api;version=latest,\
+	com.google.gson;version=1.7.1,\
+	org.mockito.mockito-all,\
+	org.apache.felix.gogo.command,\
+	org.apache.felix.gogo.shell,\
+	org.apache.felix.gogo.runtime,\
+	org.apache.ace.feedback.common;version=latest,\
+	org.apache.ace.client.workspace;version=latest,\
+	org.apache.ace.test;version=latest,\
+	org.apache.ace.http.api;version=latest
+
+Private-Package: \
+	org.apache.ace.client.rest,\
+	com.google.gson*
+Bundle-Activator: org.apache.ace.client.rest.Activator
+Bundle-Version: 1.0.3
+Bundle-Name: Apache ACE Client REST
+Bundle-Description: Provides a REST binding for the Apache ACE Client

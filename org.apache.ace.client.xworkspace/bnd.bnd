@@ -9,13 +9,12 @@
 	org.apache.ace.client.repository.api;version=latest,\
 	org.apache.felix.gogo.runtime,\
 	org.apache.ace.authentication.api;version=latest,\
-	org.apache.ace.client.workspace;version=latest,\
 	javax.xml;version=1.3,\
 	com.springsource.org.apache.xerces;version=2.9
 	
-Bundle-Version: 2.0.1
+Bundle-Version: 3.1.0
 Bundle-Activator: org.apache.ace.client.xworkspace.impl.Activator
-Export-Package: \
-	org.apache.ace.client.xworkspace,\
-	org.apache.ace.client.workspace
-Private-Package: org.apache.ace.client.xworkspace.impl
+Export-Package: org.apache.ace.client.workspace
+Private-Package: \
+	org.apache.ace.client.xworkspace.impl,\
+	org.apache.ace.client.xworkspace

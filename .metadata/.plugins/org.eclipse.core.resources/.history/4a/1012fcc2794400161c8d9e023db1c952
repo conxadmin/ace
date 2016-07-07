@@ -1,0 +1,4 @@
+ws = (cw)
+$ws impw /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-client-xworkspace/generated platform-services-cms.xml
+$ws expw /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-client-xworkspace/generated platform-services-cms
+repo:index /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-client-xworkspace/generated/jars_and_configs

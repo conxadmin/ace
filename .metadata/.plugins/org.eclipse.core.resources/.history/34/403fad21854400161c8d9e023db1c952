@@ -1,0 +1,15 @@
+-runbundles.conx-amdatu: \
+	org.amdatu.remote.admin.http;version="[0.0.0,0.0.0]",\
+	org.amdatu.remote.discovery.etcd;version="[0.0.0,0.0.0]",\
+	org.amdatu.remote.topology.promiscuous;version="[0.0.0,0.0.0]",\
+	org.amdatu.multitenant;version="[0.0.0,0.0.0]",\
+	org.amdatu.multitenant.adapter;version="[0.0.0,0.0.0]",\
+	org.amdatu.multitenant.conf;version="[0.0.0,0.0.0]",\
+	org.amdatu.multitenant.factory;version="[0.0.0,0.0.0]",\
+	org.amdatu.database.schemamigration;version="[0.0.0,0.0.0]",\
+	org.amdatu.jpa.datasourcefactory;version="[0.0.0,0.0.0]",\
+	org.amdatu.jpa.extender.mt;version="[0.0.0,0.0.0]",\
+	org.amdatu.jta.api;version="[0.0.0,0.0.0]",\
+	org.amdatu.jta.manager;version="[0.0.0,0.0.0]",\
+	org.amdatu.jta.transactionmanager;version="[0.0.0,0.0.0]",\
+	org.amdatu.persistence2_0;version="[0.0.0,0.0.0]"

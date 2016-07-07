@@ -325,7 +325,8 @@ class DPHelper {
     }
     
     public File downloadArtifactContents(boolean isJar, String directory, String filename, String fileUrl) throws IOException {     
-        File dir = new File(directory);
+        System.out.println("Downloading "+filename);
+    	File dir = new File(directory);
     	if (!dir.exists())
     		dir.mkdir();
         

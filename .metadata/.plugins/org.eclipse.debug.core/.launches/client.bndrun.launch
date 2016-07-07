@@ -3,4 +3,5 @@
 <booleanAttribute key="clean" value="true"/>
 <booleanAttribute key="dynamicBundles" value="true"/>
 <stringAttribute key="launchTarget" value="run-client-xworkspace/client.bndrun"/>
+<booleanAttribute key="trace" value="false"/>
 </launchConfiguration>

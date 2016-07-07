@@ -53,12 +53,12 @@ public class RepoCommands {
     }
 
     @Descriptor("lists resources in a repository")
-    public static void ls(CommandRepo fromRepo) throws Exception {
-        ls(fromRepo, null);
+    public static List<CommandResource> ls(CommandRepo fromRepo) throws Exception {
+        return ls(fromRepo, null);
     }
 
     @Descriptor("lists resources in a repository")
-    public static void ls(CommandRepo repo, String filter) throws Exception {
+    public static List<CommandResource> ls(CommandRepo repo, String filter) throws Exception {
 
         FixedIndexedRepo sourceRepo = repo.repo();
         sourceRepo.reset();
@@ -70,6 +70,7 @@ public class RepoCommands {
             String location = getUrl(resources.get(0));
             System.out.println(resource + " => " + location);
         }
+        return CommandResource.wrap(repo, resources);
     }
 
     @Descriptor("copy resources from one repository to another")

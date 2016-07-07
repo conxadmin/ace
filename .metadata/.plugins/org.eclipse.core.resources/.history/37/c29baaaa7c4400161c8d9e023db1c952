@@ -1,0 +1,5 @@
+authentication.baseURL="http://localhost:8080/auditlog/"
+authentication.type="none"
+factory.instance.pid="org.apache.ace.connectionfactory_auditlog"
+service.factoryPid="org.apache.ace.connectionfactory"
+service.pid="org.apache.ace.connectionfactory.8b3f23b1-5541-418c-964a-7af1a3d1f4af"

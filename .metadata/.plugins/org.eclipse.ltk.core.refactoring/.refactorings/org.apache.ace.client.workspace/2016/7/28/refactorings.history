@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;org.apache.ace.client.xworkspace/src/org.apache.ace.client.workspace&apos;&#x0A;- Original project: &apos;org.apache.ace.client.workspace&apos;&#x0A;- Destination element: &apos;org.apache.ace.client.xworkspace/src/org.apache.ace.client.workspace&apos;&#x0A;- Original elements:&#x0A;     org.apache.ace.client.workspace.Workspace.java&#x0A;     org.apache.ace.client.workspace.WorkspaceManager.java" description="Copy compilation units" destination="=org.apache.ace.client.xworkspace/src&lt;org.apache.ace.client.workspace" element1="/src&lt;org.apache.ace.client.workspace{Workspace.java" element2="/src&lt;org.apache.ace.client.workspace{WorkspaceManager.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1467911201123" units="2" version="1.0"/>
+</session>

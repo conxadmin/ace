@@ -1,6 +1,0 @@
-/.index
-/buildfiles
-/org.apache.ace.log.api.jar
-/org.apache.ace.log.listener.jar
-/org.apache.ace.log.server.servlet.jar
-/org.apache.ace.log.server.store.api.jar

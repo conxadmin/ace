@@ -1,0 +1,32 @@
+-runfw: org.apache.felix.framework;version="[4.2.1,5)"-runee: JavaSE-1.7-runvm: -ea-runpath: com.springsource.javax.xml.stream-runsystemcapabilities: osgi.ee; osgi.ee=JavaSE; version:Version=1.7-runsystempackages: sun.misc-runbundles.master: org.amdatu.configurator.autoconf;version=1.0.0\
+-include: \
+	conx-felix-conf.bndrun,\
+	conx-json.bndrun,\
+	conx-amdatu.bndrun,\
+	conx-node-cms-platform.bndrun,\
+	conx-paas-tenant-platform.bndrun,\
+	conx-sling9-felix.bndrun,\
+	conx-sling9-cms.bndrun,\
+	conx-sling9.bndrun,\
+	conx-sling9-conx-core.bndrun,\
+	conx-sling9-ext.bndrun,\
+	conx-sling9-conx-paas.bndrun,\
+	conx-sling9-jackrabbit.bndrun,\
+	conx-sling9-deps.bndrun,\
+	conx-remote-conf.bndrun,\
+	conx-sling9-conf.bndrun,\
+	conx-sling9-jcr.bndrun,\
+-runproperties:   \
+platformTenantName=PLATFORM,\
+	etdConnecturl=http://etcd.myconxdev.com:4001,\
+	etcdDiscoveryPort=8282,\
+	etdRootpath=/discovery1,\
+	etcdDiscoveryPath=org.amdatu.remote.discovery.etcd,\
+	etcdDiscoveryHost=platform.myconxdev.com,\
+	platformTenantConxdbcluster=conx-db-cluster-platform,\
+	etdSchedule=4,\
+	remoteAdminHttpPort=8282,\
+	platformTenantPID=org.amdatu.tenant.PLATFORM,\
+	remoteAdminHttpHost=platform.myconxdev.com,\
+	httpHost=platform.myconxdev.com,\
+	
