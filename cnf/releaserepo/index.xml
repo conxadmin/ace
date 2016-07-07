@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1467231968000" name="Release" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1467901952000" name="Release" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.ace.agent.controller.itest"/>
@@ -7,7 +7,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="c0cb60fe41142292df1b6a99d3a64e3b18234a5376547b35ae0824cfece950d1"/>
+      <attribute name="osgi.content" value="206e891f22740f72634931744edde97fb8af5497c4bf963cf0d219a59d5d9a19"/>
       <attribute name="url" value="org.apache.ace.agent.controller.itest/org.apache.ace.agent.controller.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="429012"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -73,7 +73,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="5242f387bff2159d0e8f06b0b379120469495c7711431d633b507f7857670eb4"/>
+      <attribute name="osgi.content" value="f6f120782a13daffdf49c04c8f11884d78ff9978b7d1cfe1d8fd7c948f12c7d7"/>
       <attribute name="url" value="org.apache.ace.agent.itest/org.apache.ace.agent.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="36862"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -157,9 +157,9 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="4490fb963c1454836597ebc362d8e4f77321f2ca491a1ec2a33b243fd327782f"/>
+      <attribute name="osgi.content" value="feb1e0fe0c11a625ba8d89d34afea30bdfacdfea1757f09d37dfdf5f94e2a81c"/>
       <attribute name="url" value="org.apache.ace.agent.launcher.base/org.apache.ace.agent.launcher.base-1.0.2.jar"/>
-      <attribute name="size" type="Long" value="618814"/>
+      <attribute name="size" type="Long" value="618862"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -244,12 +244,43 @@
   </resource>
   <resource>
     <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.ace.agent.launcher.felix"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.3"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="ee62704cff3348bb9aab3cc821363112ee0245e5389095a6145edb52c91772cc"/>
+      <attribute name="url" value="org.apache.ace.agent.launcher.felix/org.apache.ace.agent.launcher.felix-1.0.3.jar"/>
+      <attribute name="size" type="Long" value="1287849"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.ace.agent.launcher.felix"/>
+      <attribute name="bundle-version" type="Version" value="1.0.3"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.ace.agent.launcher.felix"/>
+      <attribute name="bundle-version" type="Version" value="1.0.3"/>
+    </capability>
+    <capability namespace="osgi.contract">
+      <attribute name="osgi.contract" value="OSGiFramework"/>
+      <directive name="uses" value=""/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.security.auth.x500)"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.ace.agent.update.itest"/>
       <attribute name="type" value="osgi.bundle"/>
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="2cb5f8de5c6b897f4429f36e64fe2219c24bcc92b8ca136db8355f1c02e679a9"/>
+      <attribute name="osgi.content" value="b44204e44449aac048a10313ce9f92e7a2d53e8c560e01417c5006bd7fbb71e0"/>
       <attribute name="url" value="org.apache.ace.agent.update.itest/org.apache.ace.agent.update.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="15959"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -366,7 +397,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="f14f0e180b37fbdd583486a1944ed5b54bc834c37ac61fac5989f1ffee2edf9c"/>
+      <attribute name="osgi.content" value="b58e05bdfb774e3e8dcc1585a6ffbc7cf404be800bf59e785b7d61721a489519"/>
       <attribute name="url" value="org.apache.ace.agent/org.apache.ace.agent-1.0.3.jar"/>
       <attribute name="size" type="Long" value="434261"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -466,7 +497,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="c949e4b4db129cdb00be1ee1f08b52bdbd4c6301a85c153a79f31c702c893162"/>
+      <attribute name="osgi.content" value="21f0f63790962f52629cfa0acae831483c509e2321c5055fa2703e9f4df1fc73"/>
       <attribute name="url" value="org.apache.ace.authentication.api/org.apache.ace.authentication.api-1.0.2.jar"/>
       <attribute name="size" type="Long" value="6312"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -539,7 +570,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="247f774bf4166e33a536744170463630590cea6041a7a02f6bc7165f5c5cfdbc"/>
+      <attribute name="osgi.content" value="a9b869a6f99a959f6072d77192029622a2dbffafe855311d486071b8156ea9b0"/>
       <attribute name="url" value="org.apache.ace.authentication.impl/org.apache.ace.authentication.impl-1.0.2.jar"/>
       <attribute name="size" type="Long" value="8662"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -581,7 +612,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="30c2cc1e15085ed6041f4872f109f281decd06f85dfecaf48521d273a256fa26"/>
+      <attribute name="osgi.content" value="c8fb9f41deccbfd0ce6c3873787d69f84125c43d54d1092b8050e40efd233668"/>
       <attribute name="url" value="org.apache.ace.authentication.itest/org.apache.ace.authentication.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="22829"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -707,7 +738,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="e0f2f1f443d9b021bee257cbabceac2851f436c1551c5324e3bd01cfbf38393b"/>
+      <attribute name="osgi.content" value="e7b41cb85634ba97a5924b3dd95ae44143595375e0c596f76f21220515f9ee8c"/>
       <attribute name="url" value="org.apache.ace.authentication.processor.basicauth/org.apache.ace.authentication.processor.basicauth-1.0.2.jar"/>
       <attribute name="size" type="Long" value="28018"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -803,7 +834,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="0e3c4370c9bc48052dd57adc1ba4cc5dff4708cdf0e0faefafa4ac8b81c6b4fb"/>
+      <attribute name="osgi.content" value="16647f6e3097ca43fab8a98deb1a591e11b319da98b9ca937e60a1ee441f16ad"/>
       <attribute name="url" value="org.apache.ace.authentication.processor.clientcert/org.apache.ace.authentication.processor.clientcert-1.0.2.jar"/>
       <attribute name="size" type="Long" value="11609"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -896,7 +927,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="2cc060f558a4f9eafff223cbfac8d366efde58d2a60e5967d72c10f1d75fa981"/>
+      <attribute name="osgi.content" value="576b0e0136a695f29fc9a15c4a634f00cee2eafc4fdb673a22f5b9f3540c0aae"/>
       <attribute name="url" value="org.apache.ace.authentication.processor.password/org.apache.ace.authentication.processor.password-1.0.2.jar"/>
       <attribute name="size" type="Long" value="29712"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -935,7 +966,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="ce7adb73a02ad3f6bc6e4776eedc14deec454707855fbbed1fbce853bdf2ddfa"/>
+      <attribute name="osgi.content" value="86760df4e2a975da8946c3991049139683ec5cc057bb9228be3112fe30f43c66"/>
       <attribute name="url" value="org.apache.ace.bnd.registry/org.apache.ace.bnd.registry-1.0.0.jar"/>
       <attribute name="size" type="Long" value="4673"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -1006,7 +1037,7 @@
       <attribute name="version" type="Version" value="1.1.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="70a8943c8c6c4bea8323cffc152e18104ebb6daef19cac7daefe84ff755655f5"/>
+      <attribute name="osgi.content" value="b7e6f522aff30c5d0696ebfe673d3638307ec681c8b4be5737c2afffb23691e8"/>
       <attribute name="url" value="org.apache.ace.bnd.repository/org.apache.ace.bnd.repository-1.1.0.jar"/>
       <attribute name="size" type="Long" value="118133"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -1141,7 +1172,7 @@
       <attribute name="version" type="Version" value="2.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="b663a96a577d5fcce4894ff4a59213d779d994ee397dbfe74d4ac141aeed8d61"/>
+      <attribute name="osgi.content" value="315ae6f5aa6187d061bd9f9d941344ec5558051fd1863a18a556c0ec1d3d26bb"/>
       <attribute name="url" value="org.apache.ace.builder/org.apache.ace.builder-2.0.2.jar"/>
       <attribute name="size" type="Long" value="12216"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -1219,7 +1250,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="513ee7200217b89a4a658e326b77bf89ac7423f5fbaaf7e1d846f649225de78b"/>
+      <attribute name="osgi.content" value="ede2876ef64b51d90a206504dc1a68da4d2e330b781195421ee91f223eb233a0"/>
       <attribute name="url" value="org.apache.ace.client.automation/org.apache.ace.client.automation-1.0.3.jar"/>
       <attribute name="size" type="Long" value="15660"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -1354,7 +1385,7 @@
       <attribute name="version" type="Version" value="2.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="17a1830c3c288fad96f08176a43c63a716cc4149c67214d6d6c5cbc2eda75ef8"/>
+      <attribute name="osgi.content" value="a4d6cdd469920f1ad5a48786cae46406d61b439c7278e75147bdd42264da3ced"/>
       <attribute name="url" value="org.apache.ace.client.repository.api/org.apache.ace.client.repository.api-2.0.2.jar"/>
       <attribute name="size" type="Long" value="92860"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -1475,7 +1506,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="eef8268dfce2976a8342b60fb549c5c3fe739fafa54b1c4a03e86101c1d366ec"/>
+      <attribute name="osgi.content" value="ebe1f53da96ac9003370dc5fbe70c4d9400f4a03a922f76d7f2b5aea9833aca3"/>
       <attribute name="url" value="org.apache.ace.client.repository.helper.base/org.apache.ace.client.repository.helper.base-1.0.3.jar"/>
       <attribute name="size" type="Long" value="883142"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -1554,7 +1585,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="5e70ce2f31e50e7db658633eb32d6088e0fd2f6bb512f317990e893cc4366ccc"/>
+      <attribute name="osgi.content" value="ce97940b7c28f2d1791250e0cbfbf18688c709a61b021d350b38d6a7b0d7c342"/>
       <attribute name="url" value="org.apache.ace.client.repository.helper.bundle/org.apache.ace.client.repository.helper.bundle-1.0.3.jar"/>
       <attribute name="size" type="Long" value="19640"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -1660,7 +1691,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="9bdc324b82b707b7db4bc6abc70bcd1cb78201ba1ce679684b8f0be6cae56104"/>
+      <attribute name="osgi.content" value="b4cf8fd7a459b21efeab07c525b28e23b34cd43e822d1f307f4936b79cbe971e"/>
       <attribute name="url" value="org.apache.ace.client.repository.helper.configuration/org.apache.ace.client.repository.helper.configuration-1.0.3.jar"/>
       <attribute name="size" type="Long" value="17352"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -1788,7 +1819,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="01853ca6d5dc3306a0bd80f7b86dd3e3830208d1b269093e8793563babc68134"/>
+      <attribute name="osgi.content" value="3e461ccb4cc56c0521f9862d8e98847ba6431b061c91ef3c1512a2cc13b75b06"/>
       <attribute name="url" value="org.apache.ace.client.repository.helper.user/org.apache.ace.client.repository.helper.user-1.0.3.jar"/>
       <attribute name="size" type="Long" value="16782"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -1930,7 +1961,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="a74100f804cfa0732ad9f7510ee63205728c97d38b5608780ac0553ff7a780d0"/>
+      <attribute name="osgi.content" value="811449436061bf2bacdd86d35b048182559d9d84fd35b34bac9023e0d6548c41"/>
       <attribute name="url" value="org.apache.ace.client.repository.impl/org.apache.ace.client.repository.impl-1.0.3.jar"/>
       <attribute name="size" type="Long" value="730230"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2008,7 +2039,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="66c4d0ad6e4a8840ed3980d347f553e19dae2930f8add04eb27aa019552a00c6"/>
+      <attribute name="osgi.content" value="448136a685a3b3f0d80abe486942bc884ee313c595d62b7a61c77f226058f2e8"/>
       <attribute name="url" value="org.apache.ace.client.repository.itest/org.apache.ace.client.repository.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="122807"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2089,7 +2120,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="56283ca8f67e6f79bf70d8c035be9493d1b36337eb19ca769465f94742e43a9e"/>
+      <attribute name="osgi.content" value="13482a72a65c4d252694d3e6601b6f940087129dc40bc421d38b31eeb0784a04"/>
       <attribute name="url" value="org.apache.ace.client.rest.itest/org.apache.ace.client.rest.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="224049"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2194,7 +2225,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="35a023bca652fd5a489b3b1c4e0ee9a682d7f70ae0602fb50042106f5c2406a5"/>
+      <attribute name="osgi.content" value="0ba506b027dfb5d6c0432768c26df11f173474a08b8756ffa245ae2e38e0bfe6"/>
       <attribute name="url" value="org.apache.ace.client.rest/org.apache.ace.client.rest-1.0.3.jar"/>
       <attribute name="size" type="Long" value="220093"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2315,7 +2346,7 @@
       <attribute name="version" type="Version" value="2.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="57b7257afa3c89fda067e473392da907b20fbb6916a39da08cfb945a6370e074"/>
+      <attribute name="osgi.content" value="870db333c31f8699a4968bc7d8b1188748d196567cd54dde8462e897f3d99090"/>
       <attribute name="url" value="org.apache.ace.client.workspace/org.apache.ace.client.workspace-2.0.1.jar"/>
       <attribute name="size" type="Long" value="44402"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2379,7 +2410,7 @@
       <attribute name="version" type="Version" value="2.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="d7d38e32ccd4e51e07625ef5bb8a46053297c1503f3dd55ebd68972250270d70"/>
+      <attribute name="osgi.content" value="ac5a7dadad8b425e2c455ccef70c1b0f4f236475515b9a2785972b8a3c66c1f9"/>
       <attribute name="url" value="org.apache.ace.client.xworkspace/org.apache.ace.client.xworkspace-2.0.1.jar"/>
       <attribute name="size" type="Long" value="65958"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2498,7 +2529,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="6ee558c9fe5a2ec0463092990efb5e89440c24ad339ca812292e095e7f512582"/>
+      <attribute name="osgi.content" value="787a03d606a7bd30ab71a2ca10d9a1cd9be2b5e8d7cf4519804ab0427d37b44b"/>
       <attribute name="url" value="org.apache.ace.configurator.impl/org.apache.ace.configurator.impl-1.0.3.jar"/>
       <attribute name="size" type="Long" value="15746"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2628,7 +2659,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="154248c21cdddc359e03d5b9c538b88a2a1f321608829ac9050799e8ed2bf081"/>
+      <attribute name="osgi.content" value="85699022489ff6766fe2c1761784217d67c17d5bcf1de1a203e8d6576c4b4beb"/>
       <attribute name="url" value="org.apache.ace.connectionfactory/org.apache.ace.connectionfactory-1.0.2.jar"/>
       <attribute name="size" type="Long" value="41720"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2707,7 +2738,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="499d0d16c1dae073a4304f9b5de29e4b63aecb03b024cda3a6e5e4798feede3b"/>
+      <attribute name="osgi.content" value="5f7ded6415e0feebba67695599b412b791a0f97052c99c21e6e0cbd3516d5cce"/>
       <attribute name="url" value="org.apache.ace.consolelogger/org.apache.ace.consolelogger-1.0.3.jar"/>
       <attribute name="size" type="Long" value="6480"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2813,7 +2844,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="f7130f6190c4ac93d2ae1d77bcd74ada441ecdbfc083ebe39332dfbcb935592f"/>
+      <attribute name="osgi.content" value="b5627fcdb56545edb0225967a64da6082c661521240c0f6834d89974be86feec"/>
       <attribute name="url" value="org.apache.ace.deployment.itest/org.apache.ace.deployment.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="41130"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2891,7 +2922,7 @@
       <attribute name="version" type="Version" value="1.1.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="91d9a50c23070db556c73c572f1d3883c9798c8f02ec319dde032586377c804b"/>
+      <attribute name="osgi.content" value="3b709d93e311a29a890aa4ff5c5cc75404f633465b0bcf1806e1caafe628b1b3"/>
       <attribute name="url" value="org.apache.ace.deployment.provider.api/org.apache.ace.deployment.provider.api-1.1.2.jar"/>
       <attribute name="size" type="Long" value="8327"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -2955,7 +2986,7 @@
       <attribute name="version" type="Version" value="2.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="ed20e35007cb758cd0276e31511501379e8ba2c95cbd27456623005894d0395b"/>
+      <attribute name="osgi.content" value="a535d9d671cc74c96b9878d5f12ace26b0ebdfde3b3f155db737d3c91b842d97"/>
       <attribute name="url" value="org.apache.ace.deployment.provider.base/org.apache.ace.deployment.provider.base-2.0.2.jar"/>
       <attribute name="size" type="Long" value="8852"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3046,7 +3077,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="3904bed5ced9e695c0017fcdb25bf778decf76ec222921f6ecc533368afe3fcd"/>
+      <attribute name="osgi.content" value="ec28928a8a7fffff73f910a61906e2099963c529410438519b521b387413d4eb"/>
       <attribute name="url" value="org.apache.ace.deployment.provider.repositorybased/org.apache.ace.deployment.provider.repositorybased-1.0.3.jar"/>
       <attribute name="size" type="Long" value="61990"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3277,6 +3308,106 @@
   </resource>
   <resource>
     <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.ace.deployment.servlet"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.4"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="0a2593c08d721d97cc8ac76164be5e51a22eab592ac29c87c654fdbd968f197e"/>
+      <attribute name="url" value="org.apache.ace.deployment.servlet/org.apache.ace.deployment.servlet-1.0.4.jar"/>
+      <attribute name="size" type="Long" value="1439422"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.ace.deployment.servlet"/>
+      <attribute name="bundle-version" type="Version" value="1.0.4"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.ace.deployment.servlet"/>
+      <attribute name="bundle-version" type="Version" value="1.0.4"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.ace.deployment.processor"/>
+      <attribute name="version" type="Version" value="1.0.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.ace.deployment.servlet"/>
+      <attribute name="bundle-version" type="Version" value="1.0.4"/>
+      <directive name="uses" value="javax.servlet.http"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.naming)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.net.ssl)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet)(version&gt;=2.6.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet.http)(version&gt;=2.6.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.namespace)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.parsers)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.stream)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.transform)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.transform.stream)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.xpath)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.connectionfactory)(version&gt;=1.0.0)(!(version&gt;=1.1.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.deployment.processor)(version&gt;=1.0.0)(!(version&gt;=1.1.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.deployment.provider)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.deployment.streamgenerator)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.felix.dm)(version&gt;=4.1.0)(!(version&gt;=5.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.8.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.resource)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.cm)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.log)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.useradmin)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.w3c.dom)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.xml.sax)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.xml.sax.helpers)"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.ace.deployment.streamgenerator"/>
       <attribute name="type" value="osgi.bundle"/>
       <attribute name="version" type="Version" value="1.0.2"/>
@@ -3328,7 +3459,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="92b6b5ee534de0a8518af0face1a811950f68e92c935cf8355fc4e86d4c7c9ca"/>
+      <attribute name="osgi.content" value="1e2ac3c8a5a9f09dcac8e5f86f6d091848b7bc0b7e51f3bd4bdfcf57df29474f"/>
       <attribute name="url" value="org.apache.ace.deployment.streamgenerator/org.apache.ace.deployment.streamgenerator-1.0.3.jar"/>
       <attribute name="size" type="Long" value="14523"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3511,7 +3642,7 @@
       <attribute name="version" type="Version" value="1.1.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="b7eef21f9eca892211cd5b0f03b4912a2e9ef615fd647546030d61a7951a0ca2"/>
+      <attribute name="osgi.content" value="be9c7f792635edcf4000f1a8547188b6bed7cfcf85cea62e6096d507ed0be49b"/>
       <attribute name="url" value="org.apache.ace.deployment.util.test/org.apache.ace.deployment.util.test-1.1.2.jar"/>
       <attribute name="size" type="Long" value="10648"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3575,7 +3706,7 @@
       <attribute name="version" type="Version" value="1.1.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="6256fba25ff8e560a2d2cec3a55a947f9a0283fca4650075e38ac3bae47e8657"/>
+      <attribute name="osgi.content" value="b02617ee4d04c4429e8d4d960a7d0715c167d5ca7028c751f27f775be1381efc"/>
       <attribute name="url" value="org.apache.ace.discovery.api/org.apache.ace.discovery.api-1.1.2.jar"/>
       <attribute name="size" type="Long" value="4593"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3644,7 +3775,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="f688be73b0c21d5fa634556bdd0c44ce7ab26c47fca1df6bdfe65c52e7e7463d"/>
+      <attribute name="osgi.content" value="adb9ce3a9dd5209f7d3ca2f89a9e2c4aa73d6d030cda0456382819431fdc7cae"/>
       <attribute name="url" value="org.apache.ace.discovery.property/org.apache.ace.discovery.property-1.0.3.jar"/>
       <attribute name="size" type="Long" value="10005"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3717,7 +3848,7 @@
       <attribute name="version" type="Version" value="1.1.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="1a1f3d6e048fc9e847e20fcee044d79fa021b24ef84f20fbe4980eb03cbc814f"/>
+      <attribute name="osgi.content" value="618c3f805309e4bff3f3081e3b1477e132e4dd403908b3b34df18fca7d7a37b4"/>
       <attribute name="url" value="org.apache.ace.feedback.common/org.apache.ace.feedback.common-1.1.1.jar"/>
       <attribute name="size" type="Long" value="17109"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3803,7 +3934,7 @@
       <attribute name="version" type="Version" value="1.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="4e4d4b9de53211aa2e96cbdbea7f8d73acd8f1269cacf2a3c0b0e007e1ef9f87"/>
+      <attribute name="osgi.content" value="d1d2c0b53a64b9f96bc59ff063751e4b49b5a59512228379b40fc52ad51f7227"/>
       <attribute name="url" value="org.apache.ace.gogo.servlet/org.apache.ace.gogo.servlet-1.0.1.jar"/>
       <attribute name="size" type="Long" value="9168"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3928,7 +4059,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="6f503438508cc4f8c1f8d0bcb9eac9b2b58b6af7e33d9f987960efe935514a0d"/>
+      <attribute name="osgi.content" value="049c98e124c72fca365b2389ac4e9a3f19d24fbe06af2e5250b97214d02a65f8"/>
       <attribute name="url" value="org.apache.ace.gogo/org.apache.ace.gogo-1.0.2.jar"/>
       <attribute name="size" type="Long" value="1564763"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4019,7 +4150,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="85a29bd16ec6ef0b98b48b33176b768f8299494afdfad2515152a7192442c635"/>
+      <attribute name="osgi.content" value="f711a2bca1a5cfcb281c5611c612214baa0b17e922aeb4a5960cbe342ccb94fd"/>
       <attribute name="url" value="org.apache.ace.http.api/org.apache.ace.http.api-1.0.0.jar"/>
       <attribute name="size" type="Long" value="4072"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4049,7 +4180,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="6f2a758a56fe3fe804706045059db3490da8a211f92d7b4912f5a620a8c2a0c0"/>
+      <attribute name="osgi.content" value="2c66524fd95d8f7c3677e4192e6ace97700304233ab20f3d0167f2783511b5ed"/>
       <attribute name="url" value="org.apache.ace.http.context/org.apache.ace.http.context-1.0.0.jar"/>
       <attribute name="size" type="Long" value="8429"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4181,7 +4312,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="54051ea5342fb058c6861419ec1f247320ed4547f6f61a222b765f2a4aa7ac9b"/>
+      <attribute name="osgi.content" value="e933cd68bf7d04d2dfb50890eaece1ddda331c1738da99a485e248acb2f8dcec"/>
       <attribute name="url" value="org.apache.ace.http.redirector/org.apache.ace.http.redirector-1.0.3.jar"/>
       <attribute name="size" type="Long" value="8256"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4250,7 +4381,7 @@
       <attribute name="version" type="Version" value="1.1.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="c212e719980110e8bd2e6c0dbc2c724da75e96c8030340cbfafd937fc09f613d"/>
+      <attribute name="osgi.content" value="4847030efc9ae41fbf1b70eee8f13982998aa22ad2b3cc11e1fc786c6a925108"/>
       <attribute name="url" value="org.apache.ace.identification.api/org.apache.ace.identification.api-1.1.2.jar"/>
       <attribute name="size" type="Long" value="4778"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4316,7 +4447,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="2d9af01133eb5dc948bd5e20551c7a3dc1a6c509e67d86361052dd450d55aaa1"/>
+      <attribute name="osgi.content" value="e62aa54b36b13f197a765d11476e7991f59998602981f835504476f5b5aed1f6"/>
       <attribute name="url" value="org.apache.ace.identification.ifconfig/org.apache.ace.identification.ifconfig-1.0.3.jar"/>
       <attribute name="size" type="Long" value="8275"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4391,7 +4522,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="0960053075dce60f79418b06eb69203b668713104fbac0b1673f879770c45f8f"/>
+      <attribute name="osgi.content" value="e6f1fdc6f4731c3af3444a2d0a7d2546966cdb1cbb5b0ba72ca89b0a61c57171"/>
       <attribute name="url" value="org.apache.ace.identification.property/org.apache.ace.identification.property-1.0.3.jar"/>
       <attribute name="size" type="Long" value="9589"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4460,7 +4591,7 @@
       <attribute name="version" type="Version" value="2.1.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="13e4bbe2b1b3a6693afcb15a12e76cdbe9413b1fb00699a071cd362c5b20be5f"/>
+      <attribute name="osgi.content" value="8620f709aaf38955bb09f17712b99eb745de58de0c0897e390343a09996c35bb"/>
       <attribute name="url" value="org.apache.ace.log.api/org.apache.ace.log.api-2.1.1.jar"/>
       <attribute name="size" type="Long" value="4832"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4490,7 +4621,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="101059dc2858554ee31dac36cd933684714581bddd8fb20b88170f0e5bec0baf"/>
+      <attribute name="osgi.content" value="33c9145e959345194e60f51201d2c1da3eaf644c2f35c2d83b36e0ed29659a74"/>
       <attribute name="url" value="org.apache.ace.log.itest/org.apache.ace.log.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="8135"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4577,7 +4708,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="5541938a6d0ec694fbdb10f22526ad4b3bc80f5a7b3d8fe4094bd11c4ad72589"/>
+      <attribute name="osgi.content" value="480edaab3671e3de9b8108433d541ab2792ea462eb867c3fb52ffcd915630239"/>
       <attribute name="url" value="org.apache.ace.log.listener/org.apache.ace.log.listener-1.0.3.jar"/>
       <attribute name="size" type="Long" value="22704"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4673,7 +4804,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="1584705f5bb895d0ad8df48a08d1958cbb684d50fa6847bc89a5463e10523e8d"/>
+      <attribute name="osgi.content" value="6897e75712d20ab2ab9a1c9b4d3c4d3dd336ce1633f0f5a569d36a3d927be727"/>
       <attribute name="url" value="org.apache.ace.log.server.servlet/org.apache.ace.log.server.servlet-1.0.3.jar"/>
       <attribute name="size" type="Long" value="15295"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4758,7 +4889,7 @@
       <attribute name="version" type="Version" value="2.1.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="d60e6d12b086ff23ca77031816845ae5c20825a8d008be9e67e675e8153801ff"/>
+      <attribute name="osgi.content" value="8958ef68e2b32b3ca407377cffe509308c740e4368214feaea64c909733ada75"/>
       <attribute name="url" value="org.apache.ace.log.server.store.api/org.apache.ace.log.server.store.api-2.1.1.jar"/>
       <attribute name="size" type="Long" value="5506"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4840,7 +4971,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="18d758ae3125f819e322666f7c3370db8a854bfc74b8b31d49e5b7c978af2089"/>
+      <attribute name="osgi.content" value="1412475683f2df4b7da8347a7be418d412b0f02be4ded53e03cb6c01b6d9fa8a"/>
       <attribute name="url" value="org.apache.ace.log.server.store.file/org.apache.ace.log.server.store.file-1.0.3.jar"/>
       <attribute name="size" type="Long" value="23329"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4942,7 +5073,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="19c62fe73d0c95b04f9949fbcfae0920688482b48a139e830530c0b4fa1f4f39"/>
+      <attribute name="osgi.content" value="f5d7fc5173f10dcea4f00b399a6a50dd95bab4c8c8c077154b80eb5b7f6eb496"/>
       <attribute name="url" value="org.apache.ace.log.server.task/org.apache.ace.log.server.task-1.0.3.jar"/>
       <attribute name="size" type="Long" value="21677"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5065,7 +5196,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="9aa8ae9c4c114d667a4e84ea55c8310a6398d39cdbefcf425e6972f9ebd995f6"/>
+      <attribute name="osgi.content" value="31142dc0df3a36c47f068087a8add87cc628545965bab35af602cd4087c723af"/>
       <attribute name="url" value="org.apache.ace.log.server.ui/org.apache.ace.log.server.ui-1.0.3.jar"/>
       <attribute name="size" type="Long" value="14519"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5183,7 +5314,7 @@
       <attribute name="version" type="Version" value="2.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="eab84cd715cf8ebbf82f4af15115f06fedb79ebebfd95a1bcd166a832944e7ec"/>
+      <attribute name="osgi.content" value="4633eb0d93384472478b62de5e3ba219af631c70ff80d356fbce8b61b0dd6ac6"/>
       <attribute name="url" value="org.apache.ace.log.target.store.impl/org.apache.ace.log.target.store.impl-2.0.2.jar"/>
       <attribute name="size" type="Long" value="19851"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5292,7 +5423,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="9ab3cdd03e4b4bc05d852048731b7406b8d9f70d933e59fca55cd2f568d596d3"/>
+      <attribute name="osgi.content" value="b25b1c37479eef07911657d59fcec375591f8632b1134e5943b1d7f82763cec7"/>
       <attribute name="url" value="org.apache.ace.log.target/org.apache.ace.log.target-1.0.3.jar"/>
       <attribute name="size" type="Long" value="21481"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5411,7 +5542,7 @@
       <attribute name="version" type="Version" value="2.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="1d5e10077b4edd72495cdd9cf4059fabe3ea8783398f9d289a848fc733ef1250"/>
+      <attribute name="osgi.content" value="74d41f20b5786bf9968bd70fa318a6073c13900a8a8c69aee4488e75f12e1140"/>
       <attribute name="url" value="org.apache.ace.obr.metadata/org.apache.ace.obr.metadata-2.0.1.jar"/>
       <attribute name="size" type="Long" value="153832"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5525,7 +5656,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="f9afbe87e0ea1efcdb89b5de9ceb2685196ee5c1ce52b1098a2288c3211dd4a2"/>
+      <attribute name="osgi.content" value="2a16c97694cf0501da5854e6936e6e0879c639510c3b12374864898e211a5f56"/>
       <attribute name="url" value="org.apache.ace.obr.servlet/org.apache.ace.obr.servlet-1.0.3.jar"/>
       <attribute name="size" type="Long" value="10597"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5615,7 +5746,7 @@
       <attribute name="version" type="Version" value="2.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="099340de8d696284e7ae7cfb69a8b645fff619ec5bf684857c904b4bae57d109"/>
+      <attribute name="osgi.content" value="247134054fd312ece87ca0e0aefd2112114e74d583ff2a54da1f51106d568adf"/>
       <attribute name="url" value="org.apache.ace.obr.storage/org.apache.ace.obr.storage-2.0.2.jar"/>
       <attribute name="size" type="Long" value="23483"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5693,7 +5824,7 @@
       <attribute name="version" type="Version" value="1.1.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="4d287cb6b2da8aa1fb64226d7a6b404feb560ac572b06b38ecdb29da21ae1ca5"/>
+      <attribute name="osgi.content" value="315f904d54030e3a85c7547fc37137cc6bed772eb447fe1d4ad31e9666530a5e"/>
       <attribute name="url" value="org.apache.ace.range.api/org.apache.ace.range.api-1.1.2.jar"/>
       <attribute name="size" type="Long" value="13028"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5757,7 +5888,7 @@
       <attribute name="version" type="Version" value="1.1.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="c545af74d3494f6969483f471d054ac609563bcafa55d91f0f4b32c4c010cddd"/>
+      <attribute name="osgi.content" value="a7ea0f55880fa44ec00ec9d744085f3b859267fa91fbcb6ac0c19779c0e00b0c"/>
       <attribute name="url" value="org.apache.ace.repository.api/org.apache.ace.repository.api-1.1.2.jar"/>
       <attribute name="size" type="Long" value="7254"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5841,7 +5972,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="6130c910abe2c42e3a92f9afb6866e60cd7a5a4486d1c35d37aa5412655f979e"/>
+      <attribute name="osgi.content" value="3f30e48f79a8cc186da6f24e927703e20589a257c86cc17135cf9230f90d9fe1"/>
       <attribute name="url" value="org.apache.ace.repository.ext/org.apache.ace.repository.ext-1.0.3.jar"/>
       <attribute name="size" type="Long" value="21677"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5936,7 +6067,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="979227ca121780fd4ae14ef85393a1b68565eb5366366cd8ee0c07eb22df5a6b"/>
+      <attribute name="osgi.content" value="9861508babf4633611ad7a139ce19b731fb9966bc8057dfeef19132f3e5fd525"/>
       <attribute name="url" value="org.apache.ace.repository.impl/org.apache.ace.repository.impl-1.0.3.jar"/>
       <attribute name="size" type="Long" value="23283"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -5981,7 +6112,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="53f48d7f065efdea25fb07e8c2f9582383d2529794155516262f94502c88e4cf"/>
+      <attribute name="osgi.content" value="f9bb67d66218395f651e5d8b11e0a34085480a775eeb56993a895f88eb366a42"/>
       <attribute name="url" value="org.apache.ace.repository.itest/org.apache.ace.repository.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="17987"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -6080,7 +6211,7 @@
       <attribute name="version" type="Version" value="1.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="c64a7ff18d59c2501f6b71d4c7f43cef1f758f854b8e70d6d3d5e38e40a038c6"/>
+      <attribute name="osgi.content" value="b519b19628b1941aceae8d1c32d2d97df4f6edf509fb334e7cad7acd12e03d95"/>
       <attribute name="url" value="org.apache.ace.repository.servlets/org.apache.ace.repository.servlets-1.0.1.jar"/>
       <attribute name="size" type="Long" value="16711"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -6170,7 +6301,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="0f9bcbcf2ab5007d211db516eb9859f8d5900e0b713af110e32e19085881394b"/>
+      <attribute name="osgi.content" value="3b6f0f9ebb876f254f4584d9409287a3da5356066f666915b4b200cd915da2e9"/>
       <attribute name="url" value="org.apache.ace.repository.task/org.apache.ace.repository.task-1.0.3.jar"/>
       <attribute name="size" type="Long" value="12619"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -6281,7 +6412,7 @@
       <attribute name="version" type="Version" value="2.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="fd8f918478bba41ecdb28c11f375094a8f8ed2e0e39237a2c86de238ba228ead"/>
+      <attribute name="osgi.content" value="4c2db96922350dc52145b1a00e99d7e3f8428bc4c350a8366e99d7935d0dcb0c"/>
       <attribute name="url" value="org.apache.ace.resourceprocessor.useradmin/org.apache.ace.resourceprocessor.useradmin-2.0.2.jar"/>
       <attribute name="size" type="Long" value="27672"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -6458,7 +6589,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="cf441e51050dcc8e0234d629123de87bbd3b1550e2c70325893cdd50a719e476"/>
+      <attribute name="osgi.content" value="b52eb59f3c231b7647de58089510780abfa60047989c93030013b22dc5748a2a"/>
       <attribute name="url" value="org.apache.ace.tageditor/org.apache.ace.tageditor-1.0.3.jar"/>
       <attribute name="size" type="Long" value="17873"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -6551,7 +6682,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="033ae1370fc23d627eb4823e31e4cbeb77a15edb5fbe6a072eef4a160585ccf4"/>
+      <attribute name="osgi.content" value="a8465192b1318c663e24aa819c53795feb6d9375b1066c9eae6e4df106fd590e"/>
       <attribute name="url" value="org.apache.ace.target.mgmt.ui/org.apache.ace.target.mgmt.ui-1.0.3.jar"/>
       <attribute name="size" type="Long" value="11425"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -6673,7 +6804,7 @@
       <attribute name="version" type="Version" value="2.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="8a4717cb3055438c6cf2c9091c8a0c9922a4719e047c0dceb33b45d7794b8f65"/>
+      <attribute name="osgi.content" value="48d1c33b70a2ff2652d05f3bd194f3dfe71a01df087e5d0ba1e4632b7c6dc2c8"/>
       <attribute name="url" value="org.apache.ace.test/org.apache.ace.test-2.0.0.jar"/>
       <attribute name="size" type="Long" value="50423"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -6753,7 +6884,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="5fb396474bd84554a93f5b8f8cccc5439f7473120c333242abb8fe008b246f67"/>
+      <attribute name="osgi.content" value="3cec88975bd9c2a77b47e0d85446c719d63eee0e46aa60f75ae208d8de24f751"/>
       <attribute name="url" value="org.apache.ace.useradmin.itest/org.apache.ace.useradmin.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="14432"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -6798,7 +6929,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="51f5c8413cc79cc77856f303e4363d02cce5765d0b874e8fa0246d4bbebeb15b"/>
+      <attribute name="osgi.content" value="14cb51556cf842ea824b7b9911022d0477b85f2c9f8b975cc65e91408c0b3f5c"/>
       <attribute name="url" value="org.apache.ace.useradmin.repository/org.apache.ace.useradmin.repository-1.0.0.jar"/>
       <attribute name="size" type="Long" value="551148"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -6849,7 +6980,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="a1f7cdd5070e64b9faf28b877e30f7f9a2b967ac241e3a4e5cdc0fcbbc317d9d"/>
+      <attribute name="osgi.content" value="d30401381581e4d8b5c6f92cb2558336e715a9c7b812bd2db5a6dbe99ca0095e"/>
       <attribute name="url" value="org.apache.ace.useradmin.ui.itest/org.apache.ace.useradmin.ui.itest-1.0.0.jar"/>
       <attribute name="size" type="Long" value="8969"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -6943,7 +7074,7 @@
       <attribute name="version" type="Version" value="2.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="5ce24993c077d1702117d6793fe95fe29c0b8638cb738c915ff2e1dc78dabe08"/>
+      <attribute name="osgi.content" value="703f40d71bcce21db1c968f512813c7711d679583e7b91b856d5d75a3a67ba7e"/>
       <attribute name="url" value="org.apache.ace.useradmin.ui/org.apache.ace.useradmin.ui-2.0.2.jar"/>
       <attribute name="size" type="Long" value="49002"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -7061,7 +7192,7 @@
       <attribute name="version" type="Version" value="1.1.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="c5115b55db811aa35ee06054bfca14075110be51d7ad06817a1eac4d9e838040"/>
+      <attribute name="osgi.content" value="7ac5768252f547acddfd4e09ad4f59a1e8a1c5dff3f590f9c1bd91a661a9cff1"/>
       <attribute name="url" value="org.apache.ace.verifier.impl/org.apache.ace.verifier.impl-1.1.1.jar"/>
       <attribute name="size" type="Long" value="260557"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -7184,7 +7315,7 @@
       <attribute name="version" type="Version" value="1.0.3"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="4951ec18a9d0bd6ec06f791d01c71a15ff12c9e88d38c4ce7658341a6d0c914a"/>
+      <attribute name="osgi.content" value="0c900d711d1695679de70a1073226022a0ecfb3e2d81e6ef10f46f0570749794"/>
       <attribute name="url" value="org.apache.ace.verifier.ui/org.apache.ace.verifier.ui-1.0.3.jar"/>
       <attribute name="size" type="Long" value="22391"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -7386,6 +7517,151 @@
       <attribute name="version" type="Version" value="1.0.1"/>
       <attribute name="bundle-symbolic-name" value="org.apache.ace.webui.vaadin"/>
       <attribute name="bundle-version" type="Version" value="1.0.3"/>
+      <directive name="uses" value="com.vaadin.ui,org.apache.ace.client.repository"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.vaadin)(version&gt;=6.8.0)(!(version&gt;=7.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.vaadin.data)(version&gt;=6.8.0)(!(version&gt;=7.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.vaadin.data.util)(version&gt;=6.8.0)(!(version&gt;=7.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.vaadin.event)(version&gt;=6.8.0)(!(version&gt;=7.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.vaadin.event.dd)(version&gt;=6.8.0)(!(version&gt;=7.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.vaadin.event.dd.acceptcriteria)(version&gt;=6.8.0)(!(version&gt;=7.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.vaadin.service)(version&gt;=6.8.0)(!(version&gt;=7.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.vaadin.terminal)(version&gt;=6.8.0)(!(version&gt;=7.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.vaadin.terminal.gwt.server)(version&gt;=6.8.0)(!(version&gt;=7.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.vaadin.ui)(version&gt;=6.8.0)(!(version&gt;=7.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.naming)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.net.ssl)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet)(version&gt;=2.6.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet.http)(version&gt;=2.6.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.namespace)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.parsers)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.stream)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.transform)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.transform.stream)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.xpath)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.authentication.api)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.client.repository)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.client.repository.object)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.client.repository.repository)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.client.repository.stateful)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.connectionfactory)(version&gt;=1.0.0)(!(version&gt;=1.1.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.ace.webui)(version&gt;=1.0.0)(!(version&gt;=1.1.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.felix.dm)(version&gt;=4.1.0)(!(version&gt;=5.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.8.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.resource)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.cm)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.event)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.http.context)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.log)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.useradmin)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.w3c.dom)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.xml.sax)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.xml.sax.helpers)"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.ace.webui.vaadin"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.4"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="2db3fc864168eee3013a4bbbb179316790ba3a6ed522532421215b4c8c9d2227"/>
+      <attribute name="url" value="org.apache.ace.webui.vaadin/org.apache.ace.webui.vaadin-1.0.4.jar"/>
+      <attribute name="size" type="Long" value="1663564"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.ace.webui.vaadin"/>
+      <attribute name="bundle-version" type="Version" value="1.0.4"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.ace.webui.vaadin"/>
+      <attribute name="bundle-version" type="Version" value="1.0.4"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.ace.webui"/>
+      <attribute name="version" type="Version" value="1.0.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.ace.webui.vaadin"/>
+      <attribute name="bundle-version" type="Version" value="1.0.4"/>
       <directive name="uses" value="com.vaadin.ui,org.apache.ace.client.repository"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
