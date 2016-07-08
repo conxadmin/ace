@@ -60,6 +60,18 @@ public interface WorkspaceManager {
      *             in case of I/O problems.
      */
     public void removeWorkspace(String id) throws IOException;
+    
+    /**
+     * Create a new workspace with the default configuration and the default authentication.
+     * 
+     * Shorthand intended for shell scripting.
+     * 
+     * @return a new workspace
+     * @throws IOException
+     *             in case of I/O problems.
+     * @see #createWorkspace(Map, Object...)
+     */
+    public Workspace cw4imp() throws IOException;
 
     /**
      * Create a new workspace with the default configuration and the default authentication.
@@ -85,7 +97,7 @@ public interface WorkspaceManager {
      *             in case of I/O problems.
      * @see #createWorkspace(Map, Object...)
      */
-    public Workspace cw(Map sessionConfiguration) throws IOException;
+    public Workspace cw(String exporterDestinationPath, String exporterTargetsList, Map sessionConfiguration) throws IOException;
 
     /**
      * Create a new workspace, using the specified customer names for the workspace. Otherwise using the default session
@@ -103,7 +115,7 @@ public interface WorkspaceManager {
      * @throws IOException
      *             in case of I/O problems.
      */
-    public Workspace cw(String storeCustomerName, String targetCustomerName, String deploymentCustomerName)
+    public Workspace cw(String storeCustomerName, String targetCustomerName, String deploymentCustomerName, String exporterDestinationPath, String exporterTargetsList)
             throws IOException;
 
     /**
@@ -125,7 +137,8 @@ public interface WorkspaceManager {
      *             in case of I/O problems.
      */
     public Workspace cw(String storeCustomerName, String targetCustomerName, String deploymentCustomerName,
-            Map sessionConfiguration) throws IOException;
+    		String exporterDestinationPath, String exporterTargetsList,
+    		Map sessionConfiguration) throws IOException;
 
     /**
      * Get the workspace with the given identifier.

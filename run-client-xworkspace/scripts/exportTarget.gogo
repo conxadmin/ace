@@ -1,0 +1,4 @@
+targetToExports=ace-target-conx-tenantsdb-node1,local-dev-mk1,platform-services-cms,platform-services-db
+baseDirectory=/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-sample-exports/exports
+ws = (cw)
+$ws expw ${baseDirectory} ${targetToExports}

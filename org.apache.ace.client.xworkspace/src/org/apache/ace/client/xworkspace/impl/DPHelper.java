@@ -325,12 +325,18 @@ class DPHelper {
     }
     
     public File downloadArtifactContents(boolean isJar, String directory, String filename, String fileUrl) throws IOException {     
-        System.out.println("Downloading "+filename);
     	File dir = new File(directory);
     	if (!dir.exists())
     		dir.mkdir();
         
     	File file = new File(directory, filename);
+    	if (file.exists()) {
+    		System.out.println("Skipping already existing "+filename);
+    		return file;
+    	}
+    	else {
+            System.out.println("Downloading "+filename);
+    	}
         FileOutputStream fos = null;
         //JarOutputStream jos = null;
         InputStream is = null;

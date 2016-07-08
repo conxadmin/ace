@@ -32,17 +32,17 @@ public class Activator extends DependencyActivatorBase {
     /**
      * Identifier for configuration settings.
      */
-    public static final String WORKSPACE_PID = "org.apache.ace.client.workspace";
+    public static final String XWORKSPACE_PID = "org.apache.ace.client.xworkspace";
 
     @Override
     public void init(BundleContext context, DependencyManager manager) throws Exception {
         Properties props = new Properties();
         props.put(CommandProcessor.COMMAND_SCOPE, "ace");
-        props.put(CommandProcessor.COMMAND_FUNCTION, new String[] { "cw", "gw", "rw"});
+        props.put(CommandProcessor.COMMAND_FUNCTION, new String[] { "cw", "cw4imp", "gw", "rw"});
         manager.add(createComponent().setInterface(WorkspaceManager.class.getName(), props)
             .setImplementation(WorkspaceManagerImpl.class)
             .add(createServiceDependency().setService(SessionFactory.class).setRequired(true))
-            .add(createConfigurationDependency().setPropagate(true).setPid(WORKSPACE_PID))
+            .add(createConfigurationDependency().setPropagate(true).setPid(XWORKSPACE_PID))
             .add(createServiceDependency().setService(LogService.class).setRequired(false)));
     }
 

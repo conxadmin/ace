@@ -19,6 +19,11 @@
 package org.apache.ace.client.xworkspace.impl;
 
 import java.io.IOException;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,6 +57,10 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     private static final String KEY_DEPLOYMENT_REPOSITORY_NAME = "deployment.repository.name";
     /** Name of the user to log in as, in case no actual authentication is used. */
     private static final String KEY_USER_NAME = "user.name";
+    
+    private static final String KEY_REPOSITORY_EXPORTER_PATH = "repo.exporter.path";
+    private static final String KEY_REPOSITORY_EXPORTER_TARGETS = "repo.exporter.targets.list";
+    private static final String KEY_REPOSITORY_IMPORTER_SERVER_URL = "repo.importer.repository.url";
 
     private static long m_sessionID = 1;
     private volatile LogService m_logger;
@@ -71,6 +80,9 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     private String m_targetRepositoryName;
     private String m_deploymentRepositoryName;
     private String m_serverUser;
+    private String m_exporterDestinationPath;
+    private String m_exporterTargetsList;
+    private String m_importerRepositoryUrl;
 
     public WorkspaceManagerImpl() {
         m_workspaces = new HashMap<>();
@@ -121,6 +133,16 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             m_targetRepositoryName = getProperty(properties, KEY_DISTRIBUTION_REPOSITORY_NAME, "target");
             m_deploymentRepositoryName = getProperty(properties, KEY_DEPLOYMENT_REPOSITORY_NAME, "deployment");
             m_serverUser = getProperty(properties, KEY_USER_NAME, "d");
+            
+            m_exporterDestinationPath = getProperty(properties, KEY_REPOSITORY_EXPORTER_PATH, null);
+            if (m_exporterDestinationPath == null) {
+            	TempDirectory tmpDir = new TempDirectory();
+            	tmpDir.deleteOnExit();
+            	m_exporterDestinationPath = tmpDir.getPath().toAbsolutePath().toString();
+            	System.out.println(String.format("Created temp work dir %s", m_exporterDestinationPath));
+            }
+            m_exporterTargetsList = getProperty(properties, KEY_REPOSITORY_EXPORTER_TARGETS, null);
+            m_importerRepositoryUrl = getProperty(properties, KEY_REPOSITORY_IMPORTER_SERVER_URL, null);
         }
     }
 
@@ -135,7 +157,8 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
         synchronized (m_workspaces) {
             sessionID = "rest-" + m_sessionID++;
             workspace = new WorkspaceImpl(sessionID, m_repositoryURL, m_customerName, m_storeRepositoryName,
-                    m_targetRepositoryName, m_deploymentRepositoryName);
+                    m_targetRepositoryName, m_deploymentRepositoryName,
+                    m_exporterDestinationPath, m_exporterTargetsList);
             m_workspaces.put(sessionID, workspace);
 
             component = m_dm.createComponent().setImplementation(workspace);
@@ -196,23 +219,33 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     }
 
     @Override
+    public Workspace cw4imp() throws IOException {
+    	final String currentRepositoryUrl = new String(this.m_repositoryURL);
+    	this.m_repositoryURL = this.m_importerRepositoryUrl;
+        Workspace newWs = cw(m_customerName, m_customerName, m_customerName, m_exporterDestinationPath, m_exporterTargetsList, null);
+        this.m_repositoryURL = currentRepositoryUrl;
+        return newWs;
+    }
+    
+    @Override
     public Workspace cw() throws IOException {
-        return cw(m_customerName, m_customerName, m_customerName, null);
+        return cw(m_customerName, m_customerName, m_customerName, m_exporterDestinationPath, m_exporterTargetsList, null);
     }
 
     @Override
-    public Workspace cw(Map sessionConfiguration) throws IOException {
-        return cw(m_customerName, m_customerName, m_customerName, sessionConfiguration);
+    public Workspace cw(String exporterDestinationPath, String exporterTargetsList, Map sessionConfiguration) throws IOException {
+        return cw(m_customerName, m_customerName, m_customerName, m_exporterDestinationPath, m_exporterTargetsList, sessionConfiguration);
     }
 
     @Override
-    public Workspace cw(String storeCustomerName, String targetCustomerName, String deploymentCustomerName)
+    public Workspace cw(String storeCustomerName, String targetCustomerName, String deploymentCustomerName, String exporterDestinationPath, String exporterTargetsList)
             throws IOException {
-        return cw(storeCustomerName, targetCustomerName, deploymentCustomerName, null);
+        return cw(storeCustomerName, targetCustomerName, deploymentCustomerName, exporterDestinationPath, exporterTargetsList, null);
     }
 
     @Override
     public Workspace cw(String storeCustomerName, String targetCustomerName, String deploymentCustomerName,
+    		String exporterDestinationPath, String exporterTargetsList,
             Map sessionConfiguration) throws IOException {
         final String sessionID;
         final Workspace workspace;
@@ -221,7 +254,8 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
         synchronized (m_workspaces) {
             sessionID = "shell-" + m_sessionID++;
             workspace = new WorkspaceImpl(sessionID, m_repositoryURL, storeCustomerName, m_storeRepositoryName,
-                    targetCustomerName, m_targetRepositoryName, deploymentCustomerName, m_deploymentRepositoryName);
+                    targetCustomerName, m_targetRepositoryName, deploymentCustomerName, m_deploymentRepositoryName,
+                    exporterDestinationPath, exporterTargetsList);
             m_workspaces.put(sessionID, workspace);
 
             component = m_dm.createComponent().setImplementation(workspace);
@@ -290,4 +324,55 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
         }
         return null;
     }   
+    
+    class TempDirectory {
+        final Path path;
+
+        public TempDirectory() {
+            try {
+                path = Files.createTempDirectory("apache_ace_xworkspace");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        public Path getPath() {
+            return path;
+        }
+
+        public void deleteOnExit() {
+            Runtime.getRuntime().addShutdownHook(new Thread() {
+                @Override
+                public void run() {
+                    delete();
+                }
+            });
+        }
+
+        public void delete() {
+            if (!Files.exists(path)) {
+                return;
+            }
+            try {
+                Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
+                    @Override
+                    public FileVisitResult postVisitDirectory(Path dir, IOException exc)
+                            throws IOException {
+                        Files.deleteIfExists(dir);
+                        return super.postVisitDirectory(dir, exc);
+                    }
+
+                    @Override
+                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)
+                            throws IOException {
+                        Files.deleteIfExists(file);
+                        return super.visitFile(file, attrs);
+                    }
+                });
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }    
 }

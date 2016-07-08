@@ -1,0 +1,2 @@
+-runbundles.conx-pentaho5x: \
+	org.conxworks.library.pentaho-kettle.all.osgi;version="[5.2.0,5.2.0.201602140459]"

@@ -27,9 +27,11 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -80,19 +82,21 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
 
 public class WorkspaceImpl implements Workspace {
 
     private static final String XML_EXTENSION = "xml";
 	private final String m_sessionID;
-    private final URL m_repositoryURL;
+    private URL m_repositoryURL;
     private final String m_storeCustomerName;
     private final String m_distributionCustomerName;
     private final String m_deploymentCustomerName;
     private final String m_storeRepositoryName;
     private final String m_distributionRepositoryName;
     private final String m_deploymentRepositoryName;
+    
+    private String m_exporterDestinationPath;
+    private String m_exporterTargetsList;
 
     private volatile BundleContext m_context;
     private volatile DependencyManager m_manager;
@@ -108,14 +112,17 @@ public class WorkspaceImpl implements Workspace {
 	private List<String> processedDists = new ArrayList<>();
 
     public WorkspaceImpl(String sessionID, String repositoryURL, String customerName, String storeRepositoryName,
-        String distributionRepositoryName, String deploymentRepositoryName) throws MalformedURLException {
+        String distributionRepositoryName, String deploymentRepositoryName,
+        String exporterDestinationPath, String exporterTargetsList) throws MalformedURLException {
         this(sessionID, repositoryURL, customerName, storeRepositoryName, customerName, distributionRepositoryName,
-            customerName, deploymentRepositoryName);
+            customerName, deploymentRepositoryName,
+            exporterDestinationPath,exporterTargetsList);
     }
 
     public WorkspaceImpl(String sessionID, String repositoryURL, String storeCustomerName, String storeRepositoryName,
         String distributionCustomerName, String distributionRepositoryName, String deploymentCustomerName,
-        String deploymentRepositoryName) throws MalformedURLException {
+        String deploymentRepositoryName,
+        String exporterDestinationPath, String exporterTargetsList) throws MalformedURLException {
         m_sessionID = sessionID;
         m_repositoryURL = new URL(repositoryURL);
         m_storeCustomerName = storeCustomerName;
@@ -124,6 +131,9 @@ public class WorkspaceImpl implements Workspace {
         m_storeRepositoryName = storeRepositoryName;
         m_distributionRepositoryName = distributionRepositoryName;
         m_deploymentRepositoryName = deploymentRepositoryName;
+        
+        m_exporterDestinationPath = exporterDestinationPath;
+        m_exporterTargetsList = exporterTargetsList;
     }
 
     @Override
@@ -834,14 +844,23 @@ public class WorkspaceImpl implements Workspace {
     @Override
     public void impw(String directoryPath)  throws Exception {
     	File inputDir = new File(directoryPath);
-    	if (inputDir.isDirectory()) {
+
+    	List<String> targetExcl = null;
+    	if (this.m_exporterTargetsList != null) {
+    		targetExcl = Arrays.asList(this.m_exporterTargetsList.split(";"));
+    		for (String tgt : targetExcl) {
+    			String pathname = directoryPath+File.separator+tgt+"."+XML_EXTENSION;
+    			impw(directoryPath,new File(pathname).getAbsolutePath());
+    		}    		
+    	}
+    	else if (inputDir.isDirectory()) {
     		File[] files = inputDir.listFiles();
     		for (File fl : files) {
     			if (XML_EXTENSION.equalsIgnoreCase(getFileExtension(fl))) {
     				impw(directoryPath,fl.getAbsolutePath());
     			}
     		}
-    	}
+    	}   
     }
     
     
@@ -849,7 +868,16 @@ public class WorkspaceImpl implements Workspace {
     public List getTargetExportFilePaths(String directoryPath) {
     	ArrayList<String> paths = new ArrayList<>();
     	File inputDir = new File(directoryPath);
-    	if (inputDir.isDirectory()) {
+
+    	List<String> targetExcl = null;
+    	if (this.m_exporterTargetsList != null) {
+    		targetExcl = Arrays.asList(this.m_exporterTargetsList.split(";"));
+    		for (String tgt : targetExcl) {
+    			String pathname = directoryPath+File.separator+tgt+"."+XML_EXTENSION;
+				paths.add(new File(pathname).getAbsolutePath());
+    		}    		
+    	}
+    	else if (inputDir.isDirectory()) {
     		File[] files = inputDir.listFiles();
     		for (File fl : files) {
     			if (XML_EXTENSION.equalsIgnoreCase(getFileExtension(fl))) {
@@ -1199,22 +1227,34 @@ public class WorkspaceImpl implements Workspace {
     
     
     @Override
-    public void expw(String directoryPath) throws Exception {
-    	expw(directoryPath,null);
+    public String expw() throws Exception {
+    	return expw(this.m_exporterTargetsList);
     }
     
     @Override
-    public void expw(String directoryPath, String targets) throws Exception {
+    public String expw(String targets) throws Exception {
+    	
     	String[] targetsArray = null;
     	
-    	if (targets == null)
-    		System.out.println("Specify target(s)");
-    	
-    	if (targets.contains(",")) 
-    		targetsArray = targets.split(",");
-    	else
-    		targetsArray = new String[]{targets};
-    		
+    	if (targets == null) {
+    		List<StatefulTargetObject> lt = lt();
+    		if (lt.isEmpty()) {
+    			System.out.println("No target(s) to export");
+    		}
+    			
+    		ArrayList<String> targetsList = new ArrayList<String>();
+    		Iterator<StatefulTargetObject> ltIter = lt.iterator();
+    		while (ltIter.hasNext()) {
+    			targetsList.add(ltIter.next().getID());
+    		}
+    		targetsArray = targetsList.toArray(new String[]{});
+    	}
+    	else {
+        	if (targets.contains(",")) 
+        		targetsArray = targets.split(",");
+        	else
+        		targetsArray = new String[]{targets};    		
+    	}
     	
     	for (String target : targetsArray) {
         	String brName = target+".bndrun";
@@ -1258,12 +1298,12 @@ public class WorkspaceImpl implements Workspace {
 						List<DistributionObject> ld = ld(dName);
 						if (ld.size() > 0) {
 							dName = ld.get(0).getName();
-							fmap.put(dName,downloadFeature(directoryPath,dName,dhelper));
+							fmap.put(dName,downloadFeature(this.m_exporterDestinationPath,dName,dhelper));
 							
 							sb.append("<distributionref refid=\""+dName+"\">");
 							sb.append("</distributionref>");	
 							
-							generateDistrXMLContent(directoryPath, dstsb, dhelper, fmap, ld.get(0));
+							generateDistrXMLContent(this.m_exporterDestinationPath, dstsb, dhelper, fmap, ld.get(0));
 						}
 					}
 					sb.append("</distributionrefs>");
@@ -1304,14 +1344,16 @@ public class WorkspaceImpl implements Workspace {
 				sb.append(fsb.toString());
 				sb.append("</repository>");
 				
-				dhelper.writeTextContents(directoryPath, target+".xml", sb.toString());
-				dhelper.writeTextContents(directoryPath, brName, brsb.toString());
+				dhelper.writeTextContents(this.m_exporterDestinationPath, target+".xml", sb.toString());
+				dhelper.writeTextContents(this.m_exporterDestinationPath, brName, brsb.toString());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				throw e;
 			}
     	}
+    	
+    	return this.m_exporterDestinationPath;
     }
 
 	private void generateDistrXMLContent(String directoryPath,
@@ -1516,5 +1558,11 @@ public class WorkspaceImpl implements Workspace {
 			tgt.addTag(tag, val);
 		}
 		
+	}
+
+	@Override
+	public void setRepositoryURL(String repositoryUrl) throws IOException {
+		this.logout();
+		this.m_repositoryURL = new URL(repositoryUrl);
 	}
 }

@@ -1,0 +1,26 @@
+# Assumes export is in /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-client-xworkspace/generated
+# Setup variables
+aceTargetExportFile = platform-services-cms.xml
+exportBaseDirectory = /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-client-xworkspace/generated
+
+# Source repo
+sourcerepo = (repo:repo R5 file:${exportBaseDirectory}/jars_and_configs/index.xml)
+
+
+# Import bundles
+artifacts = repo:ls $sourcerepo
+workspace = (cw)
+each $artifacts {identity = $it getIdentity; version = $it getVersion; name = "$identity - $version"; url = $it getUrl; mimetype = $it getMimetype; if { (coll:first ($workspace la "(artifactName=$name)")) } { } { if { $mimetype equals "application/xml:osgi-autoconf" } { $workspace ca [ artifactName="$name" url="$url" mimetype="$mimetype" filename="$name" processorPid="org.osgi.deployment.rp.autoconf" ]; echo "Created autoconf $name" } { $workspace ca [ artifactName="$name" url="$url" mimetype="$mimetype" Bundle-SymbolicName="$identity" Bundle-Version="$version" ]; echo "Created bundle $name" }} }
+$workspace commit
+workspace = (cw)
+$workspace impw ${exportBaseDirectory} ${exportBaseDirectory}/${aceTargetExportFile}
+$workspace commit
+
+# Import Auto Confs
+workspace = (cw)
+artifacts = repo:ls $sourcerepo "(type=file)"
+each $artifacts {identity = $it getIdentity; version = $it getVersion; name = "$identity - $version"; url = $it getUrl; mimetype = $it getMimetype; if { (coll:first ($workspace la "(artifactName=$name)")) } { } { if { $mimetype equals "application/xml:osgi-autoconf" } { $workspace ca [ artifactName="$name" url="$url" mimetype="$mimetype" filename="$name" processorPid="org.osgi.deployment.rp.autoconf" ]; echo "Created autoconf $name" } { $workspace ca [ artifactName="$name" url="$url" mimetype="$mimetype" Bundle-SymbolicName="$identity" Bundle-Version="$version" ]; echo "Created bundle $name" }} }
+$workspace commit
+workspace = (cw)
+$workspace impw ${exportBaseDirectory} ${exportBaseDirectory}/${aceTargetExportFile}
+$workspace commit

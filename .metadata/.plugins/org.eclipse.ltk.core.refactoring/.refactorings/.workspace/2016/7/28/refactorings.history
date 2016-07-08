@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;run-sample-imports&apos; to &apos;run-sample-exports&apos;" description="Rename resource &apos;run-sample-imports&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/run-sample-imports" name="run-sample-exports" stamp="1467932597835" updateReferences="true"/>
+</session>

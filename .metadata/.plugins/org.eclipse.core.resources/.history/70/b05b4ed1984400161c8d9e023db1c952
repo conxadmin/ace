@@ -1,0 +1,5 @@
+-runbundles.conx-osgi: \
+	org.osgi.service.remoteserviceadmin;version="[1.1.0,1.1.0.201505202024]",\
+	osgi.cmpn;version="[4.3.1,4.3.1.201210102024]",\
+	osgi.core;version="[5.0.0,5.0.0.201203141902]",\
+	osgi.enterprise;version="[5.0.0,5.0.0.201203141834]"

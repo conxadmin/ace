@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.1.0">
+	<OCD id="ocd" name="ocd">
+		<AD id="org.amdatu.remote.admin.http.host" type="String" />
+		<AD id="org.amdatu.remote.admin.http.port" type="String" />
+	</OCD>
+	<Designate pid="org.amdatu.remote.admin.http" bundle="osgi-dp:org.amdatu.remote.admin.http">
+		<Object ocdref="ocd">
+			<Attribute adref="org.amdatu.remote.admin.http.host"
+				name="org.amdatu.remote.admin.http.host" content="${context.remoteAdminHttpHost}" />	
+			<Attribute adref="org.amdatu.remote.admin.http.port"
+				name="org.amdatu.remote.admin.http.port" content="${context.remoteAdminHttpPort}" />
+		</Object>
+	</Designate>
+</metatype:MetaData>

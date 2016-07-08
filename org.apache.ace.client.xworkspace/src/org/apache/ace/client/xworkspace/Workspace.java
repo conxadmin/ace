@@ -19,6 +19,7 @@
 package org.apache.ace.client.xworkspace;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Map;
 
@@ -56,11 +57,13 @@ import org.osgi.service.useradmin.User;
  * @see WorkspaceManager
  */
 public interface Workspace extends org.apache.ace.client.workspace.Workspace {
+	public void setRepositoryURL(String repositoryUrl) throws MalformedURLException, IOException;
+	
     /*** export/import 
      * @throws Exception ***/
-	public void expw(String directoryPath) throws Exception;
+	public String expw() throws Exception;
 	
-	public void expw(String directoryPath, String target)  throws Exception;
+	public String expw(String targets)  throws Exception;
 	/***
 	 * @param directoryPath
 	 * @param exportFile
