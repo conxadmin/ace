@@ -1,0 +1,15 @@
+#! /bin/sh
+
+# Make sure that we're setup with the docker machine correctly
+eval $(docker-machine env default)
+
+# Build
+docker build -t conxadmin/apache-ace-conx-client-copy-repo .
+
+# Run the apache ace server container first
+docker run -it \
+  --name apache-ace-conx-client-copy-repo \
+  -e "ACE_SERVER=conx.dev:9000" \
+  -e "ACE_OBR=conx.dev:9000" \
+  -e "HTTP_PORT=9000" \
+  conxadmin/apache-ace-conx-client-copy-repo

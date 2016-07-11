@@ -1250,8 +1250,8 @@ public class WorkspaceImpl implements Workspace {
     		targetsArray = targetsList.toArray(new String[]{});
     	}
     	else {
-        	if (targets.contains(",")) 
-        		targetsArray = targets.split(",");
+        	if (targets.contains(";")) 
+        		targetsArray = targets.split(";");
         	else
         		targetsArray = new String[]{targets};    		
     	}
@@ -1402,6 +1402,7 @@ public class WorkspaceImpl implements Workspace {
     		//Enumeration<String> keys = art.getAttributeKeys();
     		//String aName = art.getAttribute("Bundle-SymbolicName");
     		//String ver = art.getAttribute("Bundle-Version");
+    		String rootDir = directoryPath+File.separatorChar+"jars_and_configs";//isJar?directoryPath+File.separatorChar+"jars":directoryPath+File.separatorChar+"config";
     		List<ArtifactObject> ds = la(le);
     		if (ds.size() > 0) {
 				ArtifactObject a = ds.get(ds.size()-1);
@@ -1423,7 +1424,6 @@ public class WorkspaceImpl implements Workspace {
 	    		}
 	    		
 	    		
-	    		String rootDir = directoryPath+File.separatorChar+"jars_and_configs";//isJar?directoryPath+File.separatorChar+"jars":directoryPath+File.separatorChar+"config";
 	    		File file = dhelper.downloadArtifactContents(isJar, rootDir, name, url);
 	    		if (isJar) {
 		            JarInputStream jis = new JarInputStream(new FileInputStream(file));
@@ -1437,6 +1437,9 @@ public class WorkspaceImpl implements Workspace {
 	   	
 	    		fsb.append("</artifact>");
     		}
+    		
+    		//Download autoconf bunlde
+    		
     	}
     	
     	fsb.append("</feature>");

@@ -1,0 +1,6 @@
+customer="apache"
+factory.instance.pid="org.apache.ace.server.repository.factory_ace-target"
+master="true"
+name="target"
+service.factoryPid="org.apache.ace.server.repository.factory"
+service.pid="org.apache.ace.server.repository.factory.4f5560e7-1b2e-4d75-9262-8cd4b9ef4ee9"

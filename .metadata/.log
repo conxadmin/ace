@@ -1408,3 +1408,306 @@ org.eclipse.jgit.api.errors.JGitInternalException: Entry not found by path: run-
 	at org.eclipse.egit.core.op.CommitOperation.execute(CommitOperation.java:208)
 	at org.eclipse.egit.ui.internal.commit.CommitJob.run(CommitJob.java:98)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2016-07-10 10:46:29.604 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-07-10 10:47:05.176
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.ui 2 0 2016-07-10 10:47:06.450
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2016-07-10 10:47:06.450
+!MESSAGE Cannot bind to an undefined command: plug-in='com.liferay.ide.project.ui', id='com.liferay.ide.project.ui.upgrade.openLiferay7UpgradeAssistant'
+
+!ENTRY org.eclipse.jface 2 0 2016-07-10 10:47:08.701
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-07-10 10:47:08.701
+!MESSAGE A conflict occurred for ALT+COMMAND+V:
+Binding(ALT+COMMAND+V,
+	ParameterizedCommand(Command(com.liferay.ide.service.ui.buildService,Build Service,
+		Run the build-service command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@68838767,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+V,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.move.element,Move - Refactoring ,
+		Move the selected element to a new location,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@315365ef,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-07-10 10:47:08.701
+!MESSAGE A conflict occurred for ALT+COMMAND+W:
+Binding(ALT+COMMAND+W,
+	ParameterizedCommand(Command(com.liferay.ide.service.ui.buildWSDD,Build WSDD,
+		Run the build-wsdd command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1f381eaf,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+W,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.showInQuickMenu,Show In...,
+		Open the Show In menu,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5df7ae0a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-07-10 10:47:08.701
+!MESSAGE A conflict occurred for ALT+COMMAND+N:
+Binding(ALT+COMMAND+N,
+	ParameterizedCommand(Command(com.liferay.ide.portlet.ui.buildLang,Build Languages,
+		Run the build-lang command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@293ba26c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+N,
+	ParameterizedCommand(Command(org.eclipse.ui.file.newQuickMenu,New menu,
+		Open the New menu,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@36dc6b9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY org.eclipse.core.net 1 0 2016-07-10 10:47:09.256
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-07-10 10:47:11.886
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-07-10 10:47:11.906
+!MESSAGE IvyDE plugin started
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:47:19.129
+!MESSAGE Unable to acquire lock to calculate classpath for project build
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:47:19.215
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.webui.vaadin
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:47:24.234
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.useradmin.itest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:47:29.237
+!MESSAGE Unable to acquire lock to calculate classpath for project run-relay
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:47:34.242
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.client.repository.itest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:47:39.247
+!MESSAGE Unable to acquire lock to calculate classpath for project build
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:47:44.254
+!MESSAGE Unable to acquire lock to calculate classpath for project run-server-allinone
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:47:49.260
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.client.workspace
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:47:54.266
+!MESSAGE Unable to acquire lock to calculate classpath for project run-server
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:47:59.271
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.obr
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:04.275
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.configurator
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:09.278
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.deployment.itest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:14.282
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.log.itest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:19.286
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.log.server.ui
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:24.290
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.repository
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:29.293
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.client.rest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:34.300
+!MESSAGE Unable to acquire lock to calculate classpath for project run-sample-exports
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:39.306
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.tageditor
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:44.313
+!MESSAGE Unable to acquire lock to calculate classpath for project run-client
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:49.314
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.useradmin.ui
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:54.320
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.client.xworkspace
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:48:59.324
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.target.mgmt.ui
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:04.330
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.useradmin
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:09.334
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.log
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:14.339
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.deployment
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:19.345
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.gogo
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:24.347
+!MESSAGE Unable to acquire lock to calculate classpath for project run-client-xworkspace
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:29.351
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.client.repository
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:34.358
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.gogo.servlet
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:39.360
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.http
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:44.365
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.verifier
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:49.369
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.client.automation
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:54.373
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.discovery
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:49:59.378
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.agent.itest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:04.384
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.agent.launcher
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:09.390
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.repository.itest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:14.395
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.identification
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:19.397
+!MESSAGE Unable to acquire lock to calculate classpath for project run-target
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:24.403
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.useradmin.ui.itest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:29.406
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.authentication.itest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:34.413
+!MESSAGE Unable to acquire lock to calculate classpath for project run-obr
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:39.414
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.agent.update.itest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:44.415
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.client.rest.itest
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:49.416
+!MESSAGE Unable to acquire lock to calculate classpath for project org.apache.ace.authentication
+
+!ENTRY bndtools.builder 4 0 2016-07-10 10:50:54.422
+!MESSAGE Unable to acquire lock to calculate classpath for project run-develop
+!SESSION 2016-07-10 19:43:57.410 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-07-10 19:44:03.533
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2016-07-10 19:44:04.725
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui 2 0 2016-07-10 19:44:05.040
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2016-07-10 19:44:05.041
+!MESSAGE Cannot bind to an undefined command: plug-in='com.liferay.ide.project.ui', id='com.liferay.ide.project.ui.upgrade.openLiferay7UpgradeAssistant'
+
+!ENTRY org.eclipse.jface 2 0 2016-07-10 19:44:06.926
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-07-10 19:44:06.926
+!MESSAGE A conflict occurred for ALT+COMMAND+V:
+Binding(ALT+COMMAND+V,
+	ParameterizedCommand(Command(com.liferay.ide.service.ui.buildService,Build Service,
+		Run the build-service command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2ad80cf6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+V,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.move.element,Move - Refactoring ,
+		Move the selected element to a new location,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4e212f46,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-07-10 19:44:06.926
+!MESSAGE A conflict occurred for ALT+COMMAND+N:
+Binding(ALT+COMMAND+N,
+	ParameterizedCommand(Command(com.liferay.ide.portlet.ui.buildLang,Build Languages,
+		Run the build-lang command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@629fe84,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+N,
+	ParameterizedCommand(Command(org.eclipse.ui.file.newQuickMenu,New menu,
+		Open the New menu,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6067e7c1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-07-10 19:44:06.926
+!MESSAGE A conflict occurred for ALT+COMMAND+W:
+Binding(ALT+COMMAND+W,
+	ParameterizedCommand(Command(com.liferay.ide.service.ui.buildWSDD,Build WSDD,
+		Run the build-wsdd command,
+		Category(com.liferay.ide.project.ui.handlers,Liferay Commands,Liferay Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@ab2e887,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+W,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.showInQuickMenu,Show In...,
+		Open the Show In menu,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4daead88,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-07-10 19:44:09.301
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-07-10 19:44:09.314
+!MESSAGE IvyDE plugin started
+
+!ENTRY net.resheim.eclipse.launcher.core 1 0 2016-07-10 19:47:43.030
+!MESSAGE Launching new Eclipse instance with "open -n /Applications/devtools/EclipseMars.app --args -vm /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/server/libjvm.dylib -os macosx -ws cocoa -arch x86_64 -showsplash -launcher /Applications/devtools/EclipseMars.app/Contents/MacOS/eclipse -name Eclipse --launcher.library /Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.300.v20150602-1417/eclipse_1611.so -startup /Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar --launcher.appendVmargs -product org.eclipse.epp.package.jee.product -launcher /Applications/devtools/EclipseMars.app/Contents/MacOS/eclipse -product org.eclipse.epp.package.jee.product -launcher /Applications/devtools/EclipseMars.app/Contents/MacOS/eclipse -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation -vmargs -Dosgi.requiredJavaVersion=1.7 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -XX:MaxPermSize=384m -Xms384m -Xmx1024m -Xdock:icon=../Resources/Eclipse.icns -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -Dosgi.requiredJavaVersion=1.7 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -XX:MaxPermSize=384m -Xms384m -Xmx1024m -Xdock:icon=../Resources/Eclipse.icns -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -Dosgi.requiredJavaVersion=1.7 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -XX:MaxPermSize=384m -Xms384m -Xmx1024m -Xdock:icon=../Resources/Eclipse.icns -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -Djava.class.path=/Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar -Djava.class.path=/Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar -Djava.class.path=/Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar "
+
+!ENTRY org.eclipse.ui.navigator.resources 4 0 2016-07-10 23:27:43.007
+!MESSAGE Could not acquire INavigatorContentService: Project Explorer not found.
