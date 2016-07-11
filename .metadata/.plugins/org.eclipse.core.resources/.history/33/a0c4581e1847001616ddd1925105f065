@@ -1,0 +1,27 @@
+  cas:
+   hostname: cas
+   domainname: mylighthouse.com
+   build: .
+   environment:
+     VIRTUAL_HOST: cas.mylighthouse.com
+     VIRTUAL_PROTO: https
+     VIRTUAL_PORT: 443
+     ADMIN_USER: admin
+     ADMIN_PASSWD: admin
+   extra_hosts:
+     - "ldap.mylighthouse.com:192.168.99.100"
+     - "dbcluster.mylighthouse.com:192.168.99.100"
+   ports:
+     - "443"
+   volumes:
+      - /Users/mduduzikeswa/Documents/dev/gitrepos/conx/conx-dev-env/docker-images/ssl_certs_and_keystores/STAR_mylighthouse.com:/keystores     
+  nginx:
+   environment:
+     DEFAULT_HOST: local.dev
+   ports:
+     - "80:80"
+     - "443:443"
+   volumes:
+     - /var/run/docker.sock:/tmp/docker.sock
+     - /Users/mduduzikeswa/Documents/dev/gitrepos/conx/conx-dev-env/docker-images/ssl_certs_and_keystores/STAR_mylighthouse.com:/etc/nginx/certs
+   image: jwilder/nginx-proxy

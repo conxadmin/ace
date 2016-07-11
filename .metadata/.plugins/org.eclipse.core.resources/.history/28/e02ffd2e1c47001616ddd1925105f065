@@ -1,0 +1,13 @@
+#!/bin/sh
+# Image dirs
+# 
+# Copy repo client
+copy_repo_client_dir=../images/conx-apache-ace-script-executor
+# All-in-one-server
+allinone_server_dir=../images/conx-apache-ace-server-allinone
+
+# Build images
+cd $copy_repo_client_dir
+scripts/build_and_run_local.sh
+cd $allinone_server_dir
+scripts/build_and_run_local.sh

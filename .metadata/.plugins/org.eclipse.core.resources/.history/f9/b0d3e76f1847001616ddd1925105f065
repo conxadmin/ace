@@ -1,0 +1,19 @@
+  conx-apache-ace-copy-repo:
+   environment:
+     VIRTUAL_HOST: cas.mylighthouse.com
+     VIRTUAL_PROTO: https
+     VIRTUAL_PORT: 443
+     ADMIN_USER: admin
+     ADMIN_PASSWD: admin
+   volumes:
+      - /Users/mduduzikeswa/Documents/dev/gitrepos/conx/conx-dev-env/docker-images/ssl_certs_and_keystores/STAR_mylighthouse.com:/keystores     
+  conx-apache-ace-server-allinone:
+   environment:
+     DEFAULT_HOST: local.dev
+   ports:
+     - "80:80"
+     - "443:443"
+   volumes:
+     - /var/run/docker.sock:/tmp/docker.sock
+     - /Users/mduduzikeswa/Documents/dev/gitrepos/conx/conx-dev-env/docker-images/ssl_certs_and_keystores/STAR_mylighthouse.com:/etc/nginx/certs
+   image: jwilder/nginx-proxy
