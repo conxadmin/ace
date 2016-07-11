@@ -10,9 +10,9 @@ images_dir="$(dirname "$scripts_dir")/images"
 # Copy repo client
 copy_repo_client_dir=$images_dir/conx-apache-ace-script-executor
 # All-in-one-server
-allinone_server_dir=$images_dir/conx-apache-ace-server-allinone
+allinone_server_dir=$images_dir/images/conx-apache-ace-server-allinone
 # Apache ACE target
-target_dir=$images_dir/conx-apache-ace-target
+target_dir=$images_dir/images/conx-apache-ace-target
 
 # Build images
 cd $copy_repo_client_dir
