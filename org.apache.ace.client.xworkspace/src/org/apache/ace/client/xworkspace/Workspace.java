@@ -71,9 +71,14 @@ public interface Workspace extends org.apache.ace.client.workspace.Workspace {
 	 */
 	public List<String> getTargetExportFilePaths(String directoryPath);
 	
-	public void impw(String directoryPath, String exportFile)  throws Exception;
+	public void impw(String directoryPath, String exportFileName, Boolean copyTargets)  throws Exception;
 	
-	public void impw(String directoryPath)  throws Exception;
+	public void impw(String directoryPath, Boolean copyTargets)  throws Exception;
 	
 	public void cpytgs(RepositoryObject src, RepositoryObject tgt) throws Exception;
+	
+	/**
+	 * Targets
+	 */
+	public void cts(String directoryPath) throws Exception;
 }

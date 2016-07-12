@@ -841,8 +841,78 @@ public class WorkspaceImpl implements Workspace {
         return targetObject;
     }
     
-    @Override
-    public void impw(String directoryPath)  throws Exception {
+	@Override
+	public void cts(String directoryPath) throws Exception {
+/*		Map<String,String> propValueMap = parsePropValueList(propValueList);
+  */
+		File inputDir = new File(directoryPath);
+    	if (inputDir.isDirectory()) {
+    		File[] files = inputDir.listFiles();
+    		for (File fl : files) {
+    			if (XML_EXTENSION.equalsIgnoreCase(getFileExtension(fl))) {
+    				createTargetsFromXMLFiles(directoryPath,fl.getAbsolutePath());
+    			}
+    		}
+    	}		
+	}        
+    
+    private void createTargetsFromXMLFiles(String directoryPath, String targetFilePath) throws Exception {
+		try {
+        	//--
+			DocumentBuilderFactory parserFactory = DocumentBuilderFactory.newInstance();
+			parserFactory.setNamespaceAware(true);
+
+			DocumentBuilder parser = parserFactory.newDocumentBuilder();
+			
+			File expFile = new File(targetFilePath);
+			
+			Document doc = parser.parse(expFile);	
+			
+			//==
+			//- Targets
+			//==	
+	        NodeList targets = doc.getElementsByTagName("target");
+	        for (int i = 0; i < targets.getLength(); ++i) {
+	            final Node target = targets.item(i);
+	            
+	            //-- Create target
+	            String tgtId = target.getAttributes().getNamedItem("id").getNodeValue();
+	            tgtId = ensureTarget(target);
+	            
+	            //-- Dist's
+	            NodeList distrefs = ((Element)target).getElementsByTagName("distributionref");
+	            for (int j=0; j<distrefs.getLength(); ++j) {
+		            final Node feat = distrefs.item(j);
+		            if (feat != null && feat.getNodeType() == Node.ELEMENT_NODE) {
+			            final Element firstChildElement = (Element) feat;
+			            if (firstChildElement != null) {
+							final String destId = firstChildElement.getAttribute("refid");
+							ensureDist2Target(destId,tgtId,firstChildElement);
+			            }
+			            else {
+			            	System.out.println(String.format("Feature %s of Dist %s has no first element",feat,tgtId));
+			            }
+		            }
+	            }	            
+	        }
+    	} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}   
+	}
+
+	private Map<String, String> parsePropValueList(String propValueList) {
+    	String[] pairs = propValueList.split(";");
+    	final Map<String,String> propValMap = new HashMap<>();
+    	for (String pair : pairs) {
+    		final String[] propVal = pair.split("=");
+    		propValMap.put(propVal[0], propVal[1]);
+    	}
+		return propValMap;
+	}
+
+	@Override
+    public void impw(String directoryPath, Boolean copyTargets)  throws Exception {
     	File inputDir = new File(directoryPath);
 
     	List<String> targetExcl = null;
@@ -850,14 +920,14 @@ public class WorkspaceImpl implements Workspace {
     		targetExcl = Arrays.asList(this.m_exporterTargetsList.split(";"));
     		for (String tgt : targetExcl) {
     			String pathname = directoryPath+File.separator+tgt+"."+XML_EXTENSION;
-    			impw(directoryPath,new File(pathname).getAbsolutePath());
+    			impw(directoryPath,new File(pathname).getAbsolutePath(),copyTargets);
     		}    		
     	}
     	else if (inputDir.isDirectory()) {
     		File[] files = inputDir.listFiles();
     		for (File fl : files) {
     			if (XML_EXTENSION.equalsIgnoreCase(getFileExtension(fl))) {
-    				impw(directoryPath,fl.getAbsolutePath());
+    				impw(directoryPath,fl.getAbsolutePath(),copyTargets);
     			}
     		}
     	}   
@@ -899,7 +969,7 @@ public class WorkspaceImpl implements Workspace {
     }
     
     @Override
-    public void impw(String directoryPath, String exportFileName)  throws Exception {
+    public void impw(String directoryPath, String exportFileName, Boolean copyTargets)  throws Exception {
     	processedDists.clear();
         try {
         	//Assumption is artifacts have been added/copied to server
@@ -983,30 +1053,32 @@ public class WorkspaceImpl implements Workspace {
 			//==
 			//- Targets
 			//==	
-	        NodeList targets = doc.getElementsByTagName("target");
-	        for (int i = 0; i < targets.getLength(); ++i) {
-	            final Node target = targets.item(i);
-	            
-	            //-- Create target
-	            String tgtId = target.getAttributes().getNamedItem("id").getNodeValue();
-	            tgtId = ensureTarget(target);
-	            
-	            //-- Dist's
-	            NodeList distrefs = ((Element)target).getElementsByTagName("distributionref");
-	            for (int j=0; j<distrefs.getLength(); ++j) {
-		            final Node feat = distrefs.item(j);
-		            if (feat != null && feat.getNodeType() == Node.ELEMENT_NODE) {
-			            final Element firstChildElement = (Element) feat;
-			            if (firstChildElement != null) {
-							final String destId = firstChildElement.getAttribute("refid");
-							ensureDist2Target(destId,tgtId,firstChildElement);
+	        if (copyTargets) {
+		        NodeList targets = doc.getElementsByTagName("target");
+		        for (int i = 0; i < targets.getLength(); ++i) {
+		            final Node target = targets.item(i);
+		            
+		            //-- Create target
+		            String tgtId = target.getAttributes().getNamedItem("id").getNodeValue();
+		            tgtId = ensureTarget(target);
+		            
+		            //-- Dist's
+		            NodeList distrefs = ((Element)target).getElementsByTagName("distributionref");
+		            for (int j=0; j<distrefs.getLength(); ++j) {
+			            final Node feat = distrefs.item(j);
+			            if (feat != null && feat.getNodeType() == Node.ELEMENT_NODE) {
+				            final Element firstChildElement = (Element) feat;
+				            if (firstChildElement != null) {
+								final String destId = firstChildElement.getAttribute("refid");
+								ensureDist2Target(destId,tgtId,firstChildElement);
+				            }
+				            else {
+				            	System.out.println(String.format("Feature %s of Dist %s has no first element",feat,tgtId));
+				            }
 			            }
-			            else {
-			            	System.out.println(String.format("Feature %s of Dist %s has no first element",feat,tgtId));
-			            }
-		            }
-	            }	            
-	        }		        
+		            }	            
+		        }	
+	        }
 	        
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -1127,7 +1199,6 @@ public class WorkspaceImpl implements Workspace {
 		return distId;
 	}	
 	
-	
 	private String ensureTarget(final Node target) throws Exception {
 		StatefulTargetObject f;
 		String tgtId = target.getAttributes().getNamedItem("id").getNodeValue();
@@ -1165,6 +1236,8 @@ public class WorkspaceImpl implements Workspace {
 		f = ct(attrs,tagsMap);
 		return tgtId;
 	}	
+	
+	
     public static Version getVersion(Resource resource) {
         Map<String, Object> attrs = getNamespaceAttributes(resource, "osgi.identity");
         if (attrs == null)
@@ -1224,6 +1297,7 @@ public class WorkspaceImpl implements Workspace {
             return null;
         return attrs;
     }    
+    
     
     
     @Override
