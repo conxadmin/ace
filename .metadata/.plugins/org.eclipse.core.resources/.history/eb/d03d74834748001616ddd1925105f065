@@ -1,0 +1,4 @@
+deploymentversionlimit="-1"
+obrlocation="http://aceserver.myconxdev.com:9000/obr"
+service.pid="org.apache.ace.client.repository"
+showunregisteredtargets="true"

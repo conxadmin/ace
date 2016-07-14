@@ -137,7 +137,7 @@ public interface WorkspaceManager {
      *             in case of I/O problems.
      */
     public Workspace cw(String storeCustomerName, String targetCustomerName, String deploymentCustomerName,
-    		String exporterDestinationPath, String exporterTargetsList,
+    		String exporterDestinationPath, String exporterTargetsList, String importerTargetsPath,
     		Map sessionConfiguration) throws IOException;
 
     /**

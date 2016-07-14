@@ -1,0 +1,16 @@
+local-dev-mk1,1464199785339,1,1464199785345,3,id,1
+local-dev-mk1,1464199785339,2,1464199792238,2000
+local-dev-mk1,1464199785339,3,1464199793308,2001,name,local-dev-mk1
+local-dev-mk1,1464199785339,4,1464199793351,1,name,com.fasterxml.jackson.jaxrs.jackson-jaxrs-base,location,osgi-dp:com.fasterxml.jackson.jaxrs.jackson-jaxrs-base,id,2,version,2.3.0
+local-dev-mk1,1464199785339,5,1464199793416,1,name,org.apache.sling.models.api,location,osgi-dp:org.apache.sling.models.api,id,3,version,1.1.0
+local-dev-mk1,1464199785339,6,1464199793432,1,name,org.conxworks.contentrepository.jcr.nodetypes.mt,location,osgi-dp:org.conxworks.contentrepository.jcr.nodetypes.mt,id,4,version,1.0.0.201604221959
+local-dev-mk1,1464199785339,7,1464199793438,1,name,org.apache.sling.extensions.threaddump,location,osgi-dp:org.apache.sling.extensions.threaddump,id,5,version,0.2.2
+local-dev-mk1,1464199785339,8,1464199793441,1,name,javax.inject,location,osgi-dp:javax.inject,id,6,version,1.0.0
+local-dev-mk1,1464199785339,9,1464199793444,1,name,org.apache.felix.http.api,location,osgi-dp:org.apache.felix.http.api,id,7,version,2.3.2
+local-dev-mk1,1464199785339,10,1464199793574,1,name,org.apache.sling.jcr.jackrabbit.usermanager,location,osgi-dp:org.apache.sling.jcr.jackrabbit.usermanager,id,8,version,2.2.5.SNAPSHOT
+local-dev-mk1,1464199785339,11,1464202763182,3,id,1
+local-dev-mk1,1464199785339,12,1464202763183,3,id,0
+local-dev-mk1,1464199785339,13,1464202763183,1005,id,0
+local-dev-mk1,1464199785339,14,1464202763183,1004,id,0
+local-dev-mk1,1464199785339,15,1464202763288,2,id,6
+local-dev-mk1,1464199785339,16,1464202763288,2,id,3

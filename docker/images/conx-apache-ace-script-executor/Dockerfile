@@ -13,6 +13,7 @@ ENV ACE_CLIENT_DEBUG_OPTS ""
 # install ace target files
 COPY distributions/conx-apache-ace-script-executor.jar /root/conx-apache-ace-script-executor.jar
 COPY conf /root/conf/
+COPY targets /root/apache_ace_targets/
 COPY gogo_scripts /root/scripts/
 
 ##################################################################################################

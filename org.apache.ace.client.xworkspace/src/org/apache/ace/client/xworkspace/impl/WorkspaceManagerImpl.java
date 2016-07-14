@@ -58,9 +58,11 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     /** Name of the user to log in as, in case no actual authentication is used. */
     private static final String KEY_USER_NAME = "user.name";
     
+    private static final String KEY_RP_AUTOCONF_BUNDLE = "rp.autoconf.bundle.info";//"/path/path;org.apache.felix.deployment.rp.autoconf;0.1.8";
     private static final String KEY_REPOSITORY_EXPORTER_PATH = "repo.exporter.path";
     private static final String KEY_REPOSITORY_EXPORTER_TARGETS = "repo.exporter.targets.list";
     private static final String KEY_REPOSITORY_IMPORTER_SERVER_URL = "repo.importer.repository.url";
+    private static final String KEY_REPOSITORY_IMPORTER_TARGETS_PATH = "repo.importer.targets.path.name";
 
     private static long m_sessionID = 1;
     private volatile LogService m_logger;
@@ -83,6 +85,8 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     private String m_exporterDestinationPath;
     private String m_exporterTargetsList;
     private String m_importerRepositoryUrl;
+    private String m_importerTargetsPath;
+	private String m_resourceProcessorBundleInfo;
 
     public WorkspaceManagerImpl() {
         m_workspaces = new HashMap<>();
@@ -143,6 +147,9 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             }
             m_exporterTargetsList = getProperty(properties, KEY_REPOSITORY_EXPORTER_TARGETS, null);
             m_importerRepositoryUrl = getProperty(properties, KEY_REPOSITORY_IMPORTER_SERVER_URL, null);
+            
+            m_importerTargetsPath = getProperty(properties, KEY_REPOSITORY_IMPORTER_TARGETS_PATH, null);
+            m_resourceProcessorBundleInfo = getProperty(properties, KEY_RP_AUTOCONF_BUNDLE, null);
         }
     }
 
@@ -158,7 +165,8 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             sessionID = "rest-" + m_sessionID++;
             workspace = new WorkspaceImpl(sessionID, m_repositoryURL, m_customerName, m_storeRepositoryName,
                     m_targetRepositoryName, m_deploymentRepositoryName,
-                    m_exporterDestinationPath, m_exporterTargetsList);
+                    m_exporterDestinationPath, m_exporterTargetsList,
+                    m_importerTargetsPath,m_resourceProcessorBundleInfo);
             m_workspaces.put(sessionID, workspace);
 
             component = m_dm.createComponent().setImplementation(workspace);
@@ -222,30 +230,30 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     public Workspace cw4imp() throws IOException {
     	final String currentRepositoryUrl = new String(this.m_repositoryURL);
     	this.m_repositoryURL = this.m_importerRepositoryUrl;
-        Workspace newWs = cw(m_customerName, m_customerName, m_customerName, m_exporterDestinationPath, m_exporterTargetsList, null);
+        Workspace newWs = cw(m_customerName, m_customerName, m_customerName, m_exporterDestinationPath, m_exporterTargetsList, m_importerTargetsPath, null);
         this.m_repositoryURL = currentRepositoryUrl;
         return newWs;
     }
     
     @Override
     public Workspace cw() throws IOException {
-        return cw(m_customerName, m_customerName, m_customerName, m_exporterDestinationPath, m_exporterTargetsList, null);
+        return cw(m_customerName, m_customerName, m_customerName, m_exporterDestinationPath, m_exporterTargetsList, m_importerTargetsPath, null);
     }
 
     @Override
     public Workspace cw(String exporterDestinationPath, String exporterTargetsList, Map sessionConfiguration) throws IOException {
-        return cw(m_customerName, m_customerName, m_customerName, m_exporterDestinationPath, m_exporterTargetsList, sessionConfiguration);
+        return cw(m_customerName, m_customerName, m_customerName, m_exporterDestinationPath, m_exporterTargetsList, m_importerTargetsPath, sessionConfiguration);
     }
 
     @Override
     public Workspace cw(String storeCustomerName, String targetCustomerName, String deploymentCustomerName, String exporterDestinationPath, String exporterTargetsList)
             throws IOException {
-        return cw(storeCustomerName, targetCustomerName, deploymentCustomerName, exporterDestinationPath, exporterTargetsList, null);
+        return cw(storeCustomerName, targetCustomerName, deploymentCustomerName, exporterDestinationPath, exporterTargetsList, m_importerTargetsPath, null);
     }
 
     @Override
     public Workspace cw(String storeCustomerName, String targetCustomerName, String deploymentCustomerName,
-    		String exporterDestinationPath, String exporterTargetsList,
+    		String exporterDestinationPath, String exporterTargetsList, String importerTargetsPath,
             Map sessionConfiguration) throws IOException {
         final String sessionID;
         final Workspace workspace;
@@ -255,7 +263,8 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             sessionID = "shell-" + m_sessionID++;
             workspace = new WorkspaceImpl(sessionID, m_repositoryURL, storeCustomerName, m_storeRepositoryName,
                     targetCustomerName, m_targetRepositoryName, deploymentCustomerName, m_deploymentRepositoryName,
-                    exporterDestinationPath, exporterTargetsList);
+                    exporterDestinationPath, exporterTargetsList,
+                    importerTargetsPath,m_resourceProcessorBundleInfo);
             m_workspaces.put(sessionID, workspace);
 
             component = m_dm.createComponent().setImplementation(workspace);
@@ -325,54 +334,4 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
         return null;
     }   
     
-    class TempDirectory {
-        final Path path;
-
-        public TempDirectory() {
-            try {
-                path = Files.createTempDirectory("apache_ace_xworkspace");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-        public Path getPath() {
-            return path;
-        }
-
-        public void deleteOnExit() {
-            Runtime.getRuntime().addShutdownHook(new Thread() {
-                @Override
-                public void run() {
-                    delete();
-                }
-            });
-        }
-
-        public void delete() {
-            if (!Files.exists(path)) {
-                return;
-            }
-            try {
-                Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
-                    @Override
-                    public FileVisitResult postVisitDirectory(Path dir, IOException exc)
-                            throws IOException {
-                        Files.deleteIfExists(dir);
-                        return super.postVisitDirectory(dir, exc);
-                    }
-
-                    @Override
-                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)
-                            throws IOException {
-                        Files.deleteIfExists(file);
-                        return super.visitFile(file, attrs);
-                    }
-                });
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-    }    
 }

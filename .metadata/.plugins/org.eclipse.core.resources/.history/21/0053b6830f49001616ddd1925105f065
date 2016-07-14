@@ -1,0 +1,7 @@
+conxdbautoprovidetenantschema="${context.testTenantConxdbautoprovidetenantschema}"
+conxdbcluster="${context.testTenantConxdbcluster}"
+org.amdatu.tenant.name="${context.testTenantName}"
+org.amdatu.tenant.pid="${context.testTenantPID}"
+service.bundleLocation="osgi-dp:org.amdatu.multitenant.conf"
+service.factoryPid="org.amdatu.tenant.factory"
+service.pid="org.amdatu.tenant.factory.18e1d53f-72e8-4fec-9782-bde59dc881f2"

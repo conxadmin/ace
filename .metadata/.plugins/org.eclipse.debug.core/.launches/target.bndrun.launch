@@ -3,6 +3,7 @@
 <booleanAttribute key="clean" value="true"/>
 <booleanAttribute key="dynamicBundles" value="true"/>
 <stringAttribute key="launchTarget" value="run-target/target.bndrun"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="run-target"/>
 <booleanAttribute key="trace" value="false"/>
 </launchConfiguration>

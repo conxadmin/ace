@@ -94,9 +94,12 @@ public class WorkspaceImpl implements Workspace {
     private final String m_storeRepositoryName;
     private final String m_distributionRepositoryName;
     private final String m_deploymentRepositoryName;
+	private final String m_resourceProcessorBundleInfo;
     
     private String m_exporterDestinationPath;
     private String m_exporterTargetsList;
+	private String m_importerTargetsPath;
+	private String m_importerCopyTargets;
 
     private volatile BundleContext m_context;
     private volatile DependencyManager m_manager;
@@ -113,16 +116,19 @@ public class WorkspaceImpl implements Workspace {
 
     public WorkspaceImpl(String sessionID, String repositoryURL, String customerName, String storeRepositoryName,
         String distributionRepositoryName, String deploymentRepositoryName,
-        String exporterDestinationPath, String exporterTargetsList) throws MalformedURLException {
+        String exporterDestinationPath, String exporterTargetsList,
+        String importerTargetsPath, String resourceProcessorBundleInfo) throws MalformedURLException {
         this(sessionID, repositoryURL, customerName, storeRepositoryName, customerName, distributionRepositoryName,
             customerName, deploymentRepositoryName,
-            exporterDestinationPath,exporterTargetsList);
+            exporterDestinationPath,exporterTargetsList,
+            importerTargetsPath,resourceProcessorBundleInfo);
     }
 
     public WorkspaceImpl(String sessionID, String repositoryURL, String storeCustomerName, String storeRepositoryName,
         String distributionCustomerName, String distributionRepositoryName, String deploymentCustomerName,
         String deploymentRepositoryName,
-        String exporterDestinationPath, String exporterTargetsList) throws MalformedURLException {
+        String exporterDestinationPath, String exporterTargetsList,
+        String importerTargetsPath, String resourceProcessorBundleInfo) throws MalformedURLException {
         m_sessionID = sessionID;
         m_repositoryURL = new URL(repositoryURL);
         m_storeCustomerName = storeCustomerName;
@@ -134,6 +140,9 @@ public class WorkspaceImpl implements Workspace {
         
         m_exporterDestinationPath = exporterDestinationPath;
         m_exporterTargetsList = exporterTargetsList;
+        
+        m_importerTargetsPath = importerTargetsPath;
+        m_resourceProcessorBundleInfo = resourceProcessorBundleInfo;
     }
 
     @Override
@@ -842,15 +851,15 @@ public class WorkspaceImpl implements Workspace {
     }
     
 	@Override
-	public void cts(String directoryPath) throws Exception {
+	public void cts() throws Exception {
 /*		Map<String,String> propValueMap = parsePropValueList(propValueList);
   */
-		File inputDir = new File(directoryPath);
+		File inputDir = new File(this.m_importerTargetsPath);
     	if (inputDir.isDirectory()) {
     		File[] files = inputDir.listFiles();
     		for (File fl : files) {
     			if (XML_EXTENSION.equalsIgnoreCase(getFileExtension(fl))) {
-    				createTargetsFromXMLFiles(directoryPath,fl.getAbsolutePath());
+    				createTargetsFromXMLFiles(this.m_importerTargetsPath,fl.getAbsolutePath());
     			}
     		}
     	}		
@@ -910,6 +919,23 @@ public class WorkspaceImpl implements Workspace {
     	}
 		return propValMap;
 	}
+	
+	@Override
+	public List<String> lsTargetFiles(String directoryPath) throws Exception {
+		List<String> list = new ArrayList<>();
+		File[] files = new File(directoryPath).listFiles();
+		for (File fl : files) {
+			if (XML_EXTENSION.equalsIgnoreCase(getFileExtension(fl))) {
+				list.add(fl.getAbsolutePath());
+			}
+		}
+		return list;
+	}
+	
+    public void impw(String directoryPath, Boolean copyTargets, String targetName)  throws Exception {
+		String pathname = this.m_importerTargetsPath+File.separator+targetName+"."+XML_EXTENSION;
+		impw(directoryPath,new File(pathname).getAbsolutePath(),copyTargets);
+	}
 
 	@Override
     public void impw(String directoryPath, Boolean copyTargets)  throws Exception {
@@ -932,43 +958,8 @@ public class WorkspaceImpl implements Workspace {
     		}
     	}   
     }
-    
-    
-    @Override
-    public List getTargetExportFilePaths(String directoryPath) {
-    	ArrayList<String> paths = new ArrayList<>();
-    	File inputDir = new File(directoryPath);
-
-    	List<String> targetExcl = null;
-    	if (this.m_exporterTargetsList != null) {
-    		targetExcl = Arrays.asList(this.m_exporterTargetsList.split(";"));
-    		for (String tgt : targetExcl) {
-    			String pathname = directoryPath+File.separator+tgt+"."+XML_EXTENSION;
-				paths.add(new File(pathname).getAbsolutePath());
-    		}    		
-    	}
-    	else if (inputDir.isDirectory()) {
-    		File[] files = inputDir.listFiles();
-    		for (File fl : files) {
-    			if (XML_EXTENSION.equalsIgnoreCase(getFileExtension(fl))) {
-    				paths.add(fl.getAbsolutePath());
-    			}
-    		}
-    	}   
-    	
-    	return paths;
-    }
-    
-    private String getFileExtension(File file) {
-        String name = file.getName();
-        try {
-            return name.substring(name.lastIndexOf(".") + 1);
-        } catch (Exception e) {
-            return "";
-        }
-    }
-    
-    @Override
+	
+	@Override
     public void impw(String directoryPath, String exportFileName, Boolean copyTargets)  throws Exception {
     	processedDists.clear();
         try {
@@ -993,30 +984,36 @@ public class WorkspaceImpl implements Workspace {
 	            
 	            //-- Create feature
 	            FeatureObject f = null;
-	            String featureId = ensureFeature(feature);
+	    		String featureId = feature.getAttributes().getNamedItem("id").getNodeValue();
+	            boolean created = ensureFeature(featureId,feature);
 				
-	            //final String featureId = DOMUtil.getChildText(DOMUtil.getFirstChildElement(feature,"id"));
-	            NodeList artifacts = ((Element)feature).getElementsByTagName("artifact");
-	            for (int j=0; j<artifacts.getLength(); ++j) {
-		            final Node art = artifacts.item(j);
-		            if (art != null && art.getNodeType() == Node.ELEMENT_NODE) {
-			            final Element firstChildElement = (Element) art;
-			            if (firstChildElement != null) {
-							final String artId = firstChildElement.getAttribute("id");
-				            final String symbolicName = firstChildElement.getAttribute("symbolicname");
-				            if (symbolicName == null || symbolicName.isEmpty()) {//Not bundle, a config file
-				            	//final String artifactName = String.format("$identity - $version",artId
-				            	ensureAutoconfArtifact2Feature(featureId,artId,firstChildElement,directoryPath+File.separator+"jars_and_configs");		            	
+	            if (created) {
+		            //final String featureId = DOMUtil.getChildText(DOMUtil.getFirstChildElement(feature,"id"));
+		            NodeList artifacts = ((Element)feature).getElementsByTagName("artifact");
+		            for (int j=0; j<artifacts.getLength(); ++j) {
+			            final Node art = artifacts.item(j);
+			            if (art != null && art.getNodeType() == Node.ELEMENT_NODE) {
+				            final Element firstChildElement = (Element) art;
+				            if (firstChildElement != null) {
+								final String artId = firstChildElement.getAttribute("id");
+					            final String symbolicName = firstChildElement.getAttribute("symbolicname");
+					            if (symbolicName == null || symbolicName.isEmpty()) {//Not bundle, a config file
+					            	//final String artifactName = String.format("$identity - $version",artId
+					            	ensureAutoconfArtifact2Feature(featureId,artId,firstChildElement,directoryPath+File.separator+"jars_and_configs");		            	
+					            }
+					            else {
+					            	ensureBundleArtifact2Feature(featureId,artId,firstChildElement,directoryPath+File.separator+"jars_and_configs");
+					            }
 				            }
 				            else {
-				            	ensureBundleArtifact2Feature(featureId,artId,firstChildElement,directoryPath+File.separator+"jars_and_configs");
+				            	System.out.println(String.format("Artifact %s of Feature %s has no first element",art,featureId));
 				            }
-			            }
-			            else {
-			            	System.out.println(String.format("Artifact %s of Feature %s has no first element",art,featureId));
 			            }
 		            }
 	            }
+	            else
+	            	System.out.println(String.format("Feature %s already exists",featureId));
+
 	        }
 	        
 			//==
@@ -1029,21 +1026,24 @@ public class WorkspaceImpl implements Workspace {
 	            //-- Create feature
 	            String distId = distribution.getAttributes().getNamedItem("id").getNodeValue();
 	            if (!processedDists.contains(distId)) {
-		            distId = ensureDistribution(distribution);
-	            	processedDists.add(distId);
-					
-		            //final String featureId = DOMUtil.getChildText(DOMUtil.getFirstChildElement(feature,"id"));
-		            NodeList featurerefs = ((Element)distribution).getElementsByTagName("featureref");
-		            for (int j=0; j<featurerefs.getLength(); ++j) {
-			            final Node feat = featurerefs.item(j);
-			            if (feat != null && feat.getNodeType() == Node.ELEMENT_NODE) {
-				            final Element firstChildElement = (Element) feat;
-				            if (firstChildElement != null) {
-								final String featureId = firstChildElement.getAttribute("refid");
-								ensureFeature2Distribution(featureId,distId,firstChildElement);
-				            }
-				            else {
-				            	System.out.println(String.format("Feature %s of Dist %s has no first element",feat,distId));
+		            boolean created = ensureDistribution(distribution);
+		            if (created) {
+		            	processedDists.add(distId);
+						
+			            //final String featureId = DOMUtil.getChildText(DOMUtil.getFirstChildElement(feature,"id"));
+			            NodeList featurerefs = ((Element)distribution).getElementsByTagName("featureref");
+			            for (int j=0; j<featurerefs.getLength(); ++j) {
+				            final Node feat = featurerefs.item(j);
+				            if (feat != null && feat.getNodeType() == Node.ELEMENT_NODE) {
+					            final Element firstChildElement = (Element) feat;
+					            if (firstChildElement != null) {
+									final String featureId = firstChildElement.getAttribute("refid");
+									ensureFeature2Distribution(featureId,distId,firstChildElement);
+					            	System.out.println(String.format("Feature %s added to Dist %s",featureId,distId));
+					            }
+					            else {
+					            	System.out.println(String.format("Feature %s of Dist %s has no first element",feat,distId));
+					            }
 				            }
 			            }
 		            }
@@ -1080,11 +1080,53 @@ public class WorkspaceImpl implements Workspace {
 		        }	
 	        }
 	        
+	        //-- Summarize
+	        System.out.println("Imported distros:");
+	        for ( String dist : processedDists) {
+	        	System.out.println("\t"+dist);
+	        }
+	        
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		}   	
+    }	
+    
+    
+    @Override
+    public List getTargetExportFilePaths(String directoryPath) {
+    	ArrayList<String> paths = new ArrayList<>();
+    	File inputDir = new File(directoryPath);
+
+    	List<String> targetExcl = null;
+    	if (this.m_exporterTargetsList != null) {
+    		targetExcl = Arrays.asList(this.m_exporterTargetsList.split(";"));
+    		for (String tgt : targetExcl) {
+    			String pathname = directoryPath+File.separator+tgt+"."+XML_EXTENSION;
+				paths.add(new File(pathname).getAbsolutePath());
+    		}    		
+    	}
+    	else if (inputDir.isDirectory()) {
+    		File[] files = inputDir.listFiles();
+    		for (File fl : files) {
+    			if (XML_EXTENSION.equalsIgnoreCase(getFileExtension(fl))) {
+    				paths.add(fl.getAbsolutePath());
+    			}
+    		}
+    	}   
+    	
+    	return paths;
     }
+    
+    private String getFileExtension(File file) {
+        String name = file.getName();
+        try {
+            return name.substring(name.lastIndexOf(".") + 1);
+        } catch (Exception e) {
+            return "";
+        }
+    }
+    
     
 	private void ensureDist2Target(String destId, String tgtId, Element featureElement) throws Exception {
     	String filter = String.format("(leftEndpoint=*name=%s*)",destId);
@@ -1104,7 +1146,7 @@ public class WorkspaceImpl implements Workspace {
 	}
 
 	private void ensureFeature2Distribution(String featureId, String distId, Element featureElement) throws Exception {
-    	String filter = String.format("(leftEndpoint=*name=%s*)",featureId);
+    	String filter = String.format("(&(leftEndpoint=*name=%s*)(rightEndpoint=*name=%s*))",featureId,distId);
     	List<Feature2DistributionAssociation> lf2dRes = lf2d(filter);
     	for (Feature2DistributionAssociation lf2d : lf2dRes) {
     		df2d(lf2d);
@@ -1161,42 +1203,49 @@ public class WorkspaceImpl implements Workspace {
 		ca2f(leftEndpoint,rightEndpoint,"10000","1");
 	}
 
-	private String ensureFeature(final Node feature) throws Exception {
+	private boolean ensureFeature(final String featureId, final Node feature) throws Exception {
+		boolean created = false;
 		FeatureObject f;
-		String featureId = feature.getAttributes().getNamedItem("id").getNodeValue();
 		final String featureFilter = String.format("(name=%s)",featureId);
 		List<FeatureObject> lfRes = lf(featureFilter);
-		if (!lfRes.isEmpty()) {
-			//-- Del a2f assoc's
+		if (lfRes.isEmpty()) {
+			f = cf(featureId);		
+			created = true;
+		}
+		else {
+/*			//-- Del a2f assoc's
 			final List<Artifact2FeatureAssociation> la2fRes = la2f(String.format("(rightEndpoint=*name=%s*)",featureId));
 			for (Artifact2FeatureAssociation la2f : la2fRes) {
 				da2f(la2f);
 			}
 			
 			//-- Del feature
-			df(featureFilter);
+			df(featureFilter);*/
+			
 		}
-		f = cf(featureId);
-		return featureId;
+	
+		return created;
 	}
 	
-	private String ensureDistribution(final Node dist) throws Exception {
+	private boolean ensureDistribution(final Node dist) throws Exception {
 		DistributionObject f;
 		String distId = dist.getAttributes().getNamedItem("id").getNodeValue();
 		final String distFilter = String.format("(name=%s)",distId);
 		List<DistributionObject> lfRes = ld(distFilter);
-		if (!lfRes.isEmpty()) {
-			//-- Del a2f assoc's
+		if (lfRes.isEmpty()) {
+			cd(distId);
+			return true;
+		}
+		else {
+/*			//-- Del a2f assoc's
 			final List<Feature2DistributionAssociation> lf2dRes = lf2d(String.format("(rightEndpoint=*name=%s*)",distId));
 			for (Feature2DistributionAssociation lf2d : lf2dRes) {
 				df2d(lf2d);
 			}
-			
 			//-- Del dist
-			dd(distFilter);
+			dd(distFilter);*/
 		}
-		f = cd(distId);
-		return distId;
+		return false;
 	}	
 	
 	private String ensureTarget(final Node target) throws Exception {
@@ -1232,8 +1281,10 @@ public class WorkspaceImpl implements Workspace {
 		
 		Map<String, String> attrs = new HashMap<>();
         attrs.put(StatefulTargetObject.KEY_ID, tgtId);
+        attrs.put(StatefulTargetObject.KEY_APPROVAL_STATE, tgtId);
         
 		f = ct(attrs,tagsMap);
+		
 		return tgtId;
 	}	
 	
@@ -1641,5 +1692,31 @@ public class WorkspaceImpl implements Workspace {
 	public void setRepositoryURL(String repositoryUrl) throws IOException {
 		this.logout();
 		this.m_repositoryURL = new URL(repositoryUrl);
+	}
+
+	@Override
+	public void irp() throws Exception {
+    	try {
+			String[] autoConf = m_resourceProcessorBundleInfo.split(";");
+			File autoConfJar = new File(autoConf[0]);
+			String autoConfBN = autoConf[1];
+			String autoConfVer = autoConf[2];
+			final String url = autoConfJar.toURI().toURL().toString();
+			final String mimetype= "application/vnd.osgi.bundle";
+			final String name = String.format("%s-%s", autoConfBN, autoConfVer);
+			
+			Map<String,String> attrs = new HashMap<>();
+			attrs.put("Bundle-SymbolicName",autoConfBN);
+			attrs.put("Bundle-Version", autoConfVer);
+			attrs.put("artifactName", name);
+			attrs.put("mimetype", mimetype);
+			attrs.put("Deployment-ProvidesResourceProcessor","org.osgi.deployment.rp.autoconf");
+			attrs.put("url",url);
+			
+			ArtifactObject autoConfArt = ca(attrs);
+				
+		} catch (Exception e) {
+			System.out.println("Autoconf is already installed...");
+		}
 	}
 }

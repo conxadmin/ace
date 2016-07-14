@@ -1,0 +1,6 @@
+customer="apache"
+factory.instance.pid="org.apache.ace.server.repository.factory_ace-shop"
+master="true"
+name="shop"
+service.factoryPid="org.apache.ace.server.repository.factory"
+service.pid="org.apache.ace.server.repository.factory.2b1576e0-19d8-4345-b1b2-bc3b9d07b4d1"

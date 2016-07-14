@@ -1,0 +1,5 @@
+package org.apache.ace.client.xworkspace.impl;
+
+public class TempDirectory {
+
+}

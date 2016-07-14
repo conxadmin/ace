@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<targets>
+<target id="ace-target-conx-platform-services-db">
+			<distributionrefs>
+				<distributionref refid="platform-services-db"></distributionref>
+			</distributionrefs>
+			<tags>
+			    <tag name="httpHost" value="conx.dev" />
+			    <tag name="httpPort" value="8182" />
+			    <tag name="remoteAdminHttpHost" value="conx.dev" />
+			    <tag name="remoteAdminHttpPort" value="8182" />
+				<tag name="dbPass" value="conxadmin" />
+				<tag name="dbConnectionid" value="conx-dbnode-tenants1" />
+				<tag name="dbConxdbcluster" value="conx-db-cluster-tenants1" />
+				<tag name="dbName" value="conxlogistics" />
+				<tag name="dbType" value="PostgreSQL" />
+				<tag name="dbHost" value="conx.dev" />
+				<tag name="dbConxdbautoprovidetenantschema" value="true" />
+				<tag name="dbPort" value="5432" />
+				<tag name="dbUser" value="conxadmin" />
+				<tag name="etdConnecturl" value="http://etcd.myconxdev.com:4001" />
+				<tag name="etcdDiscoveryPort" value="8181" />
+				<tag name="etdRootpath" value="/discovery1" />
+				<tag name="etcdDiscoveryPath" value="org.amdatu.remote.discovery.etcd" />
+				<tag name="etcdDiscoveryHost" value="conx.dev" />
+				<tag name="etdSchedule" value="4" />
+				<tag name="platformTenantPID" value="org.amdatu.tenant.PLATFORM" />
+				<tag name="platformTenantConxautocreateplatschema" value="true" />
+				<tag name="platformTenantName" value="PLATFORM" />				
+			</tags>
+</target>
+</targets>

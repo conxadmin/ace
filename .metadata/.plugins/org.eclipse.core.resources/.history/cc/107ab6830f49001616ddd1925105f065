@@ -1,0 +1,7 @@
+conxautocreateplatschema=B"true"
+conxdbcluster="${context.platformTenantConxdbcluster}"
+org.amdatu.tenant.name="PLATFORM"
+org.amdatu.tenant.pid="org.amdatu.tenant.PLATFORM"
+service.bundleLocation="osgi-dp:org.amdatu.multitenant.conf"
+service.factoryPid="org.amdatu.tenant.factory"
+service.pid="org.amdatu.tenant.factory.2baf9bf8-1659-4f34-8eec-2eb95d70f065"

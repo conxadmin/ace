@@ -2,7 +2,7 @@
 
 Bundle-Name: Apache ACE Agent
 Bundle-Description: Implementation of the Apache ACE Agent
-Bundle-Version: 1.0.3
+Bundle-Version: 1.0.4
 Bundle-Activator: org.apache.ace.agent.impl.Activator
 
 Private-Package: org.apache.ace.range,\
@@ -48,5 +48,8 @@ mavenGroupId: org.apache.ace
 	org.apache.ace.range.api;version=latest,\
 	org.apache.ace.feedback.common;version=latest
 
-javac.source: 1.7
-javac.target: 1.7
+javac.source: 1.8
+javac.target: 1.8
+-runbundles: \
+	org.apache.felix.deployment.rp.autoconf;version=0.1.8,\
+	org.apache.felix.dependencymanager;version=4.1.1
