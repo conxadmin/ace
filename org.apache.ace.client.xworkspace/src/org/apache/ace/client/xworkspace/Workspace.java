@@ -90,4 +90,8 @@ public interface Workspace extends org.apache.ace.client.workspace.Workspace {
 	 * Install resource processor
 	 */
 	public void irp() throws Exception;
+	
+	public void cleanTempDirectory() throws Exception;
+	
+	public String getObrUrl();
 }

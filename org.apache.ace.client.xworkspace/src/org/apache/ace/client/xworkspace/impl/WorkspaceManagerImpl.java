@@ -62,6 +62,7 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     private static final String KEY_REPOSITORY_EXPORTER_PATH = "repo.exporter.path";
     private static final String KEY_REPOSITORY_EXPORTER_TARGETS = "repo.exporter.targets.list";
     private static final String KEY_REPOSITORY_IMPORTER_SERVER_URL = "repo.importer.repository.url";
+    private static final String KEY_REPOSITORY_IMPORTER_OBR_URL = "repo.importer.obr.url";
     private static final String KEY_REPOSITORY_IMPORTER_TARGETS_PATH = "repo.importer.targets.path.name";
 
     private static long m_sessionID = 1;
@@ -85,6 +86,7 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     private String m_exporterDestinationPath;
     private String m_exporterTargetsList;
     private String m_importerRepositoryUrl;
+	private String m_importerObrUrl;
     private String m_importerTargetsPath;
 	private String m_resourceProcessorBundleInfo;
 
@@ -147,6 +149,8 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             }
             m_exporterTargetsList = getProperty(properties, KEY_REPOSITORY_EXPORTER_TARGETS, null);
             m_importerRepositoryUrl = getProperty(properties, KEY_REPOSITORY_IMPORTER_SERVER_URL, null);
+            m_importerObrUrl = getProperty(properties, KEY_REPOSITORY_IMPORTER_OBR_URL, null);
+            
             
             m_importerTargetsPath = getProperty(properties, KEY_REPOSITORY_IMPORTER_TARGETS_PATH, null);
             m_resourceProcessorBundleInfo = getProperty(properties, KEY_RP_AUTOCONF_BUNDLE, null);
@@ -163,7 +167,7 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
 
         synchronized (m_workspaces) {
             sessionID = "rest-" + m_sessionID++;
-            workspace = new WorkspaceImpl(sessionID, m_repositoryURL, m_customerName, m_storeRepositoryName,
+            workspace = new WorkspaceImpl(sessionID, m_repositoryURL, m_importerObrUrl, m_customerName, m_storeRepositoryName,
                     m_targetRepositoryName, m_deploymentRepositoryName,
                     m_exporterDestinationPath, m_exporterTargetsList,
                     m_importerTargetsPath,m_resourceProcessorBundleInfo);
@@ -261,7 +265,8 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
 
         synchronized (m_workspaces) {
             sessionID = "shell-" + m_sessionID++;
-            workspace = new WorkspaceImpl(sessionID, m_repositoryURL, storeCustomerName, m_storeRepositoryName,
+            workspace = new WorkspaceImpl(sessionID, m_repositoryURL, m_importerObrUrl,
+            		storeCustomerName, m_storeRepositoryName,
                     targetCustomerName, m_targetRepositoryName, deploymentCustomerName, m_deploymentRepositoryName,
                     exporterDestinationPath, exporterTargetsList,
                     importerTargetsPath,m_resourceProcessorBundleInfo);

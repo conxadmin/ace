@@ -28,7 +28,8 @@
 	org.apache.ace.connectionfactory;version=latest,\
 	org.apache.ace.range.api;version=latest,\
 	org.apache.ace.repository.api;version=latest,\
-	org.apache.ace.http.context;version=latest
+	org.apache.ace.http.context;version=latest,\
+	org.apache.felix.shell.remote;version=1.1.2
 	
 -runrepos: \
 	Workspace,\
@@ -40,4 +41,7 @@
 	org.apache.felix.eventadmin.Timeout=0,\
 	org.osgi.service.http.port=8082,\
 	org.apache.felix.log.maxSize=1000,\
-	org.apache.ace.server=localhost:8080
+	org.apache.ace.server=localhost:8080,\
+    osgi.shell.telnet.ip=127.0.0.1,\
+    osgi.shell.telnet.port=6667,\
+    osgi.shell.telnet.maxconn=-1	

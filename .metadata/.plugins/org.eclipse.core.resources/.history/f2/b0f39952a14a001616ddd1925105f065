@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.1.0">
+  <OCD name=" Amdatu PLATFORM Tenant Configuration " id="conx.tenant">
+    <AD id="org.amdatu.tenant.pid" type="String"/>
+    <AD id="org.amdatu.tenant.name" type="String"/>
+    <AD id="conxdbcluster" type="String"/>
+    <AD id="conxdbautoprovidetenantschema" type="String"/>
+  </OCD>
+  <Designate pid="org.amdatu.tenant.factory" factoryPid="org.amdatu.tenant.factory" bundle="osgi-dp:org.amdatu.multitenant.conf">
+	<Object ocdref="conx.tenant">
+		<Attribute adref="org.amdatu.tenant.pid"
+			name="org.amdatu.tenant.pid" content="${context.testTenantPID}" />
+		<Attribute adref="org.amdatu.tenant.name"
+			name="org.amdatu.tenant.name" content="${context.testTenantName}" />
+		<Attribute adref="conxdbcluster"
+			name="conxdbcluster" content="${context.testTenantConxdbcluster}" />
+		<Attribute adref="conxdbautoprovidetenantschema"
+			name="conxdbautoprovidetenantschema" content="${context.testTenantConxdbautoprovidetenantschema}" />			
+	</Object>
+  </Designate>
+</metatype:MetaData>

@@ -88,6 +88,7 @@ public class WorkspaceImpl implements Workspace {
     private static final String XML_EXTENSION = "xml";
 	private final String m_sessionID;
     private URL m_repositoryURL;
+	private URL m_obrURL;
     private final String m_storeCustomerName;
     private final String m_distributionCustomerName;
     private final String m_deploymentCustomerName;
@@ -114,23 +115,26 @@ public class WorkspaceImpl implements Workspace {
     private volatile LogService m_log;
 	private List<String> processedDists = new ArrayList<>();
 
-    public WorkspaceImpl(String sessionID, String repositoryURL, String customerName, String storeRepositoryName,
+    public WorkspaceImpl(String sessionID, String repositoryURL, String obrUrl,
+    	String customerName, String storeRepositoryName,
         String distributionRepositoryName, String deploymentRepositoryName,
         String exporterDestinationPath, String exporterTargetsList,
         String importerTargetsPath, String resourceProcessorBundleInfo) throws MalformedURLException {
-        this(sessionID, repositoryURL, customerName, storeRepositoryName, customerName, distributionRepositoryName,
+        this(sessionID, repositoryURL, obrUrl, customerName, storeRepositoryName, customerName, distributionRepositoryName,
             customerName, deploymentRepositoryName,
             exporterDestinationPath,exporterTargetsList,
             importerTargetsPath,resourceProcessorBundleInfo);
     }
 
-    public WorkspaceImpl(String sessionID, String repositoryURL, String storeCustomerName, String storeRepositoryName,
+    public WorkspaceImpl(String sessionID, String repositoryURL, String obrUrl,
+    	String storeCustomerName, String storeRepositoryName,
         String distributionCustomerName, String distributionRepositoryName, String deploymentCustomerName,
         String deploymentRepositoryName,
         String exporterDestinationPath, String exporterTargetsList,
         String importerTargetsPath, String resourceProcessorBundleInfo) throws MalformedURLException {
         m_sessionID = sessionID;
         m_repositoryURL = new URL(repositoryURL);
+        m_obrURL = new URL(obrUrl);
         m_storeCustomerName = storeCustomerName;
         m_distributionCustomerName = deploymentCustomerName;
         m_deploymentCustomerName = deploymentCustomerName;
@@ -1281,9 +1285,10 @@ public class WorkspaceImpl implements Workspace {
 		
 		Map<String, String> attrs = new HashMap<>();
         attrs.put(StatefulTargetObject.KEY_ID, tgtId);
-        attrs.put(StatefulTargetObject.KEY_APPROVAL_STATE, tgtId);
         
 		f = ct(attrs,tagsMap);
+		
+		f.setAutoApprove(true);
 		
 		return tgtId;
 	}	
@@ -1539,7 +1544,7 @@ public class WorkspaceImpl implements Workspace {
 	    		if (name == null) {
 	    			isJar = false;
 	    			name = a.getAttribute("filename");
-	    	   		fsb.append("<artifact id=\""+name+"\" name=\""+name+"\">");
+	    	   		fsb.append("<artifact id=\""+name+"\" name=\""+name+"\" version=\"0.0.0\">");
 	    		}
 	    		else {
 	    			isJar = true;
@@ -1718,5 +1723,15 @@ public class WorkspaceImpl implements Workspace {
 		} catch (Exception e) {
 			System.out.println("Autoconf is already installed...");
 		}
+	}
+
+	@Override
+	public void cleanTempDirectory() throws Exception {
+		new File(this.m_exporterDestinationPath).delete();
+	}
+
+	@Override
+	public String getObrUrl() {
+		return this.m_obrURL.toString();
 	}
 }

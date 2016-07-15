@@ -11,6 +11,8 @@ images_dir="$(dirname "$scripts_dir")/images"
 copy_repo_client_dir=$images_dir/conx-apache-ace-script-executor
 # All-in-one-server
 allinone_server_dir=$images_dir/conx-apache-ace-server-allinone
+# OBR
+obr_dir=$images_dir/conx-apache-ace-obr
 # Apache ACE target
 target_dir=$images_dir/conx-apache-ace-target
 
@@ -18,6 +20,8 @@ target_dir=$images_dir/conx-apache-ace-target
 cd $copy_repo_client_dir
 scripts/build.sh
 cd $allinone_server_dir
+scripts/build.sh
+cd $obr_dir
 scripts/build.sh
 cd $target_dir
 scripts/build.sh

@@ -36,9 +36,20 @@ class TempDirectory {
             return;
         }
         try {
-            Files.walkFileTree(path, new CustomSimpleFileVisitor());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        	ClassLoader tccl = Thread.currentThread().getContextClassLoader();
+        	try {
+        	    Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
+        	    /*
+        	     * Start threads, or establish connections, here, now
+        	     */
+                Files.walkFileTree(path, new CustomSimpleFileVisitor());
+        	} finally {
+        	    Thread.currentThread().setContextClassLoader(tccl);
+        	}
+        } catch (Exception e) {
+            //throw new RuntimeException(e);
+        } catch (Error e) {
+            //throw new RuntimeException(e);
         }
     }
 

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;org.apache.felix.deployment.rp.autoconf-0.1.8.jar&apos; to &apos;resource_processors&apos;&#x0A;- Original project: &apos;cnf&apos;&#x0A;- Destination element: &apos;resource_processors&apos;&#x0A;- Original element: &apos;org.apache.felix.deployment.rp.autoconf-0.1.8.jar&apos;" description="Copy file" element1="localrepo/org.apache.felix.deployment.rp.autoconf/org.apache.felix.deployment.rp.autoconf-0.1.8.jar" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1468541886466" target="/docker/images/conx-apache-ace-script-executor/resource_processors" units="0" version="1.0"/>
+</session>

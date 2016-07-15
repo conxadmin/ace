@@ -237,7 +237,14 @@ public class RepositoryUtil {
 
             List<Resource> resultResources = findResources(targetRepo, getIdentity(resource), getVersion(resource).toString());
             if (resultResources == null || resultResources.size() == 0) {
-                throw new IllegalStateException("Unable to locate target resource after copy: " + resource);
+            	//try with NULL version
+            	file = targetRepo.get(getIdentity(resource), getVersion(resource).toString(), Strategy.EXACT, null);
+            	if (file == null)
+            		throw new IllegalStateException("Unable to locate target resource after copy: " + resource);
+                Requirement requirement = new CapReqBuilder("osgi.identity")
+                        .addDirective("filter", String.format("(&(osgi.identity=%s)(type=*))", getIdentity(resource)))
+                        .buildSyntheticRequirement();
+                resultResources = findResources(targetRepo, requirement);
             }
             return resultResources.get(0);
         }
