@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.1.0">
+	<OCD id="JcrResourceResolverFactoryImpl" name="JcrResourceResolverFactoryImpl">
+		<AD id="resource.resolver.searchpath" cardinality="1000" type="String" default=" /apps, /libs "/>
+	</OCD>
+	<Designate pid="org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl" factoryPid="org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl" bundle="osgi-dp:org.apache.sling.resourceresolver">
+		<Object ocdref="JcrResourceResolverFactoryImpl">
+			<Attribute adref="resource.resolver.searchpath"
+				name="resource.resolver.searchpath" content="/apps,/libs" />	
+		</Object>
+	</Designate>
+</metatype:MetaData>

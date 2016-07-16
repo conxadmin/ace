@@ -1511,6 +1511,7 @@ public class WorkspaceImpl implements Workspace {
 	}       
 
     private String downloadFeature(String directoryPath, String fName, DPHelper dhelper) throws Exception {
+    	System.out.println(String.format("Downloading feature %s ...",fName));
     	SimpleDateFormat df = new SimpleDateFormat("YYYYMMDDHHmm");//201508261740
     	Pattern pattern = Pattern.compile("(?<![\\d.])(\\d+[.])+(\\d+)(?![\\d.])?");
     	
@@ -1528,46 +1529,50 @@ public class WorkspaceImpl implements Workspace {
     	String ENDOL = ",\\\n";
     	String url = null;
 		for (Artifact2FeatureAssociation art : arts) {
-    		String le = art.getAttribute("leftEndpoint");
-    		//Enumeration<String> keys = art.getAttributeKeys();
-    		//String aName = art.getAttribute("Bundle-SymbolicName");
-    		//String ver = art.getAttribute("Bundle-Version");
-    		String rootDir = directoryPath+File.separatorChar+"jars_and_configs";//isJar?directoryPath+File.separatorChar+"jars":directoryPath+File.separatorChar+"config";
-    		List<ArtifactObject> ds = la(le);
-    		if (ds.size() > 0) {
-				ArtifactObject a = ds.get(ds.size()-1);
-				Enumeration<String> aks = a.getAttributeKeys();
-	    		url = a.getURL();
-	    		String name = a.getAttribute("Bundle-SymbolicName");
-	    		String ver = a.getAttribute("Bundle-Version"); 
-	    		String id = null;
-	    		if (name == null) {
-	    			isJar = false;
-	    			name = a.getAttribute("filename");
-	    	   		fsb.append("<artifact id=\""+name+"\" name=\""+name+"\" version=\"0.0.0\">");
+			String re = art.getAttribute("rightEndpoint");
+			final Filter fltr = this.m_context.createFilter(re);
+			Map<String,String> attrs = new HashMap<>();
+			attrs.put("name", fName);
+			if (fltr.matches(attrs)) {
+			   	System.out.println(String.format("Feature %s REndpoint %s...",fName,re));
+	    		String le = art.getAttribute("leftEndpoint");
+	    		//Enumeration<String> keys = art.getAttributeKeys();
+	    		//String aName = art.getAttribute("Bundle-SymbolicName");
+	    		//String ver = art.getAttribute("Bundle-Version");
+	    		String rootDir = directoryPath+File.separatorChar+"jars_and_configs";//isJar?directoryPath+File.separatorChar+"jars":directoryPath+File.separatorChar+"config";
+	    		List<ArtifactObject> ds = la(le);
+	    		if (ds.size() > 0) {
+					ArtifactObject a = ds.get(ds.size()-1);
+					Enumeration<String> aks = a.getAttributeKeys();
+		    		url = a.getURL();
+		    		String name = a.getAttribute("Bundle-SymbolicName");
+		    		String ver = a.getAttribute("Bundle-Version"); 
+		    		String id = null;
+		    		if (name == null) {
+		    			isJar = false;
+		    			name = a.getAttribute("filename");
+		    	   		fsb.append("<artifact id=\""+name+"\" name=\""+name+"\" version=\"0.0.0\">");
+		    		}
+		    		else {
+		    			isJar = true;
+		    			id = name; 
+		    			name += "-"+ver+".jar";
+		    	   		fsb.append("<artifact symbolicname=\""+id+"\" id=\""+id+"\" name=\""+name+"\" version=\""+ver+"\">");
+		    		}
+		    		
+		    		
+		    		File file = dhelper.downloadArtifactContents(isJar, rootDir, name, url);
+		    		if (isJar) {
+			            JarInputStream jis = new JarInputStream(new FileInputStream(file));
+			            String jarVer = jis.getManifest().getMainAttributes().getValue("Bundle-Version");
+			            //String urlJarVer = jis.getManifest().getMainAttributes().getValue("Bundle-Version");
+			            String urlJarVer = deriveVersion(df,pattern,url,jarVer,ver);
+			            jarVer = removeTS(df,urlJarVer);
+		    	   		brsb.append("\t"+id+";version=\"["+jarVer+","+urlJarVer+"]\""+ENDOL);
+		    		}
+		    		fsb.append("</artifact>");
 	    		}
-	    		else {
-	    			isJar = true;
-	    			id = name; 
-	    			name += "-"+ver+".jar";
-	    	   		fsb.append("<artifact symbolicname=\""+id+"\" id=\""+id+"\" name=\""+name+"\" version=\""+ver+"\">");
-	    		}
-	    		
-	    		
-	    		File file = dhelper.downloadArtifactContents(isJar, rootDir, name, url);
-	    		if (isJar) {
-		            JarInputStream jis = new JarInputStream(new FileInputStream(file));
-		            String jarVer = jis.getManifest().getMainAttributes().getValue("Bundle-Version");
-		            //String urlJarVer = jis.getManifest().getMainAttributes().getValue("Bundle-Version");
-		            String urlJarVer = deriveVersion(df,pattern,url,jarVer,ver);
-		            jarVer = removeTS(df,urlJarVer);
-	    	   		brsb.append("\t"+id+";version=\"["+jarVer+","+urlJarVer+"]\""+ENDOL);
-	    		}
-	    		
-	   	
-	    		fsb.append("</artifact>");
-    		}
-    		
+			}    		
     		//Download autoconf bunlde
     		
     	}

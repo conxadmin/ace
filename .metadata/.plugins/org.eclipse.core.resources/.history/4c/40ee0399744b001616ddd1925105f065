@@ -1,0 +1,2 @@
+service.pid="org.apache.ace.client.rest"
+session.timeout="300"

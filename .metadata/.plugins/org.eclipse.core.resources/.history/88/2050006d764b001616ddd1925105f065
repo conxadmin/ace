@@ -1,0 +1,2 @@
+fileLocation="store"
+service.pid="org.apache.ace.obr.storage.file"

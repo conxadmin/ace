@@ -1,0 +1,7 @@
+factory.pid="org.apache.ace.server.repository.factory"
+factory.pidList=[ \
+  "org.apache.ace.server.repository.factory.1e010146-1eb5-4820-8b7f-b0f268febb8d", \
+  "org.apache.ace.server.repository.factory.b4a1ede1-7c75-4259-81bf-3aa9b4bc4b55", \
+  "org.apache.ace.server.repository.factory.b93dbc6e-63e2-44ab-b118-dd04c12e37d0", \
+  "org.apache.ace.server.repository.factory.0fab413e-3c75-47b3-9b1d-37b0d2b42e21", \
+  ]
