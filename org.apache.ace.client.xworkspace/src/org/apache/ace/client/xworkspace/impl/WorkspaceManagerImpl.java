@@ -58,7 +58,7 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     /** Name of the user to log in as, in case no actual authentication is used. */
     private static final String KEY_USER_NAME = "user.name";
     
-    private static final String KEY_RP_AUTOCONF_BUNDLE = "rp.autoconf.bundle.info";//"/path/path;org.apache.felix.deployment.rp.autoconf;0.1.8";
+    private static final String KEY_RP_REPO_PATH = "rp.repository.path.name";//"/path/path;org.apache.felix.deployment.rp.autoconf;0.1.8";
     private static final String KEY_REPOSITORY_EXPORTER_PATH = "repo.exporter.path";
     private static final String KEY_REPOSITORY_EXPORTER_TARGETS = "repo.exporter.targets.list";
     private static final String KEY_REPOSITORY_IMPORTER_SERVER_URL = "repo.importer.repository.url";
@@ -88,7 +88,7 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     private String m_importerRepositoryUrl;
 	private String m_importerObrUrl;
     private String m_importerTargetsPath;
-	private String m_resourceProcessorBundleInfo;
+	private String m_resourceProcessorRepoPath;
 
     public WorkspaceManagerImpl() {
         m_workspaces = new HashMap<>();
@@ -153,7 +153,7 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             
             
             m_importerTargetsPath = getProperty(properties, KEY_REPOSITORY_IMPORTER_TARGETS_PATH, null);
-            m_resourceProcessorBundleInfo = getProperty(properties, KEY_RP_AUTOCONF_BUNDLE, null);
+            m_resourceProcessorRepoPath = getProperty(properties, KEY_RP_REPO_PATH, null);
         }
     }
 
@@ -170,7 +170,7 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             workspace = new WorkspaceImpl(sessionID, m_repositoryURL, m_importerObrUrl, m_customerName, m_storeRepositoryName,
                     m_targetRepositoryName, m_deploymentRepositoryName,
                     m_exporterDestinationPath, m_exporterTargetsList,
-                    m_importerTargetsPath,m_resourceProcessorBundleInfo);
+                    m_importerTargetsPath,m_resourceProcessorRepoPath);
             m_workspaces.put(sessionID, workspace);
 
             component = m_dm.createComponent().setImplementation(workspace);
@@ -269,7 +269,7 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             		storeCustomerName, m_storeRepositoryName,
                     targetCustomerName, m_targetRepositoryName, deploymentCustomerName, m_deploymentRepositoryName,
                     exporterDestinationPath, exporterTargetsList,
-                    importerTargetsPath,m_resourceProcessorBundleInfo);
+                    importerTargetsPath,m_resourceProcessorRepoPath);
             m_workspaces.put(sessionID, workspace);
 
             component = m_dm.createComponent().setImplementation(workspace);

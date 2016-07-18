@@ -1,0 +1,5 @@
+authentication.baseURL="http://aceserver.myconxdev.com:9000/client/"
+authentication.type="none"
+factory.instance.pid="org.apache.ace.connectionfactory_client"
+service.factoryPid="org.apache.ace.connectionfactory"
+service.pid="org.apache.ace.connectionfactory.8428d4d2-116d-4ad2-b119-3ba8f2bc8f44"

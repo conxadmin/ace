@@ -2185,3 +2185,283 @@ java.lang.IllegalArgumentException: Argument not valid
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY org.eclipse.search 4 0 2016-07-17 08:27:55.740
+!MESSAGE Text Search
+!SUBENTRY 1 org.eclipse.search 4 0 2016-07-17 08:27:55.740
+!MESSAGE Problems encountered during text search.
+!SUBENTRY 2 org.eclipse.search 4 4 2016-07-17 08:27:55.740
+!MESSAGE File 'run-target/generated/launch2301249253392334969.properties' has been skipped, problem while reading: ('Error retrieving content description for resource '/run-target/generated/launch2301249253392334969.properties'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/run-target/generated/launch2301249253392334969.properties)[381]: java.io.IOException: File not found: /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-target/generated/launch2301249253392334969.properties.
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.ensureOpened(ContentDescriptionManager.java:161)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.read(ContentDescriptionManager.java:173)
+	at java.io.InputStream.read(InputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.loadBlock(LazyInputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.ensureAvailable(LazyInputStream.java:65)
+	at org.eclipse.core.internal.content.LazyInputStream.read(LazyInputStream.java:124)
+	at org.eclipse.core.internal.content.Util.getByteOrderMark(Util.java:119)
+	at org.eclipse.core.internal.content.TextContentDescriber.describe(TextContentDescriber.java:51)
+	at org.eclipse.core.internal.content.ContentType.describe(ContentType.java:166)
+	at org.eclipse.core.internal.content.ContentType.internalGetDescriptionFor(ContentType.java:477)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:367)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:371)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.getDescriptionFor(ContentTypeMatcher.java:91)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.readDescription(ContentDescriptionManager.java:454)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.getDescriptionFor(ContentDescriptionManager.java:364)
+	at org.eclipse.core.internal.resources.File.internalGetCharset(File.java:233)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:196)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:185)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:276)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:381)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor$TextSearchJob.run(TextSearchVisitor.java:165)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 3 org.eclipse.core.resources 4 381 2016-07-17 08:27:55.745
+!MESSAGE Error retrieving content description for resource '/run-target/generated/launch2301249253392334969.properties'.
+!STACK 0
+java.io.IOException: File not found: /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-target/generated/launch2301249253392334969.properties.
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.ensureOpened(ContentDescriptionManager.java:161)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.read(ContentDescriptionManager.java:173)
+	at java.io.InputStream.read(InputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.loadBlock(LazyInputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.ensureAvailable(LazyInputStream.java:65)
+	at org.eclipse.core.internal.content.LazyInputStream.read(LazyInputStream.java:124)
+	at org.eclipse.core.internal.content.Util.getByteOrderMark(Util.java:119)
+	at org.eclipse.core.internal.content.TextContentDescriber.describe(TextContentDescriber.java:51)
+	at org.eclipse.core.internal.content.ContentType.describe(ContentType.java:166)
+	at org.eclipse.core.internal.content.ContentType.internalGetDescriptionFor(ContentType.java:477)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:367)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:371)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.getDescriptionFor(ContentTypeMatcher.java:91)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.readDescription(ContentDescriptionManager.java:454)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.getDescriptionFor(ContentDescriptionManager.java:364)
+	at org.eclipse.core.internal.resources.File.internalGetCharset(File.java:233)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:196)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:185)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:276)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:381)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor$TextSearchJob.run(TextSearchVisitor.java:165)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.search 4 0 2016-07-17 08:27:55.750
+!MESSAGE Problems encountered during text search.
+!SUBENTRY 1 org.eclipse.search 4 0 2016-07-17 08:27:55.750
+!MESSAGE Problems encountered during text search.
+!SUBENTRY 2 org.eclipse.search 4 4 2016-07-17 08:27:55.750
+!MESSAGE File 'run-target/generated/launch2301249253392334969.properties' has been skipped, problem while reading: ('Error retrieving content description for resource '/run-target/generated/launch2301249253392334969.properties'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/run-target/generated/launch2301249253392334969.properties)[381]: java.io.IOException: File not found: /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-target/generated/launch2301249253392334969.properties.
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.ensureOpened(ContentDescriptionManager.java:161)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.read(ContentDescriptionManager.java:173)
+	at java.io.InputStream.read(InputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.loadBlock(LazyInputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.ensureAvailable(LazyInputStream.java:65)
+	at org.eclipse.core.internal.content.LazyInputStream.read(LazyInputStream.java:124)
+	at org.eclipse.core.internal.content.Util.getByteOrderMark(Util.java:119)
+	at org.eclipse.core.internal.content.TextContentDescriber.describe(TextContentDescriber.java:51)
+	at org.eclipse.core.internal.content.ContentType.describe(ContentType.java:166)
+	at org.eclipse.core.internal.content.ContentType.internalGetDescriptionFor(ContentType.java:477)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:367)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:371)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.getDescriptionFor(ContentTypeMatcher.java:91)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.readDescription(ContentDescriptionManager.java:454)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.getDescriptionFor(ContentDescriptionManager.java:364)
+	at org.eclipse.core.internal.resources.File.internalGetCharset(File.java:233)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:196)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:185)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:276)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:381)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor$TextSearchJob.run(TextSearchVisitor.java:165)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 3 org.eclipse.core.resources 4 381 2016-07-17 08:27:55.751
+!MESSAGE Error retrieving content description for resource '/run-target/generated/launch2301249253392334969.properties'.
+!STACK 0
+java.io.IOException: File not found: /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-target/generated/launch2301249253392334969.properties.
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.ensureOpened(ContentDescriptionManager.java:161)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.read(ContentDescriptionManager.java:173)
+	at java.io.InputStream.read(InputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.loadBlock(LazyInputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.ensureAvailable(LazyInputStream.java:65)
+	at org.eclipse.core.internal.content.LazyInputStream.read(LazyInputStream.java:124)
+	at org.eclipse.core.internal.content.Util.getByteOrderMark(Util.java:119)
+	at org.eclipse.core.internal.content.TextContentDescriber.describe(TextContentDescriber.java:51)
+	at org.eclipse.core.internal.content.ContentType.describe(ContentType.java:166)
+	at org.eclipse.core.internal.content.ContentType.internalGetDescriptionFor(ContentType.java:477)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:367)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:371)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.getDescriptionFor(ContentTypeMatcher.java:91)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.readDescription(ContentDescriptionManager.java:454)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.getDescriptionFor(ContentDescriptionManager.java:364)
+	at org.eclipse.core.internal.resources.File.internalGetCharset(File.java:233)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:196)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:185)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:276)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:381)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor$TextSearchJob.run(TextSearchVisitor.java:165)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.search 4 0 2016-07-17 08:28:27.348
+!MESSAGE Text Search
+!SUBENTRY 1 org.eclipse.search 4 0 2016-07-17 08:28:27.348
+!MESSAGE Problems encountered during text search.
+!SUBENTRY 2 org.eclipse.search 4 4 2016-07-17 08:28:27.348
+!MESSAGE File 'run-target/generated/launch2301249253392334969.properties' has been skipped, problem while reading: ('Error retrieving content description for resource '/run-target/generated/launch2301249253392334969.properties'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/run-target/generated/launch2301249253392334969.properties)[381]: java.io.IOException: File not found: /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-target/generated/launch2301249253392334969.properties.
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.ensureOpened(ContentDescriptionManager.java:161)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.read(ContentDescriptionManager.java:173)
+	at java.io.InputStream.read(InputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.loadBlock(LazyInputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.ensureAvailable(LazyInputStream.java:65)
+	at org.eclipse.core.internal.content.LazyInputStream.read(LazyInputStream.java:124)
+	at org.eclipse.core.internal.content.Util.getByteOrderMark(Util.java:119)
+	at org.eclipse.core.internal.content.TextContentDescriber.describe(TextContentDescriber.java:51)
+	at org.eclipse.core.internal.content.ContentType.describe(ContentType.java:166)
+	at org.eclipse.core.internal.content.ContentType.internalGetDescriptionFor(ContentType.java:477)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:367)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:371)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.getDescriptionFor(ContentTypeMatcher.java:91)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.readDescription(ContentDescriptionManager.java:454)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.getDescriptionFor(ContentDescriptionManager.java:364)
+	at org.eclipse.core.internal.resources.File.internalGetCharset(File.java:233)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:196)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:185)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:276)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:381)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor$TextSearchJob.run(TextSearchVisitor.java:165)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 3 org.eclipse.core.resources 4 381 2016-07-17 08:28:27.348
+!MESSAGE Error retrieving content description for resource '/run-target/generated/launch2301249253392334969.properties'.
+!STACK 0
+java.io.IOException: File not found: /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-target/generated/launch2301249253392334969.properties.
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.ensureOpened(ContentDescriptionManager.java:161)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.read(ContentDescriptionManager.java:173)
+	at java.io.InputStream.read(InputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.loadBlock(LazyInputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.ensureAvailable(LazyInputStream.java:65)
+	at org.eclipse.core.internal.content.LazyInputStream.read(LazyInputStream.java:124)
+	at org.eclipse.core.internal.content.Util.getByteOrderMark(Util.java:119)
+	at org.eclipse.core.internal.content.TextContentDescriber.describe(TextContentDescriber.java:51)
+	at org.eclipse.core.internal.content.ContentType.describe(ContentType.java:166)
+	at org.eclipse.core.internal.content.ContentType.internalGetDescriptionFor(ContentType.java:477)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:367)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:371)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.getDescriptionFor(ContentTypeMatcher.java:91)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.readDescription(ContentDescriptionManager.java:454)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.getDescriptionFor(ContentDescriptionManager.java:364)
+	at org.eclipse.core.internal.resources.File.internalGetCharset(File.java:233)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:196)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:185)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:276)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:381)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor$TextSearchJob.run(TextSearchVisitor.java:165)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.search 4 0 2016-07-17 08:28:27.349
+!MESSAGE Problems encountered during text search.
+!SUBENTRY 1 org.eclipse.search 4 0 2016-07-17 08:28:27.349
+!MESSAGE Problems encountered during text search.
+!SUBENTRY 2 org.eclipse.search 4 4 2016-07-17 08:28:27.349
+!MESSAGE File 'run-target/generated/launch2301249253392334969.properties' has been skipped, problem while reading: ('Error retrieving content description for resource '/run-target/generated/launch2301249253392334969.properties'.').
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/run-target/generated/launch2301249253392334969.properties)[381]: java.io.IOException: File not found: /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-target/generated/launch2301249253392334969.properties.
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.ensureOpened(ContentDescriptionManager.java:161)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.read(ContentDescriptionManager.java:173)
+	at java.io.InputStream.read(InputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.loadBlock(LazyInputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.ensureAvailable(LazyInputStream.java:65)
+	at org.eclipse.core.internal.content.LazyInputStream.read(LazyInputStream.java:124)
+	at org.eclipse.core.internal.content.Util.getByteOrderMark(Util.java:119)
+	at org.eclipse.core.internal.content.TextContentDescriber.describe(TextContentDescriber.java:51)
+	at org.eclipse.core.internal.content.ContentType.describe(ContentType.java:166)
+	at org.eclipse.core.internal.content.ContentType.internalGetDescriptionFor(ContentType.java:477)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:367)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:371)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.getDescriptionFor(ContentTypeMatcher.java:91)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.readDescription(ContentDescriptionManager.java:454)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.getDescriptionFor(ContentDescriptionManager.java:364)
+	at org.eclipse.core.internal.resources.File.internalGetCharset(File.java:233)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:196)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:185)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:276)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:381)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor$TextSearchJob.run(TextSearchVisitor.java:165)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 3 org.eclipse.core.resources 4 381 2016-07-17 08:28:27.349
+!MESSAGE Error retrieving content description for resource '/run-target/generated/launch2301249253392334969.properties'.
+!STACK 0
+java.io.IOException: File not found: /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-target/generated/launch2301249253392334969.properties.
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.ensureOpened(ContentDescriptionManager.java:161)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager$LazyFileInputStream.read(ContentDescriptionManager.java:173)
+	at java.io.InputStream.read(InputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.loadBlock(LazyInputStream.java:101)
+	at org.eclipse.core.internal.content.LazyInputStream.ensureAvailable(LazyInputStream.java:65)
+	at org.eclipse.core.internal.content.LazyInputStream.read(LazyInputStream.java:124)
+	at org.eclipse.core.internal.content.Util.getByteOrderMark(Util.java:119)
+	at org.eclipse.core.internal.content.TextContentDescriber.describe(TextContentDescriber.java:51)
+	at org.eclipse.core.internal.content.ContentType.describe(ContentType.java:166)
+	at org.eclipse.core.internal.content.ContentType.internalGetDescriptionFor(ContentType.java:477)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:367)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.getDescriptionFor(ContentTypeCatalog.java:371)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.getDescriptionFor(ContentTypeMatcher.java:91)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.readDescription(ContentDescriptionManager.java:454)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.getDescriptionFor(ContentDescriptionManager.java:364)
+	at org.eclipse.core.internal.resources.File.internalGetCharset(File.java:233)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:196)
+	at org.eclipse.core.internal.resources.File.getCharset(File.java:185)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.initializeReader(FileCharSequenceProvider.java:276)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.reset(FileCharSequenceProvider.java:269)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider$FileCharSequence.<init>(FileCharSequenceProvider.java:255)
+	at org.eclipse.search.internal.core.text.FileCharSequenceProvider.newCharSequence(FileCharSequenceProvider.java:36)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor.processFile(TextSearchVisitor.java:381)
+	at org.eclipse.search.internal.core.text.TextSearchVisitor$TextSearchJob.run(TextSearchVisitor.java:165)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY bndtools.jareditor 4 0 2016-07-17 17:02:46.087
+!MESSAGE I/O error reading JAR file contents
+!STACK 0
+java.io.FileNotFoundException: /Users/mduduzikeswa/Downloads/1.0.0.jar (No such file or directory)
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:220)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:150)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:164)
+	at bndtools.jareditor.internal.JAREntryPart$4.run(JAREntryPart.java:189)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jdt.core 4 0 2016-07-17 20:37:08.264
+!MESSAGE Invalid ZIP archive: /org.apache.ace.obr/generated/org.apache.ace.obr.storage.jar [in org.apache.ace.authentication.itest]
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-07-18 09:36:45.319
+!MESSAGE An internal error occurred
+!STACK 0
+org.eclipse.jgit.api.errors.JGitInternalException: Entry not found by path: run-target/bundle-cache/bundle81/bundle.info
+	at org.eclipse.jgit.api.CommitCommand.createTemporaryIndex(CommitCommand.java:451)
+	at org.eclipse.jgit.api.CommitCommand.call(CommitCommand.java:223)
+	at org.eclipse.egit.core.op.CommitOperation.commit(CommitOperation.java:246)
+	at org.eclipse.egit.core.op.CommitOperation.access$5(CommitOperation.java:235)
+	at org.eclipse.egit.core.op.CommitOperation$1.run(CommitOperation.java:198)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.egit.core.op.CommitOperation.execute(CommitOperation.java:208)
+	at org.eclipse.egit.ui.internal.commit.CommitJob.run(CommitJob.java:98)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)

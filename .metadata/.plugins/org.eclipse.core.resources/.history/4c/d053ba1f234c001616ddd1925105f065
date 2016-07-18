@@ -1,0 +1,4 @@
+deploymentversionlimit="-1"
+obrlocation="http://localhost:8082/obr"
+service.pid="org.apache.ace.client.repository"
+showunregisteredtargets="true"

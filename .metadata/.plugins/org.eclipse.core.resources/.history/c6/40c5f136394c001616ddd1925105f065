@@ -1,0 +1,6 @@
+customer="apache"
+factory.instance.pid="org.apache.ace.server.repository.factory_ace-deployment"
+master="true"
+name="deployment"
+service.factoryPid="org.apache.ace.server.repository.factory"
+service.pid="org.apache.ace.server.repository.factory.938abb30-3ed4-4200-8471-8c51ee9e7dcf"

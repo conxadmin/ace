@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -95,7 +96,7 @@ public class WorkspaceImpl implements Workspace {
     private final String m_storeRepositoryName;
     private final String m_distributionRepositoryName;
     private final String m_deploymentRepositoryName;
-	private final String m_resourceProcessorBundleInfo;
+	private final String m_resourceProcessorRepoPath;
     
     private String m_exporterDestinationPath;
     private String m_exporterTargetsList;
@@ -119,11 +120,11 @@ public class WorkspaceImpl implements Workspace {
     	String customerName, String storeRepositoryName,
         String distributionRepositoryName, String deploymentRepositoryName,
         String exporterDestinationPath, String exporterTargetsList,
-        String importerTargetsPath, String resourceProcessorBundleInfo) throws MalformedURLException {
+        String importerTargetsPath, String resourceProcessorRepoPath) throws MalformedURLException {
         this(sessionID, repositoryURL, obrUrl, customerName, storeRepositoryName, customerName, distributionRepositoryName,
             customerName, deploymentRepositoryName,
             exporterDestinationPath,exporterTargetsList,
-            importerTargetsPath,resourceProcessorBundleInfo);
+            importerTargetsPath,resourceProcessorRepoPath);
     }
 
     public WorkspaceImpl(String sessionID, String repositoryURL, String obrUrl,
@@ -131,7 +132,7 @@ public class WorkspaceImpl implements Workspace {
         String distributionCustomerName, String distributionRepositoryName, String deploymentCustomerName,
         String deploymentRepositoryName,
         String exporterDestinationPath, String exporterTargetsList,
-        String importerTargetsPath, String resourceProcessorBundleInfo) throws MalformedURLException {
+        String importerTargetsPath, String resourceProcessorRepoPath) throws MalformedURLException {
         m_sessionID = sessionID;
         m_repositoryURL = new URL(repositoryURL);
         m_obrURL = new URL(obrUrl);
@@ -146,7 +147,7 @@ public class WorkspaceImpl implements Workspace {
         m_exporterTargetsList = exporterTargetsList;
         
         m_importerTargetsPath = importerTargetsPath;
-        m_resourceProcessorBundleInfo = resourceProcessorBundleInfo;
+        m_resourceProcessorRepoPath = resourceProcessorRepoPath;
     }
 
     @Override
@@ -1153,7 +1154,20 @@ public class WorkspaceImpl implements Workspace {
     	String filter = String.format("(&(leftEndpoint=*name=%s*)(rightEndpoint=*name=%s*))",featureId,distId);
     	List<Feature2DistributionAssociation> lf2dRes = lf2d(filter);
     	for (Feature2DistributionAssociation lf2d : lf2dRes) {
-    		df2d(lf2d);
+    		String re = lf2d.getAttribute("rightEndpoint");
+    		final Filter distFltr = this.m_context.createFilter(re);
+    		Map<String,String> distAttrs = new HashMap<>();
+    		distAttrs.put("name", distId);
+    		
+    		String le = lf2d.getAttribute("leftEndpoint");
+    		final Filter ftrFltr = this.m_context.createFilter(le);
+    		Map<String,String> ftrAttrs = new HashMap<>();
+    		distAttrs.put("name", featureId);
+    		
+    		if (distFltr.matches(distAttrs) && ftrFltr.matches(ftrAttrs)) {
+    			System.out.println(String.format("Deleting f2d assoc %s from Dist %s",lf2d.toString(),distId));
+    			df2d(lf2d);
+    		}
     	}
     	
     	String leftEndpoint = String.format("(name=%s)",featureId);
@@ -1176,9 +1190,28 @@ public class WorkspaceImpl implements Workspace {
         final String symbolicName = firstChildElement.getAttribute("symbolicname");
     	final String mimetype= "application/vnd.osgi.bundle";
     	
-    	String leftEndpoint = String.format("(&(Bundle-SymbolicName=%s)(Bundle-Version=%s))",symbolicName,version);
-		leftEndpoint = String.format("(Bundle-SymbolicName=%s)",symbolicName,version);
+    	final String leftEndpoint = String.format("(Bundle-SymbolicName=%s)",symbolicName,version);
     	final String rightEndpoint = String.format("(name=%s)",featureId);
+    	
+    	String a2fFilter = String.format("(&(leftEndpoint=*Bundle-SymbolicName=%s*)(rightEndpoint=*name=%s*))",artId,featureId);
+    	List<Artifact2FeatureAssociation> la2fs = la2f(a2fFilter);
+    	for ( Artifact2FeatureAssociation la2f : la2fs) {
+    		String re = la2f.getAttribute("rightEndpoint");
+    		final Filter distFltr = this.m_context.createFilter(re);
+    		Map<String,String> distAttrs = new HashMap<>();
+    		distAttrs.put("name", featureId);
+    		
+    		String le = la2f.getAttribute("leftEndpoint");
+    		final Filter ftrFltr = this.m_context.createFilter(le);
+    		Map<String,String> ftrAttrs = new HashMap<>();
+    		distAttrs.put("Bundle-SymbolicName", artId);   
+    		
+    		if (distFltr.matches(distAttrs) && ftrFltr.matches(ftrAttrs)) {
+    			System.out.println(String.format("Deleting f2d assoc %s from Dist %s",la2f.toString(),featureId));
+    			da2f(la2f);
+    		}
+    	}
+
     	try {
 			ca2f(leftEndpoint,rightEndpoint,"10000","1");
 		} catch (Exception e) {
@@ -1364,124 +1397,135 @@ public class WorkspaceImpl implements Workspace {
     @Override
     public String expw(String targets) throws Exception {
     	
-    	String[] targetsArray = null;
-    	
-    	if (targets == null) {
-    		List<StatefulTargetObject> lt = lt();
-    		if (lt.isEmpty()) {
-    			System.out.println("No target(s) to export");
-    		}
-    			
-    		ArrayList<String> targetsList = new ArrayList<String>();
-    		Iterator<StatefulTargetObject> ltIter = lt.iterator();
-    		while (ltIter.hasNext()) {
-    			targetsList.add(ltIter.next().getID());
-    		}
-    		targetsArray = targetsList.toArray(new String[]{});
-    	}
-    	else {
-        	if (targets.contains(";")) 
-        		targetsArray = targets.split(";");
-        	else
-        		targetsArray = new String[]{targets};    		
-    	}
-    	
-    	for (String target : targetsArray) {
-        	String brName = target+".bndrun";
-        	StringBuilder brsb = new StringBuilder();
-        	
-	    	brsb.append("-runfw: org.apache.felix.framework;version=\"[4.2.1,5)\"");
-	    	brsb.append("-runee: JavaSE-1.7");
-	    	brsb.append("-runvm: -ea");
-	    	brsb.append("-runpath: com.springsource.javax.xml.stream");
-	    	brsb.append("-runsystemcapabilities: osgi.ee; osgi.ee=JavaSE; version:Version=1.7");
-	    	brsb.append("-runsystempackages: sun.misc");
-	    	brsb.append("-runbundles.master: org.amdatu.configurator.autoconf;version=1.0.0\\\n");
-	    	brsb.append("-include: \\\n");    	
-	    	
-	    	StringBuilder brpropssb = new StringBuilder();
-	    	brpropssb.append("-runproperties:   \\\n");
-	    	
-	    	StringBuilder dstsb = new StringBuilder();
-	    	dstsb.append("<distributions>");
-	
-			StringBuilder sb = new StringBuilder();
-			sb.append("<?xml version=\"1.0\"?>");
-	    	try {
-				DPHelper dhelper = new DPHelper(this, m_log);
-	        	
-	        	// download dists    		
-				Map<String,String> fmap = new HashMap<String,String>();
-				sb.append("<repository id=\""+target+"\">");
-	
-	        	//downloads targets
-				List<StatefulTargetObject> tgts = lt("(id="+target+")");
-				sb.append("<targets>");
-				for (StatefulTargetObject tgt : tgts) {
-					String tName = tgt.getID();
-					sb.append("<target id=\""+tName+"\">");
-					List<Distribution2TargetAssociation> d2tList = ld2t("(rightEndpoint=*id="+tName+"*)");
-					sb.append("<distributionrefs>");
-					for (Distribution2TargetAssociation d2t : d2tList) {
-						Enumeration<String> keys = d2t.getAttributeKeys();
-						String dName = d2t.getAttribute("leftEndpoint");
-						List<DistributionObject> ld = ld(dName);
-						if (ld.size() > 0) {
-							dName = ld.get(0).getName();
-							fmap.put(dName,downloadFeature(this.m_exporterDestinationPath,dName,dhelper));
-							
-							sb.append("<distributionref refid=\""+dName+"\">");
-							sb.append("</distributionref>");	
-							
-							generateDistrXMLContent(this.m_exporterDestinationPath, dstsb, dhelper, fmap, ld.get(0));
-						}
-					}
-					sb.append("</distributionrefs>");
-	
-					Enumeration<String> tkeys = null;
-					try {
-						tkeys = tgt.getTagKeys();
-					} catch (Exception e) {
-					}
-					if (tkeys != null) {
-						sb.append("<tags>");
-						while (tkeys.hasMoreElements()) {
-							String key = tkeys.nextElement();
-							sb.append("<tag name=\""+key+"\" value=\""+tgt.getTag(key)+"\"/>");
-							brpropssb.append(key+"="+tgt.getTag(key)+",\\\n\t"); 
-						}
-						sb.append("</tags>");			
-					}
-					sb.append("</target>");
+    	try {
+			String[] targetsArray = null;
+			
+			if (targets == null) {
+				List<StatefulTargetObject> lt = lt();
+				if (lt.isEmpty()) {
+					System.out.println("No target(s) to export");
 				}
-				
-				sb.append("</targets>");
-				
-				dstsb.append("</distributions>");
-	
-				StringBuilder fsb = new StringBuilder();
-				fsb.append(dstsb.toString());
-				fsb.append("<features>");
-				String ENDOL = ",\\\n";
-				for (String f : fmap.keySet()) {
-					fsb.append(fmap.get(f));
-					brsb.append("\t"+f+".bndrun"+ENDOL);
+					
+				ArrayList<String> targetsList = new ArrayList<String>();
+				Iterator<StatefulTargetObject> ltIter = lt.iterator();
+				while (ltIter.hasNext()) {
+					targetsList.add(ltIter.next().getID());
 				}
-				fsb.append("</features>");
-				brsb.append(brpropssb.toString());
-				
-	
-				sb.append(fsb.toString());
-				sb.append("</repository>");
-				
-				dhelper.writeTextContents(this.m_exporterDestinationPath, target+".xml", sb.toString());
-				dhelper.writeTextContents(this.m_exporterDestinationPath, brName, brsb.toString());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				throw e;
+				targetsArray = targetsList.toArray(new String[]{});
 			}
-    	}
+			else {
+				if (targets.contains(";")) 
+					targetsArray = targets.split(";");
+				else
+					targetsArray = new String[]{targets};    		
+			}
+			
+			for (String target : targetsArray) {
+				String brName = target+".bndrun";
+				StringBuilder brsb = new StringBuilder();
+				
+				brsb.append("-runfw: org.apache.felix.framework;version=\"[4.2.1,5)\"");
+				brsb.append("-runee: JavaSE-1.7");
+				brsb.append("-runvm: -ea");
+				brsb.append("-runpath: com.springsource.javax.xml.stream");
+				brsb.append("-runsystemcapabilities: osgi.ee; osgi.ee=JavaSE; version:Version=1.7");
+				brsb.append("-runsystempackages: sun.misc");
+				brsb.append("-runbundles.master: org.amdatu.configurator.autoconf;version=1.0.0\\\n");
+				brsb.append("-include: \\\n");    	
+				
+				StringBuilder brpropssb = new StringBuilder();
+				brpropssb.append("-runproperties:   \\\n");
+				
+				StringBuilder dstsb = new StringBuilder();
+				dstsb.append("<distributions>");
+
+				StringBuilder sb = new StringBuilder();
+				sb.append("<?xml version=\"1.0\"?>");
+				try {
+					DPHelper dhelper = new DPHelper(this, m_log);
+			    	
+			    	// download dists    		
+					Map<String,String> fmap = new HashMap<String,String>();
+					sb.append("<repository id=\""+target+"\">");
+
+			    	//downloads targets
+					List<StatefulTargetObject> tgts = lt("(id="+target+")");
+					sb.append("<targets>");
+					for (StatefulTargetObject tgt : tgts) {
+						String tName = tgt.getID();
+						sb.append("<target id=\""+tName+"\">");
+						List<Distribution2TargetAssociation> d2tList = ld2t("(rightEndpoint=*id="+tName+"*)");
+						sb.append("<distributionrefs>");
+						for (Distribution2TargetAssociation d2t : d2tList) {
+							Enumeration<String> keys = d2t.getAttributeKeys();
+							String dName = d2t.getAttribute("leftEndpoint");
+							List<DistributionObject> ld = ld(dName);
+							if (ld.size() > 0) {
+								dName = ld.get(0).getName();
+								fmap.put(dName,downloadFeature(this.m_exporterDestinationPath,dName,dhelper));
+								
+								sb.append("<distributionref refid=\""+dName+"\">");
+								sb.append("</distributionref>");	
+								
+								generateDistrXMLContent(this.m_exporterDestinationPath, dstsb, dhelper, fmap, ld.get(0));
+							}
+						}
+						sb.append("</distributionrefs>");
+
+						Enumeration<String> tkeys = null;
+						try {
+							tkeys = tgt.getTagKeys();
+						} catch (Exception e) {
+						}
+						if (tkeys != null) {
+							sb.append("<tags>");
+							while (tkeys.hasMoreElements()) {
+								String key = tkeys.nextElement();
+								sb.append("<tag name=\""+key+"\" value=\""+tgt.getTag(key)+"\"/>");
+								brpropssb.append(key+"="+tgt.getTag(key)+",\\\n\t"); 
+							}
+							sb.append("</tags>");			
+						}
+						sb.append("</target>");
+					}
+					
+					sb.append("</targets>");
+					
+					dstsb.append("</distributions>");
+
+					StringBuilder fsb = new StringBuilder();
+					fsb.append(dstsb.toString());
+					fsb.append("<features>");
+					String ENDOL = ",\\\n";
+					for (String f : fmap.keySet()) {
+						fsb.append(fmap.get(f));
+						brsb.append("\t"+f+".bndrun"+ENDOL);
+					}
+					fsb.append("</features>");
+					brsb.append(brpropssb.toString());
+					
+
+					sb.append(fsb.toString());
+					sb.append("</repository>");
+					
+					dhelper.writeTextContents(this.m_exporterDestinationPath, target+".xml", sb.toString());
+					dhelper.writeTextContents(this.m_exporterDestinationPath, brName, brsb.toString());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					throw e;
+				}
+			}
+			
+			//Copy RP autoconf to repo
+			String rootDir = this.m_exporterDestinationPath+File.separatorChar+"jars_and_configs/";
+			String[] autoConf = m_resourceProcessorRepoPath.split(";");
+			File autoConfJar = new File(autoConf[0]);
+			java.nio.file.Files.copy(autoConfJar.getAbsoluteFile().toPath(), new File(rootDir).toPath());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
     	return this.m_exporterDestinationPath;
     }
@@ -1704,31 +1748,7 @@ public class WorkspaceImpl implements Workspace {
 		this.m_repositoryURL = new URL(repositoryUrl);
 	}
 
-	@Override
-	public void irp() throws Exception {
-    	try {
-			String[] autoConf = m_resourceProcessorBundleInfo.split(";");
-			File autoConfJar = new File(autoConf[0]);
-			String autoConfBN = autoConf[1];
-			String autoConfVer = autoConf[2];
-			final String url = autoConfJar.toURI().toURL().toString();
-			final String mimetype= "application/vnd.osgi.bundle";
-			final String name = String.format("%s-%s", autoConfBN, autoConfVer);
-			
-			Map<String,String> attrs = new HashMap<>();
-			attrs.put("Bundle-SymbolicName",autoConfBN);
-			attrs.put("Bundle-Version", autoConfVer);
-			attrs.put("artifactName", name);
-			attrs.put("mimetype", mimetype);
-			attrs.put("Deployment-ProvidesResourceProcessor","org.osgi.deployment.rp.autoconf");
-			attrs.put("url",url);
-			
-			ArtifactObject autoConfArt = ca(attrs);
-				
-		} catch (Exception e) {
-			System.out.println("Autoconf is already installed...");
-		}
-	}
+
 
 	@Override
 	public void cleanTempDirectory() throws Exception {
@@ -1738,5 +1758,18 @@ public class WorkspaceImpl implements Workspace {
 	@Override
 	public String getObrUrl() {
 		return this.m_obrURL.toString();
+	}
+
+
+	@Override
+	public String getResourceProceRepoPath() {
+/*		Map<String,String> attrs = new HashMap<>();
+		attrs.put("Bundle-SymbolicName",bsn);
+		attrs.put("Bundle-Version", autoConfVer);
+		attrs.put("artifactName", name);
+		attrs.put("mimetype", mimetype);
+		attrs.put("Deployment-ProvidesResourceProcessor","org.osgi.deployment.rp.autoconf");
+		attrs.put("url",url);*/
+		return new File(this.m_resourceProcessorRepoPath).getAbsolutePath();
 	}
 }

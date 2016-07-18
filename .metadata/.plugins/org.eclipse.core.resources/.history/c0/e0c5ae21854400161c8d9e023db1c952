@@ -1,8 +1,0 @@
--runbundles.conx-sling9-jackrabbit: \
-	org.apache.jackrabbit.jackrabbit-webdav;version="[0.0.0,0.0.0]",\
-	org.apache.jackrabbit.jackrabbit-spi-commons;version="[0.0.0,0.0.0]",\
-	org.apache.jackrabbit.jackrabbit-spi;version="[0.0.0,0.0.0]",\
-	org.apache.jackrabbit.jackrabbit-jcr-rmi;version="[0.0.0,0.0.0]",\
-	org.apache.jackrabbit.jackrabbit-jcr-commons;version="[0.0.0,0.0.0]",\
-	org.apache.jackrabbit.jackrabbit-api;version="[0.0.0,0.0.0]",\
-	org.apache.jackrabbit.jackrabbit-jcr2dav-all;version="[0.0.0,0.0.0]"

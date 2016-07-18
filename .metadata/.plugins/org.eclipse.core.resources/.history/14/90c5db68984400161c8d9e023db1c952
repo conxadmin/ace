@@ -1,4 +1,0 @@
-targetToExport=platform-services-db
-baseDirectory=/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-sample-exports/exports
-ws = (cw)
-$ws expw ${baseDirectory}/${targetToExport} ${targetToExport}

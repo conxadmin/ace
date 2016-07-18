@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.apache.ace.client.repository.stateful.StatefulTargetObject"/>
+<fullyQualifiedTypeName name="org.osgi.resource.Resource"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="org.apache.ace.client.xworkspace.impl.WorkspaceManagerImpl.TempDirectory"/>
+<fullyQualifiedTypeName name="org.apache.ace.client.xworkspace.impl.CustomSimpleFileVisitor"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="org.apache.ace.client.repository.object.Artifact2FeatureAssociation"/>
+<fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+<fullyQualifiedTypeName name="org.testng.reporters.Files"/>
+<fullyQualifiedTypeName name="java.nio.file.StandardCopyOption"/>
+</qualifiedTypeNameHistroy>

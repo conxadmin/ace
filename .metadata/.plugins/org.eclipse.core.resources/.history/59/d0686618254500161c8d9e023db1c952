@@ -1,5 +1,0 @@
--runbundles.conx-sling9-conx-core: \
-	org.conxworks.core.commons;version="[1.0.0,1.0.0.201602062044]",\
-	org.conxworks.core.api;version="[1.0.0,1.0.0.201602062044]",\
-	org.conxworks.core.model;version="[1.0.0,1.0.0.201602062044]",\
-	org.conxworks.core.impl.service;version="[1.0.0,1.0.0.201602062044]"

@@ -1,0 +1,4 @@
+factory.pid="org.apache.ace.log.server.task.factory"
+factory.pidList=[ \
+  "org.apache.ace.log.server.task.factory.4d026cd9-f2bf-4e9e-914a-d7291eb6144c", \
+  ]

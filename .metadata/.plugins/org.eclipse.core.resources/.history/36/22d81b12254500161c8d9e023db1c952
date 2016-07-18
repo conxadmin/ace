@@ -1,5 +1,0 @@
-authentication.baseURL="http://aceserver.myconxdev.com:9000/auditlog/"
-authentication.type="none"
-factory.instance.pid="org.apache.ace.connectionfactory_auditlog"
-service.factoryPid="org.apache.ace.connectionfactory"
-service.pid="org.apache.ace.connectionfactory.e9aa0876-664f-4f11-a476-5340d87b76d3"

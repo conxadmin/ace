@@ -1,0 +1,2 @@
+serverURL="http://aceserver.myconxdev.com:9000"
+service.pid="org.apache.ace.discovery.property"

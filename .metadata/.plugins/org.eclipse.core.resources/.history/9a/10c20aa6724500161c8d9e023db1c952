@@ -1,5 +1,0 @@
-authentication.baseURL="http://aceserver.myconxdev.com:9000/obr/"
-authentication.type="none"
-factory.instance.pid="org.apache.ace.connectionfactory_obr"
-service.factoryPid="org.apache.ace.connectionfactory"
-service.pid="org.apache.ace.connectionfactory.d414298e-0782-44a1-b173-065e2aa06c54"

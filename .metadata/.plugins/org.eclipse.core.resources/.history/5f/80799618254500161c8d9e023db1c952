@@ -1,3 +1,0 @@
--runbundles.conx-sling9-ext: \
-	org.apache.sling.sample.slingshot;version="[0.8.0,0.8.0]",\
-	org.apache.sling.org.apache.sling.browser;version="[0.5.0,0.5.0]"

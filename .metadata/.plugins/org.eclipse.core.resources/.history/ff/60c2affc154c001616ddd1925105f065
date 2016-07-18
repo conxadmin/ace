@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.1.0">
+	<OCD id="ocd" name="ocd">
+		<AD id="org.amdatu.remote.discovery.etcd.host" type="String" />
+		<AD id="org.amdatu.remote.discovery.etcd.port" type="String" />
+		<AD id="org.amdatu.remote.discovery.etcd.path" type="String" />
+		<AD id="org.amdatu.remote.discovery.etcd.rootpath" type="String" />
+		<AD id="org.amdatu.remote.discovery.etcd.schedule" type="String" />
+		<AD id="org.amdatu.remote.discovery.etcd.connecturl" type="String" />
+	</OCD>
+	<Designate pid="org.amdatu.remote.discovery.etcd" bundle="osgi-dp:org.amdatu.remote.discovery.etcd">
+		<Object ocdref="ocd">				
+			<Attribute adref="org.amdatu.remote.discovery.etcd.host"
+				name="org.amdatu.remote.discovery.etcd.host" content="platform.myconxdev.com" />	
+			<Attribute adref="org.amdatu.remote.discovery.etcd.port"
+				name="org.amdatu.remote.discovery.etcd.port" content="8282" />		
+			<Attribute adref="org.amdatu.remote.discovery.etcd.path"
+				name="org.amdatu.remote.discovery.etcd.path" content="org.amdatu.remote.discovery.etcd" />								
+			<Attribute adref="org.amdatu.remote.discovery.etcd.rootpath"
+				name="org.amdatu.remote.discovery.etcd.rootpath" content="/discovery1" />
+			<Attribute adref="org.amdatu.remote.discovery.etcd.schedule"
+				name="org.amdatu.remote.discovery.etcd.schedule" content="4" />
+			<Attribute adref="org.amdatu.remote.discovery.etcd.connecturl"
+				name="org.amdatu.remote.discovery.etcd.connecturl" content="http://etcd.myconxdev.com:4001" />
+		</Object>
+	</Designate>
+</metatype:MetaData>
+  
+  

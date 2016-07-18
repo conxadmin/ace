@@ -1,3 +1,0 @@
--runbundles.conx-sling9-conx-paas: \
-	org.conxworks.paas.db.api;version="[0.0.0,0.0.0]",\
-	org.conxworks.paas.db.dbds.mt;version="[0.0.0,0.0.0]"

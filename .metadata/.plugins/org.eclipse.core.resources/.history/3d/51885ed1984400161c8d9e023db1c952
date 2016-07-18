@@ -1,4 +1,0 @@
--runbundles.conx-core: \
-	org.conxworks.core.api;version="[1.0.0,1.0.0.201602062044]",\
-	org.conxworks.core.commons;version="[1.0.0,1.0.0.201602062044]",\
-	org.conxworks.core.model;version="[1.0.0,1.0.0.201602062044]"

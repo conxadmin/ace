@@ -1,0 +1,4 @@
+factory.pid="org.apache.ace.connectionfactory"
+factory.pidList=[ \
+  "org.apache.ace.connectionfactory.15020cb0-72b7-46e0-bd4b-36dd084eae26", \
+  ]

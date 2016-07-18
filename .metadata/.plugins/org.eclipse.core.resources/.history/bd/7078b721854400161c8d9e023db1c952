@@ -1,8 +1,0 @@
--runbundles.conx-json: \
-	com.springsource.org.json;version="[0.0.0,0.0.0]",\
-	com.fasterxml.jackson.core.jackson-annotations;version="[2.3.0,2.3.0]",\
-	com.fasterxml.jackson.core.jackson-core;version="[2.3.1,2.3.1]",\
-	com.fasterxml.jackson.core.jackson-databind;version="[2.3.1,2.3.1]",\
-	com.fasterxml.jackson.jaxrs.jackson-jaxrs-base;version="[2.3.0,2.3.0]",\
-	com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider;version="[2.3.0,2.3.0]",\
-	javax.ws.rs.jsr311-api;version="[0.0.0,0.0.0]"

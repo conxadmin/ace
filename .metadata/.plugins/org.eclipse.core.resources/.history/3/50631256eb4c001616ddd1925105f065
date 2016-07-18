@@ -1,0 +1,5 @@
+authentication.baseURL="http://aceserver.myconxdev.com:9000/replication/"
+authentication.type="none"
+factory.instance.pid="org.apache.ace.connectionfactory_replication"
+service.factoryPid="org.apache.ace.connectionfactory"
+service.pid="org.apache.ace.connectionfactory.d6dcc50d-7af5-4bec-aff5-b672a8b1cfa2"

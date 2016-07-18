@@ -1,0 +1,4 @@
+factory.instance.pid="org.apache.ace.log.server.store.factory_auditlog"
+name="auditlog"
+service.factoryPid="org.apache.ace.log.server.store.factory"
+service.pid="org.apache.ace.log.server.store.factory.f2ff4e9a-4921-4caa-a288-6477403f79a9"

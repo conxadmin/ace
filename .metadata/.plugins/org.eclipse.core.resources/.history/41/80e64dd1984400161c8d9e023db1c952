@@ -1,6 +1,0 @@
--runbundles.conx-logging: \
-	slf4j.api;version="[1.7.19,1.7.19]",\
-	jcl.over.slf4j;version="[1.7.6,1.7.6]",\
-	log4j.over.slf4j;version="[1.7.6,1.7.6]",\
-	org.apache.sling.commons.log;version="[4.0.6,4.0.6]",\
-	org.apache.sling.commons.logservice;version="[1.0.6,1.0.6]"

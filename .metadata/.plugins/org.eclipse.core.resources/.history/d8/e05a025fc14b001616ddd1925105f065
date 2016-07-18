@@ -1,0 +1,5 @@
+authentication.baseURL="http://localhost:8080/repository/"
+authentication.type="none"
+factory.instance.pid="org.apache.ace.connectionfactory_repository"
+service.factoryPid="org.apache.ace.connectionfactory"
+service.pid="org.apache.ace.connectionfactory.96498578-1c70-47a5-9652-6b01f247662a"

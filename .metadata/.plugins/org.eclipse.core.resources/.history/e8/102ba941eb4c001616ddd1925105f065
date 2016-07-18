@@ -1,0 +1,4 @@
+factory.pid="org.apache.ace.http.redirector.factory"
+factory.pidList=[ \
+  "org.apache.ace.http.redirector.factory.b9b7516c-323c-467f-b625-cb2b70fc2c56", \
+  ]

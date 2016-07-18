@@ -1,0 +1,5 @@
+authentication.baseURL="http://localhost:8080/obr/"
+authentication.type="none"
+factory.instance.pid="org.apache.ace.connectionfactory_obr"
+service.factoryPid="org.apache.ace.connectionfactory"
+service.pid="org.apache.ace.connectionfactory.7c427d83-d343-4def-97fd-d5d3c5246d3d"

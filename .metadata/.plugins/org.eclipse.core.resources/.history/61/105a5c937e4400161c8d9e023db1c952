@@ -1,6 +1,0 @@
-ws = (cw)
-srcRepo = (repo:repo R5 file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-client-xworkspace/generated/jars_and_configs/index.xml)
-tgtRepo = (repo:repo R5 http://localhost:8080/obr/index.xml)
-repo:cp $srcRepo $tgtRepo
-$ws impw /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-client-xworkspace/generated /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-client-xworkspace/generated/platform-services-cms.xml
-$ws commit

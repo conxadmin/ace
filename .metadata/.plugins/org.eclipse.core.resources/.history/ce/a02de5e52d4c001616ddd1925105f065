@@ -1,0 +1,6 @@
+factory.instance.pid="org.apache.ace.log.server.task.factory_auditlog"
+mode="pull"
+name="auditlog"
+service.factoryPid="org.apache.ace.log.server.task.factory"
+service.pid="org.apache.ace.log.server.task.factory.137457ff-7533-48fe-b184-4980abbf8a70"
+syncInterval="2000"

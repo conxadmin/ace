@@ -92,6 +92,7 @@ public class StreamGeneratorImpl implements StreamGenerator {
         private int m_pos = 0;
         private int m_max = 0;
         private boolean m_fixPack;
+        private int count = 0;
         
         private final OutputBuffer m_outputBuffer = new OutputBuffer(this);
         private final ConnectionFactory m_connectionFactory;
@@ -150,6 +151,7 @@ public class StreamGeneratorImpl implements StreamGenerator {
                 m_output.close();
             }
             else if (!m_fixPack || current.hasChanged()) {
+            	System.out.println(String.format("Adding artifact %s[%d] to deployment",current.getSymbolicName(),++count));
                 m_current = openStream(current);
                 m_output.putNextEntry(new ZipEntry(current.getFilename()));
             }
@@ -191,7 +193,12 @@ public class StreamGeneratorImpl implements StreamGenerator {
                     m_current = null;
                     m_output.closeEntry();
                     m_output.flush();
-                    next();
+                    try {
+						next();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
                 }
             }
 

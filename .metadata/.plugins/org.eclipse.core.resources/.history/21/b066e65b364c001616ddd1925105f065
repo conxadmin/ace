@@ -1,0 +1,4 @@
+org.apache.ace.connectionfactory.7159dd2e-dd18-4129-b3cf-830e39da5f6a="reference:file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/org.apache.ace.connectionfactory/generated/org.apache.ace.connectionfactory.jar"
+org.apache.ace.http.context="reference:file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/org.apache.ace.http/generated/org.apache.ace.http.context.jar"
+org.apache.ace.obr.storage.file="reference:file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/org.apache.ace.obr/generated/org.apache.ace.obr.storage.jar"
+org.apache.ace.useradmin.repository="reference:file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/org.apache.ace.useradmin/generated/org.apache.ace.useradmin.repository.jar"
