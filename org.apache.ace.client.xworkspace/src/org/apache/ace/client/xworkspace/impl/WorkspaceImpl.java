@@ -1516,12 +1516,6 @@ public class WorkspaceImpl implements Workspace {
 					throw e;
 				}
 			}
-			
-			//Copy RP autoconf to repo
-			String rootDir = this.m_exporterDestinationPath+File.separatorChar+"jars_and_configs/";
-			String[] autoConf = m_resourceProcessorRepoPath.split(";");
-			File autoConfJar = new File(autoConf[0]);
-			java.nio.file.Files.copy(autoConfJar.getAbsoluteFile().toPath(), new File(rootDir).toPath());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1763,13 +1757,6 @@ public class WorkspaceImpl implements Workspace {
 
 	@Override
 	public String getResourceProceRepoPath() {
-/*		Map<String,String> attrs = new HashMap<>();
-		attrs.put("Bundle-SymbolicName",bsn);
-		attrs.put("Bundle-Version", autoConfVer);
-		attrs.put("artifactName", name);
-		attrs.put("mimetype", mimetype);
-		attrs.put("Deployment-ProvidesResourceProcessor","org.osgi.deployment.rp.autoconf");
-		attrs.put("url",url);*/
 		return new File(this.m_resourceProcessorRepoPath).getAbsolutePath();
 	}
 }

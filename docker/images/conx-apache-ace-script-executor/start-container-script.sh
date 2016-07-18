@@ -14,7 +14,7 @@ java \
       -Drepo.importer.obr=${TARGET_ORG_APACHE_ACE_OBR} \
       -Drepo.importer.targets.path=/root/apache_ace_targets \
       -Drepo.exporter.targets="${REPO_EXPORTER_TARGETS}" \
-      -Drp.autoconf.bundle="/root/resource_processors/org.apache.felix.deployment.rp.autoconf-0.1.8.jar;org.apache.felix.deployment.rp.autoconf;0.1.8" \
+      -Drp.repository.path="${RP_REPO_PATH}" \
       -Dorg.osgi.service.http.port=-1 \
       -Dace.gogo.script=scripts/copyRepository.gogo \
       -jar conx-apache-ace-script-executor.jar

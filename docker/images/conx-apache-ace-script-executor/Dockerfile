@@ -3,6 +3,7 @@ FROM jeanblanchard/busybox-java:8
 MAINTAINER jeanblanchard
 
 # Set env
+ENV RP_REPO_PATH=/root/resource_processor_repo/
 ENV SOURCE_ORG_APACHE_ACE_SERVER=localhost:8080
 ENV SOURCE_ORG_APACHE_ACE_OBR=localhost:8080
 ENV TARGET_ORG_APACHE_ACE_SERVER=localhost:8080
@@ -15,7 +16,7 @@ ENV ACE_CLIENT_DEBUG_OPTS ""
 COPY distributions/conx-apache-ace-script-executor.jar /root/conx-apache-ace-script-executor.jar
 COPY conf /root/conf/
 COPY targets /root/apache_ace_targets/
-COPY resource_processors /root/resource_processors/
+COPY resource_processor_repo /root/resource_processor_repo/
 COPY gogo_scripts /root/scripts/
 
 ##################################################################################################

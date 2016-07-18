@@ -1,0 +1,16 @@
+# Licensed to the Apache Software Foundation (ASF) under the terms of ASLv2 (http://www.apache.org/licenses/LICENSE-2.0).
+
+repository.url=http://${org.apache.ace.server}/repository
+user.name=d
+authentication.enabled=false
+customer.name=apache
+store.repository.name=shop
+distribution.repository.name=target
+deployment.repository.name=deployment
+repo.exporter.path.name=${repo.exporter.path}
+repo.exporter.targets.list=${repo.exporter.targets}
+repo.importer.targets.path.name=${repo.importer.targets.path}
+repo.importer.repository.url=http://${repo.importer.server}/repository
+repo.importer.obr.url=http://${repo.importer.obr}/obr
+rp.autoconf.bundle.info=${rp.autoconf.bundle}
+
