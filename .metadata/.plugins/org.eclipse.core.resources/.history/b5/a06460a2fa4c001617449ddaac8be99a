@@ -1,4 +1,0 @@
-customer="apache"
-name="deployment"
-service.pid="org.apache.ace.deployment.provider.repositorybased"
-url="http://localhost:8080/repository"

@@ -1,2 +1,0 @@
-obr.url="http://localhost:8080/obr/"
-service.pid="org.apache.ace.deployment.servlet.agent"

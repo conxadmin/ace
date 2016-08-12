@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="bndtools.launch.junit">
+<booleanAttribute key="clean" value="true"/>
+<booleanAttribute key="dynamicBundles" value="false"/>
+<booleanAttribute key="junit.keepAlive" value="false"/>
+<stringAttribute key="launchTarget" value="org.apache.ace.client.repository.itest"/>
+<stringAttribute key="org.bndtools.testnames" value="org.apache.ace.it.repositoryadmin.ClientAutomationTest"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.apache.ace.client.repository.itest"/>
+<booleanAttribute key="trace" value="false"/>
+</launchConfiguration>

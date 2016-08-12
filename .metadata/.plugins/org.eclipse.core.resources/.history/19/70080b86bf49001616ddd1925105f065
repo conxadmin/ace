@@ -1,5 +1,0 @@
-endpoint="/auditlog"
-factory.instance.pid="org.apache.ace.log.server.servlet.factory_auditlog"
-name="auditlog"
-service.factoryPid="org.apache.ace.log.server.servlet.factory"
-service.pid="org.apache.ace.log.server.servlet.factory.216daf13-6763-4d05-ba73-2be3b22d7443"

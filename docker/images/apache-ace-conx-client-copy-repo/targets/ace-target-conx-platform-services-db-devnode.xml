@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<targets>
+<target id="platform-services-db-devnode">
+			<distributionrefs>
+				<distributionref refid="platform-services-db"></distributionref>
+			</distributionrefs>
+			<tags>
+				<tag name="dbPass" value="conxadmin" />
+				<tag name="dbConnectionid" value="conx-db-cluster-platform" />
+				<tag name="dbConxdbcluster" value="conx-db-cluster-platform" />
+				<tag name="dbName" value="conxlogistics" />
+				<tag name="dbType" value="PostgreSQL" />
+				<tag name="dbHost" value="dbsvr.myconxdev.local" />
+				<tag name="dbConxdbautoprovidetenantschema" value="true" />
+				<tag name="dbPort" value="5432" />
+				<tag name="dbUser" value="conxadmin" />
+				<tag name="platformTenantPID" value="org.amdatu.tenant.PLATFORM" />
+				<tag name="platformTenantConxautocreateplatschema" value="true" />
+				<tag name="platformTenantName" value="PLATFORM" />				
+			</tags>
+</target>
+</targets>

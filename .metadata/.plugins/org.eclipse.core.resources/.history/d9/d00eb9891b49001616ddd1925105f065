@@ -1,5 +1,0 @@
-authentication.baseURL="http://localhost:8080/client/"
-authentication.type="none"
-factory.instance.pid="org.apache.ace.connectionfactory_client"
-service.factoryPid="org.apache.ace.connectionfactory"
-service.pid="org.apache.ace.connectionfactory.da1e67d4-5e4a-46d6-81d3-17a35334a702"

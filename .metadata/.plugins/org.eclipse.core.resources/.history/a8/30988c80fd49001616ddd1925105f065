@@ -1,9 +1,0 @@
-factory.pid="org.apache.ace.connectionfactory"
-factory.pidList=[ \
-  "org.apache.ace.connectionfactory.aa4399ca-ac49-4860-885f-d365c8b1e0e4", \
-  "org.apache.ace.connectionfactory.df9f5132-5fbf-4cb8-8f0b-8d557ea95aa3", \
-  "org.apache.ace.connectionfactory.ccbe00ac-49da-4ae0-8f3e-bbfdf072557f", \
-  "org.apache.ace.connectionfactory.9542d6c9-a54e-428c-9b7e-70210ac5abbd", \
-  "org.apache.ace.connectionfactory.08f390d0-cbd5-4b2d-aebd-6b96afe08dbc", \
-  "org.apache.ace.connectionfactory.e6d8bdaf-ebeb-4f3d-837f-f8079276a8f1", \
-  ]

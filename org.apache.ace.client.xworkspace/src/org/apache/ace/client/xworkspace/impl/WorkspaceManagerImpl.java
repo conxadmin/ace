@@ -64,6 +64,9 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     private static final String KEY_REPOSITORY_IMPORTER_SERVER_URL = "repo.importer.repository.url";
     private static final String KEY_REPOSITORY_IMPORTER_OBR_URL = "repo.importer.obr.url";
     private static final String KEY_REPOSITORY_IMPORTER_TARGETS_PATH = "repo.importer.targets.path.name";
+    private static final String KEY_REPOSITORY_IMPORTER_PATH = "repo.importer.path.name";
+    
+    
 
     private static long m_sessionID = 1;
     private volatile LogService m_logger;
@@ -88,6 +91,7 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
     private String m_importerRepositoryUrl;
 	private String m_importerObrUrl;
     private String m_importerTargetsPath;
+    private String m_importerDestinationPath;
 	private String m_resourceProcessorRepoPath;
 
     public WorkspaceManagerImpl() {
@@ -148,11 +152,12 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             	System.out.println(String.format("Created temp work dir %s", m_exporterDestinationPath));
             }
             m_exporterTargetsList = getProperty(properties, KEY_REPOSITORY_EXPORTER_TARGETS, null);
+            
             m_importerRepositoryUrl = getProperty(properties, KEY_REPOSITORY_IMPORTER_SERVER_URL, null);
             m_importerObrUrl = getProperty(properties, KEY_REPOSITORY_IMPORTER_OBR_URL, null);
-            
-            
             m_importerTargetsPath = getProperty(properties, KEY_REPOSITORY_IMPORTER_TARGETS_PATH, null);
+            m_importerDestinationPath = getProperty(properties, KEY_REPOSITORY_IMPORTER_PATH, null);
+            
             m_resourceProcessorRepoPath = getProperty(properties, KEY_RP_REPO_PATH, null);
         }
     }
@@ -170,7 +175,8 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             workspace = new WorkspaceImpl(sessionID, m_repositoryURL, m_importerObrUrl, m_customerName, m_storeRepositoryName,
                     m_targetRepositoryName, m_deploymentRepositoryName,
                     m_exporterDestinationPath, m_exporterTargetsList,
-                    m_importerTargetsPath,m_resourceProcessorRepoPath);
+                    m_importerTargetsPath,m_importerDestinationPath,
+                    m_resourceProcessorRepoPath);
             m_workspaces.put(sessionID, workspace);
 
             component = m_dm.createComponent().setImplementation(workspace);
@@ -269,7 +275,8 @@ public class WorkspaceManagerImpl implements ManagedService, WorkspaceManager {
             		storeCustomerName, m_storeRepositoryName,
                     targetCustomerName, m_targetRepositoryName, deploymentCustomerName, m_deploymentRepositoryName,
                     exporterDestinationPath, exporterTargetsList,
-                    importerTargetsPath,m_resourceProcessorRepoPath);
+                    importerTargetsPath,m_importerDestinationPath,
+                    m_resourceProcessorRepoPath);
             m_workspaces.put(sessionID, workspace);
 
             component = m_dm.createComponent().setImplementation(workspace);

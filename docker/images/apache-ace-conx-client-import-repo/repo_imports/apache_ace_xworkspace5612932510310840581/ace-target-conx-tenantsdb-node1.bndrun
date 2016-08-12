@@ -1,0 +1,40 @@
+-runfw: org.apache.felix.framework;version="[4.2.1,5)"-runee: JavaSE-1.7-runvm: -ea-runpath: com.springsource.javax.xml.stream-runsystemcapabilities: osgi.ee; osgi.ee=JavaSE; version:Version=1.7-runsystempackages: sun.misc-runbundles.master: org.amdatu.configurator.autoconf;version=1.0.0\
+-include: \
+	conx-deps-common.bndrun,\
+	conx-core.bndrun,\
+	conx-json.bndrun,\
+	conx-osgi.bndrun,\
+	conx-amdatu.bndrun,\
+	conx-deps-pentaho5x.bndrun,\
+	conx-commons.bndrun,\
+	conx-pentaho5x.bndrun,\
+	conx-logging.bndrun,\
+	conx-felix.bndrun,\
+	conx-paas-db-tenants.bndrun,\
+	conx-node-db-tenants.bndrun,\
+	conx-remote-conf.bndrun,\
+-runproperties:   \
+dbPass=conxadmin,\
+	dbConnectionid=conx-dbnode-tenants1,\
+	dbConxdbcluster=conx-db-cluster-tenants1,\
+	etdConnecturl=http://etcd.myconxdev.com:4001,\
+	httpPort=8182,\
+	dbName=conxlogistics,\
+	dbType=PostgreSQL,\
+	dbHost=dbsvr.myconxdev.com,\
+	etcdDiscoveryPort=8182,\
+	etdRootpath=/discovery1,\
+	etcdDiscoveryPath=org.amdatu.remote.discovery.etcd,\
+	dbConxdbautoprovidetenantschema=true,\
+	etcdDiscoveryHost=conx.dev,\
+	dbPort=5432,\
+	etdSchedule=4,\
+	testTenantPID=conxtenant,\
+	remoteAdminHttpPort=8182,\
+	testTenantName=ConX Tenant,\
+	dbUser=conxadmin,\
+	testTenantConxdbautoprovidetenantschema=true,\
+	remoteAdminHttpHost=platform.myconxdev.com,\
+	httpHost=platform.myconxdev.com,\
+	testTenantConxdbcluster=conx-db-cluster-tenants1,\
+	

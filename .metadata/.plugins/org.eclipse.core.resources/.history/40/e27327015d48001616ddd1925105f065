@@ -1,5 +1,0 @@
-authentication.baseURL="http://localhost:8080/deployment/"
-authentication.type="none"
-factory.instance.pid="org.apache.ace.connectionfactory_deployment"
-service.factoryPid="org.apache.ace.connectionfactory"
-service.pid="org.apache.ace.connectionfactory.c2571589-3316-4bf1-8027-880fd89ef36a"

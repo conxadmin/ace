@@ -1,0 +1,5 @@
+-runbundles.conx-sling9-cms: \
+	org.conxworks.contentrepository.sling.jcr.jackrabbit.server.mt;version="[5.19.0,5.19.0.201604250016]",\
+	org.conxworks.contentrepository.tools;version="[1.0.0,1.0.0.201604281826]",\
+	org.conxworks.contentrepository.jcr.nodetypes.api;version="[1.0.0,1.0.0.201604250016]",\
+	org.conxworks.contentrepository.common;version="[1.0.0,1.0.0.201605261507]"

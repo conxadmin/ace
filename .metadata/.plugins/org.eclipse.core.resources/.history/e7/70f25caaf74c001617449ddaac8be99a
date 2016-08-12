@@ -1,4 +1,0 @@
-factory.pid="org.apache.ace.http.redirector.factory"
-factory.pidList=[ \
-  "org.apache.ace.http.redirector.factory.6f10e463-eb5c-4b4d-9193-b087f2e3dcd6", \
-  ]

@@ -1,5 +1,0 @@
-authentication.baseURL="http://localhost:8080/replication/"
-authentication.type="none"
-factory.instance.pid="org.apache.ace.connectionfactory_replication"
-service.factoryPid="org.apache.ace.connectionfactory"
-service.pid="org.apache.ace.connectionfactory.d8554451-3330-4510-85c5-c8b32561acdb"

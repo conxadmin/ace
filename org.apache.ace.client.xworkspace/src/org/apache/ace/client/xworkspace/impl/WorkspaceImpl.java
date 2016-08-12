@@ -102,6 +102,7 @@ public class WorkspaceImpl implements Workspace {
     private String m_exporterTargetsList;
 	private String m_importerTargetsPath;
 	private String m_importerCopyTargets;
+	private String m_importerDestinationPath;
 
     private volatile BundleContext m_context;
     private volatile DependencyManager m_manager;
@@ -120,11 +121,13 @@ public class WorkspaceImpl implements Workspace {
     	String customerName, String storeRepositoryName,
         String distributionRepositoryName, String deploymentRepositoryName,
         String exporterDestinationPath, String exporterTargetsList,
-        String importerTargetsPath, String resourceProcessorRepoPath) throws MalformedURLException {
+        String importerTargetsPath, String importerDestinationPath,
+        String resourceProcessorRepoPath) throws MalformedURLException {
         this(sessionID, repositoryURL, obrUrl, customerName, storeRepositoryName, customerName, distributionRepositoryName,
             customerName, deploymentRepositoryName,
             exporterDestinationPath,exporterTargetsList,
-            importerTargetsPath,resourceProcessorRepoPath);
+            importerTargetsPath,importerDestinationPath,
+            resourceProcessorRepoPath);
     }
 
     public WorkspaceImpl(String sessionID, String repositoryURL, String obrUrl,
@@ -132,7 +135,8 @@ public class WorkspaceImpl implements Workspace {
         String distributionCustomerName, String distributionRepositoryName, String deploymentCustomerName,
         String deploymentRepositoryName,
         String exporterDestinationPath, String exporterTargetsList,
-        String importerTargetsPath, String resourceProcessorRepoPath) throws MalformedURLException {
+        String importerTargetsPath, String importerDestinationPath,
+        String resourceProcessorRepoPath) throws MalformedURLException {
         m_sessionID = sessionID;
         m_repositoryURL = new URL(repositoryURL);
         m_obrURL = new URL(obrUrl);
@@ -147,6 +151,8 @@ public class WorkspaceImpl implements Workspace {
         m_exporterTargetsList = exporterTargetsList;
         
         m_importerTargetsPath = importerTargetsPath;
+        m_importerDestinationPath = importerDestinationPath;
+        
         m_resourceProcessorRepoPath = resourceProcessorRepoPath;
     }
 
@@ -859,11 +865,13 @@ public class WorkspaceImpl implements Workspace {
 	public void cts() throws Exception {
 /*		Map<String,String> propValueMap = parsePropValueList(propValueList);
   */
+    	System.out.println(String.format("Importing targets from %s",this.m_importerTargetsPath));
 		File inputDir = new File(this.m_importerTargetsPath);
     	if (inputDir.isDirectory()) {
     		File[] files = inputDir.listFiles();
     		for (File fl : files) {
     			if (XML_EXTENSION.equalsIgnoreCase(getFileExtension(fl))) {
+    				System.out.println(String.format("Creating target from from %s...",fl.getAbsoluteFile()));
     				createTargetsFromXMLFiles(this.m_importerTargetsPath,fl.getAbsolutePath());
     			}
     		}
@@ -1190,7 +1198,7 @@ public class WorkspaceImpl implements Workspace {
         final String symbolicName = firstChildElement.getAttribute("symbolicname");
     	final String mimetype= "application/vnd.osgi.bundle";
     	
-    	final String leftEndpoint = String.format("(Bundle-SymbolicName=%s)",symbolicName,version);
+    	final String leftEndpoint = String.format("(&(Bundle-SymbolicName=%s)(Bundle-Version=%s))",symbolicName,version);
     	final String rightEndpoint = String.format("(name=%s)",featureId);
     	
     	String a2fFilter = String.format("(&(leftEndpoint=*Bundle-SymbolicName=%s*)(rightEndpoint=*name=%s*))",artId,featureId);
@@ -1207,7 +1215,7 @@ public class WorkspaceImpl implements Workspace {
     		distAttrs.put("Bundle-SymbolicName", artId);   
     		
     		if (distFltr.matches(distAttrs) && ftrFltr.matches(ftrAttrs)) {
-    			System.out.println(String.format("Deleting f2d assoc %s from Dist %s",la2f.toString(),featureId));
+    			System.out.println(String.format("Deleting a2f assoc %s from Feature %s",la2f.toString(),featureId));
     			da2f(la2f);
     		}
     	}
@@ -1758,5 +1766,13 @@ public class WorkspaceImpl implements Workspace {
 	@Override
 	public String getResourceProceRepoPath() {
 		return new File(this.m_resourceProcessorRepoPath).getAbsolutePath();
+	}
+	
+	@Override
+	public String getImportSourcePath() {
+		if (this.m_importerDestinationPath != null)
+			return new File(this.m_importerDestinationPath).getAbsolutePath();
+		else
+			return null;
 	}
 }

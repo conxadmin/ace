@@ -1,0 +1,3 @@
+-runbundles.conx-datasource: \
+	org.conxworks.datasource.mt;version="[1.0.0,1.0.0.201605261414]",\
+	org.conxworks.datasource.api;version="[1.0.0,1.0.0.201604281844]"

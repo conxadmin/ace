@@ -1,4 +1,0 @@
-factory.pid="org.apache.ace.connectionfactory"
-factory.pidList=[ \
-  "org.apache.ace.connectionfactory.7159dd2e-dd18-4129-b3cf-830e39da5f6a", \
-  ]

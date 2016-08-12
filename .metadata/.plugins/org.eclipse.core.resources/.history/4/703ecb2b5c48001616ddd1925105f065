@@ -1,4 +1,0 @@
-factory.pid="org.apache.ace.log.server.task.factory"
-factory.pidList=[ \
-  "org.apache.ace.log.server.task.factory.a1f0ae93-f5c7-4922-a6d8-387349072be9", \
-  ]

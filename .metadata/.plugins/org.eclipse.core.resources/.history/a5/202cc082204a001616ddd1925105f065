@@ -1,2 +1,0 @@
-BaseDirectoryName="store"
-service.pid="org.apache.ace.deployment.provider.filebased"

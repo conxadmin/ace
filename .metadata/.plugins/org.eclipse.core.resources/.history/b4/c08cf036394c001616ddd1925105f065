@@ -1,6 +1,0 @@
-factory.instance.pid="org.apache.ace.http.redirector.factory_root-to-ace"
-org.apache.ace.webui.vaadin.redirect="/ace/"
-osgi.http.whiteboard.context.select="(osgi.http.whiteboard.context.name\=org.apache.ace.webui)"
-osgi.http.whiteboard.servlet.pattern="/"
-service.factoryPid="org.apache.ace.http.redirector.factory"
-service.pid="org.apache.ace.http.redirector.factory.a46a2981-f8b1-480f-bef4-142a293ae2b4"

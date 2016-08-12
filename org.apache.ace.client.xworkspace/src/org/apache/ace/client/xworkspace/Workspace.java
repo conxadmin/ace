@@ -94,4 +94,6 @@ public interface Workspace extends org.apache.ace.client.workspace.Workspace {
 	public void cleanTempDirectory() throws Exception;
 	
 	public String getObrUrl();
+	
+	public String getImportSourcePath();
 }

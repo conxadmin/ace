@@ -1,3 +1,0 @@
-authentication.enabled="false"
-context.path="/"
-service.pid="org.apache.ace.http.context"

@@ -6,22 +6,24 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="irp" key="selection"/>
+		<item value="apache_ace_targets" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="irp"/>
-			<item value="Resource"/>
-			<item value="m_resourceProcessorRepoPath"/>
+			<item value="apache_ace_targets"/>
+			<item value="REPO_IMPORTER_TARGETS_PATH"/>
+			<item value="cts("/>
+			<item value="targets"/>
+			<item value="m_exporterDestinationPath"/>
 			<item value="KEY_RP_REPO_PATH"/>
-			<item value="autoConfJar"/>
-			<item value="la "/>
-			<item value="_and_"/>
-			<item value="autoconf"/>
+			<item value="rp.repository.path.name"/>
+			<item value=".split("/>
 		</list>
 		<list key="replacehistory">
+			<item value="8181"/>
+			<item value="192.168.99.100"/>
 			<item value="localhost:8080"/>
 			<item value="obr"/>
 			<item value="conx.dev"/>

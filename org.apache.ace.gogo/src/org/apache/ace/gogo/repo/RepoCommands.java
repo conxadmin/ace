@@ -91,14 +91,18 @@ public class RepoCommands {
 
         try {
 			for (Resource resource : resources) {
-			    List<Resource> existingResources = findResources(targetRepo, getIdentityVersionRequirement(resource));
-			    if (existingResources.size() == 0) {
-			        Resource copied = copyResource(sourceRepo, targetRepo, resource);
-			        System.out.println("copied: " + copied);
-			    }
-			    else {
-			        System.out.println("skipped: " + existingResources.get(0));
-			    }
+			    try {
+					List<Resource> existingResources = findResources(targetRepo, getIdentityVersionRequirement(resource));
+					if (existingResources.size() == 0) {
+					    Resource copied = copyResource(sourceRepo, targetRepo, resource);
+					    System.out.println("copied: " + copied);
+					}
+					else {
+					    System.out.println("skipped: " + existingResources.get(0));
+					}
+				} catch (Exception e) {
+					System.out.println("Failed to copy: " + resource);
+				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

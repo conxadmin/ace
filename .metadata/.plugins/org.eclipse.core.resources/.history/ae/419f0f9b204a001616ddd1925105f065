@@ -1,8 +1,0 @@
-authentication.enabled="false"
-customer.name="apache"
-deployment.repository.name="deployment"
-distribution.repository.name="target"
-repository.url="http://aceserver.myconxdev.com:9000/repository"
-service.pid="org.apache.ace.client.workspace"
-store.repository.name="shop"
-user.name="d"

@@ -1,2 +1,0 @@
-serverURL="http://localhost:8080"
-service.pid="org.apache.ace.discovery.property"

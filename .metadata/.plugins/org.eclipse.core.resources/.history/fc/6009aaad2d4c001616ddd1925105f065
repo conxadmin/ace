@@ -1,4 +1,0 @@
-repositoryCustomer="apache"
-repositoryLocation="http://localhost:8080/repository"
-repositoryname="user"
-service.pid="org.apache.ace.useradmin.repository"

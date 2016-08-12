@@ -22,7 +22,7 @@ COPY conf /root/conf/
 # VOLUME ["/data/apache-ace-server"]
 
 # Expose ports
-EXPOSE 6666 8080 9000
+EXPOSE ${HTTP_PORT}
 
 # Add the Apache Ace start script (executed on a `docker run`).
 ADD init-container-script.sh /root/init_apache_ace_server.sh

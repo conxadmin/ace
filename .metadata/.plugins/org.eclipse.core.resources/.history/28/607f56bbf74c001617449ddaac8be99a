@@ -1,2 +1,0 @@
-MaxEvents="0"
-service.pid="org.apache.ace.log.server.store.filebased"

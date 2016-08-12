@@ -1,4 +1,0 @@
-factory.pid="org.conxworks.paas.db.provider.postgresql.factory"
-factory.pidList=[ \
-  "org.conxworks.paas.db.provider.postgresql.factory.5f378e4e-d79a-4bd5-9592-c6ed1acdd372", \
-  ]

@@ -6,6 +6,9 @@
 	<section name="">
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
 	</section>
+	<section name="">
+		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
+	</section>
 	<section name="TextSearchPage">
 		<item value="12" key="HISTORY_SIZE"/>
 		<item value="true" key="CASE_SENSITIVE"/>
@@ -13,10 +16,10 @@
 		<item value="true" key="WHOLE_WORD"/>
 		<item value="false" key="SEARCH_DERIVED"/>
 		<section name="HISTORY6">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="Expected more " key="textPattern"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="DeploymentPackageBuilder" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -25,10 +28,10 @@
 			</list>
 		</section>
 		<section name="HISTORY7">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="Expected more bundles in the stream" key="textPattern"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="createDeploymentPackage" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -37,22 +40,22 @@
 			</list>
 		</section>
 		<section name="HISTORY4">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="" key="textPattern"/>
-			<item value="true" key="isRegExSearch"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="Replication" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*bsf*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY10">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="Unable to locate target resource after copy" key="textPattern"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="getMostRecentDeploymentVersion" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -61,33 +64,35 @@
 			</list>
 		</section>
 		<section name="HISTORY5">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="Installation of deployment update failed" key="textPattern"/>
-			<item value="true" key="isRegExSearch"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="/deployment/" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="EXTENSIONS">
 			<item value="*.java" key="0"/>
-			<item value="*bsf*" key="1"/>
-			<item value="*" key="2"/>
-			<item value="*osgi.cmpn*" key="3"/>
-			<item value="*.bnd*" key="4"/>
-			<item value="*.*" key="5"/>
-			<item value="store" key="6"/>
-			<item value="*autoconf*" key="7"/>
-			<item value="*.xml" key="8"/>
+			<item value="org.apache.ace.repository.replication.cfg" key="1"/>
+			<item value="*.cfg" key="2"/>
+			<item value="*.conf" key="3"/>
+			<item value="*" key="4"/>
+			<item value="*NullObject*" key="5"/>
+			<item value="*.bnd" key="6"/>
+			<item value="Artifact2FeatureAssociationRepositoryImpl.java" key="7"/>
+			<item value="*FeatureRepository*.java" key="8"/>
+			<item value="*bsf*" key="9"/>
+			<item value="*osgi.cmpn*" key="10"/>
 		</section>
 		<section name="HISTORY11">
-			<item value="true" key="ignoreCase"/>
-			<item value="1" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="org.apache.ace.obr" key="textPattern"/>
+			<item value="false" key="ignoreCase"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="autoconf" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -96,25 +101,25 @@
 			</list>
 		</section>
 		<section name="HISTORY8">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="4.3.1" key="textPattern"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="new DeploymentPackageBuilder" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.bnd*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY9">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="1" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="org.apache.jackrabbit.jackrabbit-jcr2dav-all-2.12.0.201604011823.jar" key="textPattern"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="StubDeploymentServlet" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -123,10 +128,10 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
-			<item value="createAssocation" key="textPattern"/>
+			<item value="org.apache.ace.repository.replication" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*.cfg"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -135,7 +140,7 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
-			<item value="ARTIFACT2FEATURE" key="textPattern"/>
+			<item value="/replication/" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -147,7 +152,7 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
-			<item value="AssociationManager" key="textPattern"/>
+			<item value="RepositoryReplication" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -159,10 +164,10 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
-			<item value="ca2f" key="textPattern"/>
+			<item value="" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="org.apache.ace.repository.replication.cfg"/>
 			</list>
 			<list key="workingSets">
 			</list>

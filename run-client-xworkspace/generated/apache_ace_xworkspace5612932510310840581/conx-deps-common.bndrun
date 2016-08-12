@@ -1,0 +1,2 @@
+-runbundles.conx-deps-common: \
+	org.postgresql.jdbc41;version="[9.4.0,9.4.0]"
