@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<targets>
+<target id="platform-services-cms">
+			<distributionrefs>
+				<distributionref refid="conx-node-cms-platform"></distributionref>
+			</distributionrefs>
+			<tags>
+				<tag name="platformTenantName" value="PLATFORM" />
+				<tag name="platformTenantConxdbcluster" value="conx-db-cluster-platform" />		
+				<tag name="platformTenantPID" value="org.amdatu.tenant.PLATFORM" />						
+			</tags>
+</target>
+</targets>

@@ -1,0 +1,4 @@
+repositoryCustomer="apache"
+repositoryLocation="http://aceserver.myconxclouddev.com/repository"
+repositoryname="user"
+service.pid="org.apache.ace.useradmin.repository"

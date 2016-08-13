@@ -4915,3 +4915,17 @@ Binding(ALT+SHIFT+D N,
 
 !ENTRY org.eclipse.ui.navigator.resources 4 0 2016-08-12 00:30:37.544
 !MESSAGE Could not acquire INavigatorContentService: Project Explorer not found.
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-08-13 11:23:28.529
+!MESSAGE An internal error occurred
+!STACK 0
+org.eclipse.jgit.api.errors.JGitInternalException: Entry not found by path: run-client-xworkspace/generated/launch941203408624510279.properties
+	at org.eclipse.jgit.api.CommitCommand.createTemporaryIndex(CommitCommand.java:451)
+	at org.eclipse.jgit.api.CommitCommand.call(CommitCommand.java:223)
+	at org.eclipse.egit.core.op.CommitOperation.commit(CommitOperation.java:246)
+	at org.eclipse.egit.core.op.CommitOperation.access$5(CommitOperation.java:235)
+	at org.eclipse.egit.core.op.CommitOperation$1.run(CommitOperation.java:198)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.egit.core.op.CommitOperation.execute(CommitOperation.java:208)
+	at org.eclipse.egit.ui.internal.commit.CommitJob.run(CommitJob.java:98)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)

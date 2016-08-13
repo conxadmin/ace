@@ -63,8 +63,8 @@
 	launch.storage.dir=bundle-cache,\
 	org.apache.felix.log.storeDebug=true,\
 	org.apache.felix.eventadmin.Timeout=0,\
-	org.apache.ace.server=aceserver.myconxdev.com:9000,\
-	org.apache.ace.obr=aceserver.myconxdev.com:9000,\
+	org.apache.ace.server=aceserver.myconxclouddev.com,\
+	org.apache.ace.obr=aceobr.myconxclouddev.com,\
 	repo.importer.server=localhost:8080,\
 	repo.importer.obr=localhost:8082,\
 	repo.importer.targets.path=/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/ace/run-client-xworkspace/targets,\

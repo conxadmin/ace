@@ -1,0 +1,10 @@
+-runbundles.conx-logistics-data: \
+	org.conxworks.masterdata.model.persistence.openjpa.jpa2_0.mt;version="[1.0.0,1.0.0.201604182028]",\
+	org.conxworks.masterdata.api;version="[1.0.0,1.0.0.201604182028]",\
+	com.conx.logistics.backend.masterdata.model.persistence.openjpa.jpa2_0.mt;version="[1.0.0,1.0.0.201604201201]",\
+	com.conx.logistics.backend.masterdata.api;version="[1.0.0,1.0.0.201604201201]",\
+	com.conx.logistics.backend.whse.inbound.rcv.model.persistence.openjpa.jpa2_0.mt;version="[1.0.0,1.0.0.201604201925]",\
+	com.conx.logistics.backend.whse.inbound.rcv.api;version="[1.0.0,1.0.0.201604201947]",\
+	com.conx.logistics.backend.whse.inbound.rcv.datasource.mt;version="[1.0.0,1.0.0.201604222034]",\
+	org.apache.openjpa;version="[2.4.0,2.4.0]",\
+	org.apache.servicemix.bundles.commons-dbcp;version="[1.4.0,1.4.0.3]"
